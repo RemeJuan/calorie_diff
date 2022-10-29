@@ -1,0 +1,20 @@
+# EXAMPLE USAGE
+# Refer for explanation to following link:
+# https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
+#
+pre-push:
+  commands:
+    test:
+      tags: unit testing
+      run: make flutter_test
+commit-msg:
+  commands:
+    validate:
+      tags: validate commit message
+      run: fvm flutter pub run ./git_hooks/commit_message.dart
+post-receive:
+  commands:
+    flutter:
+      run: flutter pub get
+    lefthook:
+      run: lefthook install
