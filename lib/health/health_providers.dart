@@ -14,10 +14,7 @@ final healthRequestAccessProvider = FutureProvider<bool?>((ref) {
 final hasHealthDataAccessProvider = FutureProvider<bool?>((ref) async {
   final types = ref.read(healthDataTypesProvider);
 
-  return await HealthFactory.hasPermissions(
-    types,
-    permissions: [HealthDataAccess.READ],
-  );
+  return await HealthFactory.hasPermissions(types);
 });
 
 final healthDataTypesProvider = Provider<List<HealthDataType>>((ref) {
