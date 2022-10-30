@@ -4,6 +4,10 @@ class HealthUtils {
   static num combineData(List<HealthDataPoint> data) {
     final values = data.map((e) => num.parse(e.value.toString())).toList();
 
+    if (values.isEmpty) {
+      return 0;
+    }
+
     return values.reduce((a, b) => a + b);
   }
 
