@@ -1,4 +1,4 @@
-import 'package:calorie_diff/shared/widgets/custom_icon_button.dart';
+import 'package:calorie_diff/shared/widgets/icon_container.dart';
 import 'package:flutter/material.dart';
 
 class DataCard extends StatelessWidget {
@@ -26,7 +26,7 @@ class DataCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomIconButton(child: icon),
+          IconContainer(child: icon),
           Padding(
             padding: const EdgeInsets.only(
               left: 19,

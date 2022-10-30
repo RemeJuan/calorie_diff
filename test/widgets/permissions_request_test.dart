@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:health/health.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../mocks/core/core_providers_mocks.dart';
+import '../mocks/core/health_providers_mocks.dart';
 import '../test_helpers.dart';
 
 void main() {
