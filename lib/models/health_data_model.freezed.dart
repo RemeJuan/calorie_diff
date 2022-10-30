@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HealthDataModel {
+  DateTime get date => throw _privateConstructorUsedError;
   num get active => throw _privateConstructorUsedError;
   num get rest => throw _privateConstructorUsedError;
   num get dietary => throw _privateConstructorUsedError;
@@ -31,7 +32,7 @@ abstract class $HealthDataModelCopyWith<$Res> {
           HealthDataModel value, $Res Function(HealthDataModel) then) =
       _$HealthDataModelCopyWithImpl<$Res, HealthDataModel>;
   @useResult
-  $Res call({num active, num rest, num dietary});
+  $Res call({DateTime date, num active, num rest, num dietary});
 }
 
 /// @nodoc
@@ -47,11 +48,16 @@ class _$HealthDataModelCopyWithImpl<$Res, $Val extends HealthDataModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? date = null,
     Object? active = null,
     Object? rest = null,
     Object? dietary = null,
   }) {
     return _then(_value.copyWith(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -76,7 +82,7 @@ abstract class _$$_HealthDataModelCopyWith<$Res>
       __$$_HealthDataModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({num active, num rest, num dietary});
+  $Res call({DateTime date, num active, num rest, num dietary});
 }
 
 /// @nodoc
@@ -90,11 +96,16 @@ class __$$_HealthDataModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? date = null,
     Object? active = null,
     Object? rest = null,
     Object? dietary = null,
   }) {
     return _then(_$_HealthDataModel(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -115,9 +126,14 @@ class __$$_HealthDataModelCopyWithImpl<$Res>
 
 class _$_HealthDataModel extends _HealthDataModel {
   const _$_HealthDataModel(
-      {required this.active, required this.rest, required this.dietary})
+      {required this.date,
+      required this.active,
+      required this.rest,
+      required this.dietary})
       : super._();
 
+  @override
+  final DateTime date;
   @override
   final num active;
   @override
@@ -127,7 +143,7 @@ class _$_HealthDataModel extends _HealthDataModel {
 
   @override
   String toString() {
-    return 'HealthDataModel(active: $active, rest: $rest, dietary: $dietary)';
+    return 'HealthDataModel(date: $date, active: $active, rest: $rest, dietary: $dietary)';
   }
 
   @override
@@ -135,13 +151,14 @@ class _$_HealthDataModel extends _HealthDataModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HealthDataModel &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.active, active) || other.active == active) &&
             (identical(other.rest, rest) || other.rest == rest) &&
             (identical(other.dietary, dietary) || other.dietary == dietary));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, active, rest, dietary);
+  int get hashCode => Object.hash(runtimeType, date, active, rest, dietary);
 
   @JsonKey(ignore: true)
   @override
@@ -152,11 +169,14 @@ class _$_HealthDataModel extends _HealthDataModel {
 
 abstract class _HealthDataModel extends HealthDataModel {
   const factory _HealthDataModel(
-      {required final num active,
+      {required final DateTime date,
+      required final num active,
       required final num rest,
       required final num dietary}) = _$_HealthDataModel;
   const _HealthDataModel._() : super._();
 
+  @override
+  DateTime get date;
   @override
   num get active;
   @override

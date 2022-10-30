@@ -7,6 +7,7 @@ class HealthDataModel with _$HealthDataModel {
   const HealthDataModel._();
 
   const factory HealthDataModel({
+    required DateTime date,
     required num active,
     required num rest,
     required num dietary,
