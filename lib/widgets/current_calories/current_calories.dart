@@ -51,7 +51,7 @@ class CurrentCalories extends ConsumerWidget {
             const SizedBox(height: 16),
             DataCard(
               icon: const Icon(
-                Icons.difference_outlined,
+                Icons.difference,
                 color: Colors.lightBlueAccent,
                 size: 26,
               ),
