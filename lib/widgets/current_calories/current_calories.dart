@@ -27,9 +27,9 @@ class CurrentCalories extends ConsumerWidget {
                 Expanded(
                   child: DataCard(
                     icon: const Icon(
-                      Icons.run_circle_outlined,
+                      Icons.directions_run,
                       color: Colors.orange,
-                      size: 36,
+                      size: 30,
                     ),
                     label: "Burned",
                     data: burned,
