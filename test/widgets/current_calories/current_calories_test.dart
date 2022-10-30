@@ -1,5 +1,5 @@
-import 'package:calorie_diff/health/health_data_model.dart';
 import 'package:calorie_diff/health/health_providers.dart';
+import 'package:calorie_diff/models/health_data_model.dart';
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/current_calories/data_card.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +20,18 @@ void main() {
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 
-  testWidgets('Loading/Success', (tester) async {
+  testWidgets('Success', (tester) async {
     await tester.pumpApp(
       const CurrentCalories(),
       [
         healthDataProvider.overrideWithProvider(
           FutureProvider(
-            (_) => const HealthDataModel(active: 20, rest: 20, dietary: 20),
+            (_) => HealthDataModel(
+              date: DateTime.now(),
+              active: 20,
+              rest: 20,
+              dietary: 20,
+            ),
           ),
         ),
       ],
