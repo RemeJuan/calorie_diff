@@ -1,11 +1,9 @@
-import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
-import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
-import 'package:calorie_diff/widgets/permissions_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'health/health_providers.dart';
+import 'landing_screen.dart';
 
 class CalorieDiffApp extends ConsumerWidget {
   const CalorieDiffApp({Key? key}) : super(key: key);
@@ -29,16 +27,8 @@ class CalorieDiffApp extends ConsumerWidget {
           ],
         ),
         body: Container(
-          alignment: Alignment.topCenter,
           padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              PermissionRequest(),
-              CurrentCalories(),
-              HistoricCalories(),
-            ],
-          ),
+          child: const LandingScreen(),
         ),
       ),
     );
