@@ -45,6 +45,8 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>com.apple.security.network.client</key>
+  <true/>
 	<key>NSHealthShareUsageDescription</key>
   <string>We will sync select data with the Apple Health app to give you better insights</string>
   <key>NSHealthUpdateUsageDescription</key>
