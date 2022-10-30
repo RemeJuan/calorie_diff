@@ -28,7 +28,7 @@ class LandingScreen extends ConsumerWidget {
         );
       },
       error: (e, s) => Text(e.toString()),
-      loading: () => const CircularProgressIndicator(key: Key('loading')),
+      loading: () => const SizedBox.shrink(key: Key('loading')),
     );
   }
 }

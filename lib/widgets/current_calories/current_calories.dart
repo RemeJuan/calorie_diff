@@ -62,7 +62,7 @@ class CurrentCalories extends ConsumerWidget {
         );
       },
       error: (e, s) => const SizedBox.shrink(key: Key("error")),
-      loading: () => const CircularProgressIndicator(),
+      loading: () => const SizedBox.shrink(key: Key("loading")),
     );
   }
 }
