@@ -1,3 +1,5 @@
+![Calorie Diff Icons](ios/Runner/Assets.xcassets/AppIcon.appiconset/114.png "Calorie Diff")
+
 # Calorie Diff
 
 ## Backstory
