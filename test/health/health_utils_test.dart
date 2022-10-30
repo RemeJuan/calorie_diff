@@ -3,43 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:health/health.dart';
 
 void main() {
-  group("combineData", () {
-    test("has data", () async {
-      // arrange
-      final healthDataPoint = HealthDataPoint(
-        NumericHealthValue(1),
-        HealthDataType.ACTIVE_ENERGY_BURNED,
-        HealthDataUnit.KILOCALORIE,
-        DateTime.now(),
-        DateTime.now(),
-        PlatformType.IOS,
-        "_deviceId",
-        "_sourceId",
-        "_sourceName",
-      );
-
-      final data = [
-        healthDataPoint,
-        healthDataPoint,
-      ];
-
-      // act
-      final result = HealthUtils.combineData(data);
-
-      // assert
-      expect(result, 2);
-    });
-
-    test("not has data", () {
-      final data = <HealthDataPoint>[];
-
-      final result = HealthUtils.combineData(data);
-      expect(result, 0);
-    });
-  });
-
-  group("groupData", () {
-    test('should ', () async {
+  group("prepareDataEntry", () {
+    test('should return the prepared data', () async {
       //arrange
       final activeEnergyDataPoint = HealthDataPoint(
         NumericHealthValue(1),
@@ -73,11 +38,83 @@ void main() {
 
       const type = HealthDataType.ACTIVE_ENERGY_BURNED;
       //act
-      final result = HealthUtils.groupData(data, type);
+      final result = HealthUtils.prepareDataEntry(data, type);
       //assert
-      expect(result.length, 2);
-      expect(result.first.type, type);
-      expect(result.last.type, type);
+      expect(result, 2);
     });
+  });
+
+  test('should return unique list of data from data', () async {
+    //arrange
+    final activeEnergyDataPoint = HealthDataPoint(
+      NumericHealthValue(1),
+      HealthDataType.ACTIVE_ENERGY_BURNED,
+      HealthDataUnit.KILOCALORIE,
+      DateTime(2022, 1, 1, 1, 1, 1),
+      DateTime(2022, 1, 1, 1, 1, 1),
+      PlatformType.IOS,
+      "_deviceId",
+      "_sourceId",
+      "_sourceName",
+    );
+
+    final basalEnergyDataPoint = HealthDataPoint(
+      NumericHealthValue(1),
+      HealthDataType.BASAL_ENERGY_BURNED,
+      HealthDataUnit.KILOCALORIE,
+      DateTime(2022, 1, 2, 1, 1, 1),
+      DateTime(2022, 1, 2, 1, 1, 1),
+      PlatformType.IOS,
+      "_deviceId",
+      "_sourceId",
+      "_sourceName",
+    );
+    final data = [
+      activeEnergyDataPoint,
+      activeEnergyDataPoint,
+      basalEnergyDataPoint,
+      basalEnergyDataPoint,
+    ];
+    //act
+    final result = HealthUtils.getDates(data);
+    //assert
+    expect(result, [DateTime(2022, 1, 1), DateTime(2022, 1, 2)]);
+  });
+
+  test('should return data for specified date only', () async {
+    //arrange
+    final activeEnergyDataPoint = HealthDataPoint(
+      NumericHealthValue(1),
+      HealthDataType.ACTIVE_ENERGY_BURNED,
+      HealthDataUnit.KILOCALORIE,
+      DateTime(2022, 1, 1, 1, 1, 1),
+      DateTime(2022, 1, 1, 1, 1, 1),
+      PlatformType.IOS,
+      "_deviceId",
+      "_sourceId",
+      "_sourceName",
+    );
+
+    final basalEnergyDataPoint = HealthDataPoint(
+      NumericHealthValue(1),
+      HealthDataType.BASAL_ENERGY_BURNED,
+      HealthDataUnit.KILOCALORIE,
+      DateTime(2022, 1, 2, 1, 1, 1),
+      DateTime(2022, 1, 2, 1, 1, 1),
+      PlatformType.IOS,
+      "_deviceId",
+      "_sourceId",
+      "_sourceName",
+    );
+    final data = [
+      activeEnergyDataPoint,
+      activeEnergyDataPoint,
+      basalEnergyDataPoint,
+      basalEnergyDataPoint,
+    ];
+    //act
+    final result = HealthUtils.filterByDate(data, DateTime(2022, 1, 1));
+    //assert
+    expect(result, [activeEnergyDataPoint, activeEnergyDataPoint]);
   });
 }
