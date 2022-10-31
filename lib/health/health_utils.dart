@@ -36,10 +36,10 @@ class HealthUtils {
       return 0;
     }
 
-    return [...values, 0.0].reduce((a, b) => _decimals(a) + _decimals(b));
+    return values.reduce((a, b) => a + b);
   }
 
-  static double _decimals(num value) {
+  static double decimals(num value) {
     return double.parse(value.toStringAsFixed(2));
   }
 
