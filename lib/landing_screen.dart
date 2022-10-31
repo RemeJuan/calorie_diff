@@ -1,6 +1,5 @@
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
-import 'package:calorie_diff/widgets/permissions_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,14 +10,10 @@ class LandingScreen extends ConsumerWidget {
 
   @override
   Widget build(context, ref) {
-    final hasPermissions = ref.watch(hasHealthDataAccessProvider);
+    final hasPermissions = ref.watch(healthRequestAccessProvider);
 
     return hasPermissions.when(
-      data: (needsPermission) {
-        if (needsPermission == true) {
-          return const PermissionRequest();
-        }
-
+      data: (_) {
         return ListView(
           shrinkWrap: true,
           children: const [

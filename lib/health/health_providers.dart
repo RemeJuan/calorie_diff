@@ -5,16 +5,11 @@ import '../models/health_data_model.dart';
 import 'health_utils.dart';
 
 final healthFactoryProvider = Provider<HealthFactory>((ref) => HealthFactory());
-final healthRequestAccessProvider = FutureProvider<bool?>((ref) {
+final healthRequestAccessProvider = FutureProvider<bool?>((ref) async {
   final health = ref.read(healthFactoryProvider);
   final types = ref.read(healthDataTypesProvider);
 
-  return health.requestAuthorization(types);
-});
-final hasHealthDataAccessProvider = FutureProvider<bool?>((ref) async {
-  final types = ref.read(healthDataTypesProvider);
-
-  return await HealthFactory.hasPermissions(types);
+  return await health.requestAuthorization(types);
 });
 
 final healthDataTypesProvider = Provider<List<HealthDataType>>((ref) {

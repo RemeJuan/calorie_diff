@@ -3,7 +3,6 @@ import 'package:calorie_diff/landing_screen.dart';
 import 'package:calorie_diff/models/health_data_model.dart';
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
-import 'package:calorie_diff/widgets/permissions_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -26,7 +25,7 @@ void main() {
     await tester.pumpApp(
       const LandingScreen(),
       [
-        hasHealthDataAccessProvider.overrideWithProvider(
+        healthRequestAccessProvider.overrideWithProvider(
           FutureProvider((_) async => throw Exception('error')),
         ),
       ],
@@ -39,21 +38,6 @@ void main() {
 
   group("success", () {
     testWidgets('does not have permission', (tester) async {
-      await tester.pumpApp(
-        const LandingScreen(),
-        [
-          hasHealthDataAccessProvider.overrideWithProvider(
-            FutureProvider((_) async => true),
-          ),
-        ],
-      );
-
-      await tester.pumpAndSettle();
-
-      expect(find.byType(PermissionRequest), findsOneWidget);
-    });
-
-    testWidgets('does not have permission', (tester) async {
       final dataModel = HealthDataModel(
         active: 100,
         rest: 100,
@@ -64,7 +48,7 @@ void main() {
       await tester.pumpApp(
         const LandingScreen(),
         [
-          hasHealthDataAccessProvider.overrideWithProvider(
+          healthRequestAccessProvider.overrideWithProvider(
             FutureProvider((_) async => false),
           ),
           healthDataProvider.overrideWithProvider(
@@ -80,7 +64,6 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      expect(find.byType(PermissionRequest), findsNothing);
       expect(find.byType(CurrentCalories), findsOneWidget);
       expect(find.byType(HistoricCalories), findsOneWidget);
     });
