@@ -36,7 +36,11 @@ class HealthUtils {
       return 0;
     }
 
-    return values.reduce((a, b) => a + b);
+    return values.reduce((a, b) => decimals(a) + decimals(b));
+  }
+
+  static num decimals(num value) {
+    return num.parse(value.toStringAsFixed(2));
   }
 
   static List<HealthDataPoint> _groupData(
