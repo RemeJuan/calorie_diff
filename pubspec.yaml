@@ -1,5 +1,5 @@
 name: calorie_diff
-description: A new Flutter project.
+description: Calorie Difference indicator for AppleHealth users.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^3.0.1
-  health: ^4.2.0
+  health: ^4.3.0
   flutter_hooks: ^0.18.5+1
   flutter_riverpod: ^2.0.2
   hooks_riverpod: ^2.0.2
