@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'health/health_providers.dart';
 import 'landing_screen.dart';
+
+part 'info_popup.dart';
 
 class CalorieDiffApp extends ConsumerStatefulWidget {
   const CalorieDiffApp({Key? key}) : super(key: key);
@@ -32,37 +33,23 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
 
   @override
   Widget build(context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Calorie Diff',
-      theme: _buildTheme(Brightness.dark),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Calorie Diff'),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.refresh),
-              onPressed: () => _refresh(),
-            ),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Calorie Diff'),
+        leading: IconButton(
+          onPressed: () => _showAboutDialog(context),
+          icon: const Icon(Icons.info_outline),
         ),
-        body: Container(
-          padding: const EdgeInsets.all(16),
-          child: const LandingScreen(),
-        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () => _refresh(),
+          ),
+        ],
       ),
-    );
-  }
-
-  ThemeData _buildTheme(brightness) {
-    var baseTheme = ThemeData(brightness: brightness);
-
-    return baseTheme.copyWith(
-      textTheme: GoogleFonts.poppinsTextTheme(baseTheme.textTheme),
-      scaffoldBackgroundColor: const Color.fromRGBO(23, 31, 44, 1),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color.fromRGBO(23, 31, 44, 1),
-        elevation: 0,
+      body: Container(
+        padding: const EdgeInsets.all(16),
+        child: const LandingScreen(),
       ),
     );
   }
