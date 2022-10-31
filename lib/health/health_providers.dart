@@ -32,21 +32,25 @@ final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
   );
 
   final clean = HealthFactory.removeDuplicates(data);
-
+  final active = HealthUtils.prepareDataEntry(
+    clean,
+    HealthDataType.ACTIVE_ENERGY_BURNED,
+  );
+  final rest = HealthUtils.prepareDataEntry(
+    clean,
+    HealthDataType.BASAL_ENERGY_BURNED,
+  );
+  final dietary = HealthUtils.prepareDataEntry(
+    clean,
+    HealthDataType.DIETARY_ENERGY_CONSUMED,
+  );
+  final difference = (active + rest) - dietary;
+  print(active);
   return HealthDataModel(
     date: now,
-    active: HealthUtils.prepareDataEntry(
-      clean,
-      HealthDataType.ACTIVE_ENERGY_BURNED,
-    ),
-    rest: HealthUtils.prepareDataEntry(
-      clean,
-      HealthDataType.BASAL_ENERGY_BURNED,
-    ),
-    dietary: HealthUtils.prepareDataEntry(
-      clean,
-      HealthDataType.DIETARY_ENERGY_CONSUMED,
-    ),
+    burned: active + rest,
+    consumed: dietary,
+    difference: difference,
   );
 });
 
@@ -81,11 +85,12 @@ final historicHealthDataProvider =
       HealthUtils.filterByDate(clean, date),
       HealthDataType.DIETARY_ENERGY_CONSUMED,
     );
+    final difference = (active + rest) - dietary;
     return HealthDataModel(
       date: date,
-      active: active,
-      rest: rest,
-      dietary: dietary,
+      burned: active + rest,
+      consumed: dietary,
+      difference: difference,
     );
   }).toList();
 });

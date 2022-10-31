@@ -17,9 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HealthDataModel {
   DateTime get date => throw _privateConstructorUsedError;
-  num get active => throw _privateConstructorUsedError;
-  num get rest => throw _privateConstructorUsedError;
-  num get dietary => throw _privateConstructorUsedError;
+  double get burned => throw _privateConstructorUsedError;
+  double get consumed => throw _privateConstructorUsedError;
+  double get difference => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HealthDataModelCopyWith<HealthDataModel> get copyWith =>
@@ -32,7 +32,7 @@ abstract class $HealthDataModelCopyWith<$Res> {
           HealthDataModel value, $Res Function(HealthDataModel) then) =
       _$HealthDataModelCopyWithImpl<$Res, HealthDataModel>;
   @useResult
-  $Res call({DateTime date, num active, num rest, num dietary});
+  $Res call({DateTime date, double burned, double consumed, double difference});
 }
 
 /// @nodoc
@@ -49,27 +49,27 @@ class _$HealthDataModelCopyWithImpl<$Res, $Val extends HealthDataModel>
   @override
   $Res call({
     Object? date = null,
-    Object? active = null,
-    Object? rest = null,
-    Object? dietary = null,
+    Object? burned = null,
+    Object? consumed = null,
+    Object? difference = null,
   }) {
     return _then(_value.copyWith(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as num,
-      rest: null == rest
-          ? _value.rest
-          : rest // ignore: cast_nullable_to_non_nullable
-              as num,
-      dietary: null == dietary
-          ? _value.dietary
-          : dietary // ignore: cast_nullable_to_non_nullable
-              as num,
+      burned: null == burned
+          ? _value.burned
+          : burned // ignore: cast_nullable_to_non_nullable
+              as double,
+      consumed: null == consumed
+          ? _value.consumed
+          : consumed // ignore: cast_nullable_to_non_nullable
+              as double,
+      difference: null == difference
+          ? _value.difference
+          : difference // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -82,7 +82,7 @@ abstract class _$$_HealthDataModelCopyWith<$Res>
       __$$_HealthDataModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DateTime date, num active, num rest, num dietary});
+  $Res call({DateTime date, double burned, double consumed, double difference});
 }
 
 /// @nodoc
@@ -97,27 +97,27 @@ class __$$_HealthDataModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? date = null,
-    Object? active = null,
-    Object? rest = null,
-    Object? dietary = null,
+    Object? burned = null,
+    Object? consumed = null,
+    Object? difference = null,
   }) {
     return _then(_$_HealthDataModel(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as num,
-      rest: null == rest
-          ? _value.rest
-          : rest // ignore: cast_nullable_to_non_nullable
-              as num,
-      dietary: null == dietary
-          ? _value.dietary
-          : dietary // ignore: cast_nullable_to_non_nullable
-              as num,
+      burned: null == burned
+          ? _value.burned
+          : burned // ignore: cast_nullable_to_non_nullable
+              as double,
+      consumed: null == consumed
+          ? _value.consumed
+          : consumed // ignore: cast_nullable_to_non_nullable
+              as double,
+      difference: null == difference
+          ? _value.difference
+          : difference // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -127,23 +127,23 @@ class __$$_HealthDataModelCopyWithImpl<$Res>
 class _$_HealthDataModel extends _HealthDataModel {
   const _$_HealthDataModel(
       {required this.date,
-      required this.active,
-      required this.rest,
-      required this.dietary})
+      required this.burned,
+      required this.consumed,
+      required this.difference})
       : super._();
 
   @override
   final DateTime date;
   @override
-  final num active;
+  final double burned;
   @override
-  final num rest;
+  final double consumed;
   @override
-  final num dietary;
+  final double difference;
 
   @override
   String toString() {
-    return 'HealthDataModel(date: $date, active: $active, rest: $rest, dietary: $dietary)';
+    return 'HealthDataModel(date: $date, burned: $burned, consumed: $consumed, difference: $difference)';
   }
 
   @override
@@ -152,13 +152,16 @@ class _$_HealthDataModel extends _HealthDataModel {
         (other.runtimeType == runtimeType &&
             other is _$_HealthDataModel &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.active, active) || other.active == active) &&
-            (identical(other.rest, rest) || other.rest == rest) &&
-            (identical(other.dietary, dietary) || other.dietary == dietary));
+            (identical(other.burned, burned) || other.burned == burned) &&
+            (identical(other.consumed, consumed) ||
+                other.consumed == consumed) &&
+            (identical(other.difference, difference) ||
+                other.difference == difference));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, date, active, rest, dietary);
+  int get hashCode =>
+      Object.hash(runtimeType, date, burned, consumed, difference);
 
   @JsonKey(ignore: true)
   @override
@@ -170,19 +173,19 @@ class _$_HealthDataModel extends _HealthDataModel {
 abstract class _HealthDataModel extends HealthDataModel {
   const factory _HealthDataModel(
       {required final DateTime date,
-      required final num active,
-      required final num rest,
-      required final num dietary}) = _$_HealthDataModel;
+      required final double burned,
+      required final double consumed,
+      required final double difference}) = _$_HealthDataModel;
   const _HealthDataModel._() : super._();
 
   @override
   DateTime get date;
   @override
-  num get active;
+  double get burned;
   @override
-  num get rest;
+  double get consumed;
   @override
-  num get dietary;
+  double get difference;
   @override
   @JsonKey(ignore: true)
   _$$_HealthDataModelCopyWith<_$_HealthDataModel> get copyWith =>

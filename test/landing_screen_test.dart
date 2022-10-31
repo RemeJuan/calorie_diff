@@ -39,9 +39,9 @@ void main() {
   group("success", () {
     testWidgets('does not have permission', (tester) async {
       final dataModel = HealthDataModel(
-        active: 100,
-        rest: 100,
-        dietary: 100,
+        burned: 200,
+        consumed: 100,
+        difference: 100,
         date: DateTime.now(),
       );
 

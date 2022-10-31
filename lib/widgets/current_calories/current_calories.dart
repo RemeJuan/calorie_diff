@@ -13,10 +13,6 @@ class CurrentCalories extends ConsumerWidget {
 
     return healthData.when(
       data: (data) {
-        final burned = data.active + data.rest;
-        final dietary = data.dietary;
-        final diff = burned - dietary;
-
         return Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -31,8 +27,8 @@ class CurrentCalories extends ConsumerWidget {
                       color: Colors.orange,
                       size: 30,
                     ),
-                    label: "Burned",
-                    data: burned,
+                    label: "In",
+                    data: data.burned,
                   ),
                 ),
                 Expanded(
@@ -42,8 +38,8 @@ class CurrentCalories extends ConsumerWidget {
                       color: Colors.lightGreen,
                       size: 26,
                     ),
-                    label: "Consumed",
-                    data: dietary,
+                    label: "Out",
+                    data: data.consumed,
                   ),
                 )
               ],
@@ -56,7 +52,7 @@ class CurrentCalories extends ConsumerWidget {
                 size: 26,
               ),
               label: "Difference",
-              data: diff,
+              data: data.difference,
             ),
           ],
         );

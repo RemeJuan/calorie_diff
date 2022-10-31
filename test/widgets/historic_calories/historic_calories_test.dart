@@ -31,9 +31,9 @@ void main() {
               (_) async => [
                 HealthDataModel(
                   date: DateTime(2021, 10, 10),
-                  active: 100,
-                  rest: 100,
-                  dietary: 100,
+                  burned: 200,
+                  consumed: 100,
+                  difference: 100,
                 ),
               ],
             ),
@@ -47,8 +47,8 @@ void main() {
       expect(find.byType(HistoricRow), findsOneWidget);
 
       expect(find.text("10 Oct 21"), findsOneWidget);
-      expect(find.text("200"), findsOneWidget);
-      expect(find.text("100"), findsNWidgets(2));
+      expect(find.text("200.0"), findsOneWidget);
+      expect(find.text("100.0"), findsNWidgets(2));
     });
   });
 }

@@ -52,17 +52,15 @@ class HistoricCalories extends ConsumerWidget {
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: data.length,
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   final item = data[index];
                   final date = DateFormat("dd MMM yy").format(item.date);
-                  final burned = item.active + item.rest;
-                  final consumed = item.dietary;
-                  final difference = burned - consumed;
                   final entry = [
                     date,
-                    consumed.toString(),
-                    burned.toString(),
-                    difference.toString(),
+                    item.consumed.toString(),
+                    item.burned.toString(),
+                    item.difference.toString(),
                   ];
 
                   return Padding(

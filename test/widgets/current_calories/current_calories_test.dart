@@ -28,9 +28,9 @@ void main() {
           FutureProvider(
             (_) => HealthDataModel(
               date: DateTime.now(),
-              active: 20,
-              rest: 20,
-              dietary: 20,
+              burned: 40,
+              consumed: 20,
+              difference: 20,
             ),
           ),
         ),
@@ -39,7 +39,7 @@ void main() {
 
     await tester.pumpAndSettle();
     final cardFinder = find.byType(DataCard);
-    final burnedCardFinder = find.widgetWithText(DataCard, 'Burned');
+    final burnedCardFinder = find.widgetWithText(DataCard, 'Out');
 
     expect(cardFinder, findsNWidgets(3));
     expect(burnedCardFinder, findsOneWidget);

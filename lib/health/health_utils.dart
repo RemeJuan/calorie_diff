@@ -1,7 +1,7 @@
 import 'package:health/health.dart';
 
 class HealthUtils {
-  static num prepareDataEntry(
+  static double prepareDataEntry(
     List<HealthDataPoint> data,
     HealthDataType type,
   ) {
@@ -29,18 +29,18 @@ class HealthUtils {
     }).toSet();
   }
 
-  static num _combineData(List<HealthDataPoint> data) {
-    final values = data.map((e) => num.parse(e.value.toString())).toList();
+  static double _combineData(List<HealthDataPoint> data) {
+    final values = data.map((e) => double.parse(e.value.toString())).toList();
 
     if (values.isEmpty) {
       return 0;
     }
 
-    return values.reduce((a, b) => decimals(a) + decimals(b));
+    return [...values, 0.0].reduce((a, b) => _decimals(a) + _decimals(b));
   }
 
-  static num decimals(num value) {
-    return num.parse(value.toStringAsFixed(2));
+  static double _decimals(num value) {
+    return double.parse(value.toStringAsFixed(2));
   }
 
   static List<HealthDataPoint> _groupData(

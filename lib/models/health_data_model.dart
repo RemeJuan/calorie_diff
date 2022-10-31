@@ -8,8 +8,8 @@ class HealthDataModel with _$HealthDataModel {
 
   const factory HealthDataModel({
     required DateTime date,
-    required num active,
-    required num rest,
-    required num dietary,
+    required double burned,
+    required double consumed,
+    required double difference,
   }) = _HealthDataModel;
 }
