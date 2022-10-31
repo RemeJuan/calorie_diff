@@ -5,12 +5,35 @@ import 'package:google_fonts/google_fonts.dart';
 import 'health/health_providers.dart';
 import 'landing_screen.dart';
 
-class CalorieDiffApp extends ConsumerWidget {
+class CalorieDiffApp extends ConsumerStatefulWidget {
   const CalorieDiffApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(context, ref) {
+  ConsumerState<CalorieDiffApp> createState() => _CalorieDiffAppState();
+}
+
+class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
+    with WidgetsBindingObserver {
+  _CalorieDiffAppState();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _refresh();
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
+  @override
+  Widget build(context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Calorie Diff',
       theme: _buildTheme(Brightness.dark),
       home: Scaffold(
@@ -19,10 +42,7 @@ class CalorieDiffApp extends ConsumerWidget {
           actions: [
             IconButton(
               icon: const Icon(Icons.refresh),
-              onPressed: () {
-                ref.invalidate(healthDataProvider);
-                ref.invalidate(historicHealthDataProvider);
-              },
+              onPressed: () => _refresh(),
             ),
           ],
         ),
@@ -45,5 +65,10 @@ class CalorieDiffApp extends ConsumerWidget {
         elevation: 0,
       ),
     );
+  }
+
+  void _refresh() {
+    ref.invalidate(healthDataProvider);
+    ref.invalidate(historicHealthDataProvider);
   }
 }
