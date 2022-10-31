@@ -1,6 +1,6 @@
-package com.example.calorie_diff
+package com.calorie.diff
 
 import io.flutter.embedding.android.FlutterActivity
 
-class MainActivity: FlutterActivity() {
+class MainActivity : FlutterActivity() {
 }
