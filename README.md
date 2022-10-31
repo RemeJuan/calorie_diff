@@ -1,6 +1,9 @@
-![Calorie Diff Icons](ios/Runner/Assets.xcassets/AppIcon.appiconset/114.png "Calorie Diff")
+![Calorie Diff Icons](readme/CalorieDiff_Banner.jpg "Calorie Diff")
 
 # Calorie Diff
+
+[![Codemagic build status](https://api.codemagic.io/apps/635f769d988981f89e27c9e1/635f769d988981f89e27c9e0/status_badge.svg)](https://codemagic.io/apps/635f769d988981f89e27c9e1/635f769d988981f89e27c9e0/latest_build)
+[![codecov](https://codecov.io/gh/RemeJuan/calorie_diff/branch/main/graph/badge.svg?token=neI4f6UkD4)](https://codecov.io/gh/RemeJuan/calorie_diff)
 
 ## Backstory
 
