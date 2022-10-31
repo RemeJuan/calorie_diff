@@ -44,7 +44,7 @@ final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
     clean,
     HealthDataType.DIETARY_ENERGY_CONSUMED,
   );
-  final difference = (active + rest) - dietary;
+  final difference = dietary - (active + rest);
   return HealthDataModel(
     date: now,
     burned: HealthUtils.decimals(active + rest),
@@ -84,7 +84,7 @@ final historicHealthDataProvider =
       HealthUtils.filterByDate(clean, date),
       HealthDataType.DIETARY_ENERGY_CONSUMED,
     );
-    final difference = (active + rest) - dietary;
+    final difference = dietary - (active + rest);
     return HealthDataModel(
       date: date,
       burned: HealthUtils.decimals(active + rest),

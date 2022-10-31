@@ -27,7 +27,7 @@ class CurrentCalories extends ConsumerWidget {
                       color: Colors.orange,
                       size: 30,
                     ),
-                    label: "In",
+                    label: "Out",
                     data: data.burned,
                   ),
                 ),
@@ -38,7 +38,7 @@ class CurrentCalories extends ConsumerWidget {
                       color: Colors.lightGreen,
                       size: 26,
                     ),
-                    label: "Out",
+                    label: "In",
                     data: data.consumed,
                   ),
                 )

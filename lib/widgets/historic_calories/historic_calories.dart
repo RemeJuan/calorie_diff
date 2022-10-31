@@ -40,8 +40,8 @@ class HistoricCalories extends ConsumerWidget {
               ),
               const HeaderRow(entries: [
                 'Date',
-                'In',
                 'Out',
+                'In',
                 'Diff',
               ]),
               Divider(
@@ -58,8 +58,8 @@ class HistoricCalories extends ConsumerWidget {
                   final date = DateFormat("dd MMM yy").format(item.date);
                   final entry = [
                     date,
-                    item.consumed.toString(),
                     item.burned.toString(),
+                    item.consumed.toString(),
                     item.difference.toString(),
                   ];
 
