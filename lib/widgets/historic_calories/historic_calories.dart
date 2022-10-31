@@ -75,7 +75,7 @@ class HistoricCalories extends ConsumerWidget {
           ),
         );
       },
-      loading: () => const CircularProgressIndicator(),
+      loading: () => const SizedBox.shrink(key: Key("loading")),
       error: (error, stack) => Text('Error: $error'),
     );
   }

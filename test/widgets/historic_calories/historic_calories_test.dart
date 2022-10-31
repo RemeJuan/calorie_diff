@@ -19,7 +19,7 @@ void main() {
         [],
       );
 
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.byKey(const Key("loading")), findsOneWidget);
     });
 
     testWidgets('success', (tester) async {
