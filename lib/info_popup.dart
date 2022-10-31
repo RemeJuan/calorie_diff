@@ -30,7 +30,7 @@ void _showAboutDialog(BuildContext context) {
               ),
               TextSpan(
                 text:
-                    "If the data does not look correct, is is always 0, ensure that the app the correct access. ",
+                    "If the data does not look correct or is always 0, ensure that the app the requried access. ",
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               TextSpan(
