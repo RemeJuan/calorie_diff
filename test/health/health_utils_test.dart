@@ -117,4 +117,8 @@ void main() {
     //assert
     expect(result, [activeEnergyDataPoint, activeEnergyDataPoint]);
   });
+
+  test("decimals", () {
+    expect(HealthUtils.decimals(1.2345), 1.23);
+  });
 }
