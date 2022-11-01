@@ -38,7 +38,7 @@ class IntroScreen extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text(
-                        "Calorie Diff requires access to the following Health permission:.",
+                        "In order to be able to calculate your calorie differences, Calorie Diff requires access to the following Health permission:.",
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 16),
@@ -47,7 +47,7 @@ class IntroScreen extends ConsumerWidget {
                       Text("Dietary Energy"),
                       SizedBox(height: 16),
                       Text(
-                        "Calorie Diff will not collect any other data.",
+                        "Calorie Diff does not collect any other data.",
                         textAlign: TextAlign.center,
                       ),
                       Text("Tap 'Grant' to continue."),
