@@ -1,4 +1,4 @@
-![Calorie Diff Icons](readme/CalorieDiff_Banner.jpg "Calorie Diff")
+[![Calorie Diff Icons](readme/CalorieDiff_Banner.jpg "Calorie Diff")](https://apps.apple.com/app/calorie-diff/id6444097631)
 
 # Calorie Diff
 
@@ -17,3 +17,12 @@ I simply wanted a quick glance at my caloric status, am I in deficit or surplus.
 
 This app, while probably an over engineered solution, deals with that, it takes in teh Active, Resting and Dietary
 energy from AppleHealth and does just that, displays you intake, your output and the difference.
+
+[![Calorie Diff Icons](readme/app_preview.png "Calorie Diff")](https://apps.apple.com/app/calorie-diff/id6444097631)
+
+
+<a href="https://apps.apple.com/app/calorie-diff/id6444097631">
+<img src="readme/Download_on_the_App_Store.svg" alt="Download on the App Store" title="Download on the App Store" width="250"/>
+</a>
+
+
