@@ -19,10 +19,8 @@ void main() {
   setUp(() {
     mockSharedPreferences = MockSharedPreferences();
     overrides = [
-      healthRequestAccessProvider.overrideWithProvider(
-        FutureProvider((ref) async => true),
-      ),
-      sharedPreferencesProvider.overrideWithValue(mockSharedPreferences),
+      healthRequestAccessProvider.overrideWith((ref) async => true),
+      sharedPreferencesProvider.overrideWith((_) => mockSharedPreferences),
     ];
   });
 

@@ -1,24 +1,26 @@
-import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
-import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
+import 'package:calorie_diff/pages/current_page.dart';
+import 'package:calorie_diff/pages/historic_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'core/core_providers.dart';
 import 'health/health_providers.dart';
 
-class LandingScreen extends ConsumerWidget {
+class LandingScreen extends HookConsumerWidget {
   const LandingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(context, ref) {
     final hasPermissions = ref.watch(healthRequestAccessProvider);
+    final pageViewController = ref.watch(pageViewControllerProvider);
 
     return hasPermissions.when(
       data: (_) {
-        return ListView(
-          shrinkWrap: true,
+        return PageView(
+          controller: pageViewController,
           children: const [
-            CurrentCalories(),
-            HistoricCalories(),
+            CurrentPage(),
+            HistoricPage(),
           ],
         );
       },

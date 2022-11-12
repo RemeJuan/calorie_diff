@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,4 +15,11 @@ final setIntroSeenProvider = FutureProvider<void>((ref) async {
   final prefs = ref.read(sharedPreferencesProvider);
   await prefs.setBool('intro_seen', true);
   ref.invalidate(introSeenProvider);
+});
+
+final pageViewControllerProvider = StateProvider<PageController>((ref) {
+  return PageController(
+    initialPage: 0,
+    keepPage: true,
+  );
 });

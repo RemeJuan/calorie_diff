@@ -4,7 +4,6 @@ import 'package:calorie_diff/widgets/historic_calories/header_row.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_row.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../test_helpers.dart';
@@ -15,7 +14,7 @@ void main() {
   group("HistoricCalories", () {
     testWidgets('loading', (tester) async {
       await tester.pumpApp(
-        const HistoricCalories(),
+        const HistoricCalories(days: 7),
         [],
       );
 
@@ -24,19 +23,17 @@ void main() {
 
     testWidgets('success', (tester) async {
       await tester.pumpApp(
-        const HistoricCalories(),
+        const HistoricCalories(days: 7),
         [
-          historicHealthDataProvider.overrideWithProvider(
-            FutureProvider(
-              (_) async => [
-                HealthDataModel(
-                  date: DateTime(2021, 10, 10),
-                  burned: 200,
-                  consumed: 100,
-                  difference: 100,
-                ),
-              ],
-            ),
+          historicHealthDataProvider.overrideWith(
+            (_, __) async => [
+              HealthDataModel(
+                date: DateTime(2021, 10, 10),
+                burned: 200,
+                consumed: 100,
+                difference: 100,
+              ),
+            ],
           ),
         ],
       );

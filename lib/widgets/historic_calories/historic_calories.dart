@@ -1,17 +1,19 @@
 import 'package:calorie_diff/health/health_providers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
 import 'header_row.dart';
 import 'historic_row.dart';
 
-class HistoricCalories extends ConsumerWidget {
-  const HistoricCalories({Key? key}) : super(key: key);
+class HistoricCalories extends HookConsumerWidget {
+  final int days;
+
+  const HistoricCalories({required this.days, Key? key}) : super(key: key);
 
   @override
   Widget build(context, ref) {
-    final historicCalories = ref.watch(historicHealthDataProvider);
+    final historicCalories = ref.watch(historicHealthDataProvider(days));
 
     return historicCalories.when(
       data: (data) {
@@ -25,7 +27,7 @@ class HistoricCalories extends ConsumerWidget {
           child: Column(
             children: [
               Text(
-                "Past 7 Days",
+                "Past $days Days",
                 style: TextStyle(
                   color: Colors.blueGrey[300],
                   fontSize: 16,

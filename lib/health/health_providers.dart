@@ -4,6 +4,7 @@ import 'package:health/health.dart';
 import '../models/health_data_model.dart';
 import 'health_utils.dart';
 
+final selectedDaysProvider = StateProvider<int>((ref) => 7);
 final healthFactoryProvider = Provider<HealthFactory>((ref) => HealthFactory());
 final healthRequestAccessProvider = FutureProvider<bool?>((ref) async {
   final health = ref.read(healthFactoryProvider);
@@ -54,9 +55,10 @@ final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
 });
 
 final historicHealthDataProvider =
-    FutureProvider<List<HealthDataModel>>((ref) async {
+    FutureProvider.family<List<HealthDataModel>, int>((ref,
+        [int days = 7]) async {
   final now = DateTime.now();
-  final start = now.subtract(const Duration(days: 7));
+  final start = now.subtract(Duration(days: days));
   final end = DateTime(now.year, now.month, now.day);
 
   final health = ref.read(healthFactoryProvider);
