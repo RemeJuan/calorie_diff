@@ -1,3 +1,7 @@
+## 1.2.2 - 2022-11-13
+### Added
+- Added rating notification
+
 ## 1.2.1 - 2022-11-13
 ### Fixed
 - added loading indicators to historic view
