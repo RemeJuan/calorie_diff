@@ -11,5 +11,5 @@ flutter_coverage:
 	fvm flutter test test --no-pub --coverage --test-randomize-ordering-seed random
 
 pod_install:
-	arch -x86_64 pod install
+	cd ios && arch -x86_64 pod install
 
