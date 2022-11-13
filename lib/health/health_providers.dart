@@ -55,8 +55,10 @@ final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
 });
 
 final historicHealthDataProvider =
-    FutureProvider.family<List<HealthDataModel>, int>((ref,
-        [int days = 7]) async {
+    FutureProvider.family<List<HealthDataModel>, int>((
+  ref, [
+  int days = 7,
+]) async {
   final now = DateTime.now();
   final start = now.subtract(Duration(days: days));
   final end = DateTime(now.year, now.month, now.day);
