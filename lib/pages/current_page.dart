@@ -11,7 +11,7 @@ class CurrentPage extends StatelessWidget {
       shrinkWrap: true,
       children: const [
         CurrentCalories(),
-        HistoricCalories(days: 7),
+        HistoricCalories(days: 7, showLoader: false),
       ],
     );
   }
