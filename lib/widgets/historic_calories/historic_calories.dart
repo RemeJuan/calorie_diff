@@ -8,8 +8,13 @@ import 'historic_row.dart';
 
 class HistoricCalories extends HookConsumerWidget {
   final int days;
+  final bool showLoader;
 
-  const HistoricCalories({required this.days, Key? key}) : super(key: key);
+  const HistoricCalories({
+    required this.days,
+    required this.showLoader,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(context, ref) {
@@ -75,7 +80,21 @@ class HistoricCalories extends HookConsumerWidget {
           ),
         );
       },
-      loading: () => const SizedBox.shrink(key: Key("loading")),
+      loading: () => showLoader
+          ? Container(
+              padding: const EdgeInsets.all(16),
+              child: Center(
+                key: const Key("loading"),
+                child: Column(
+                  children: const [
+                    Text("Calculating data..."),
+                    SizedBox(height: 16),
+                    Text("This may take a while for larger data sets"),
+                  ],
+                ),
+              ),
+            )
+          : const SizedBox.shrink(key: Key("loading")),
       error: (error, stack) => Text('Error: $error'),
     );
   }

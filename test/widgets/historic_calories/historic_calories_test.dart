@@ -12,18 +12,29 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group("HistoricCalories", () {
-    testWidgets('loading', (tester) async {
+    testWidgets('loading - empty', (tester) async {
       await tester.pumpApp(
-        const HistoricCalories(days: 7),
+        const HistoricCalories(days: 7, showLoader: false),
         [],
       );
 
       expect(find.byKey(const Key("loading")), findsOneWidget);
+      expect(find.text("Calculating data..."), findsNothing);
+    });
+
+    testWidgets('loading - text', (tester) async {
+      await tester.pumpApp(
+        const HistoricCalories(days: 7, showLoader: true),
+        [],
+      );
+
+      expect(find.byKey(const Key("loading")), findsOneWidget);
+      expect(find.text("Calculating data..."), findsOneWidget);
     });
 
     testWidgets('success', (tester) async {
       await tester.pumpApp(
-        const HistoricCalories(days: 7),
+        const HistoricCalories(days: 7, showLoader: false),
         [
           historicHealthDataProvider.overrideWith(
             (_, __) async => [
