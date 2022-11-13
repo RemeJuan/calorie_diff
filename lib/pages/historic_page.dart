@@ -14,7 +14,7 @@ class HistoricPage extends HookConsumerWidget {
     return ListView(
       children: [
         RangePicker(selectedValue: selectedValue),
-        HistoricCalories(days: selectedValue),
+        HistoricCalories(days: selectedValue, showLoader: true),
       ],
     );
   }
