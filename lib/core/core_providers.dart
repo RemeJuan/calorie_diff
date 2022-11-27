@@ -1,3 +1,4 @@
+import 'package:calorie_diff/core/extensions.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,18 +22,21 @@ final lastLaunchProvider = Provider<DateTime>((ref) {
   final prefs = ref.read(sharedPreferencesProvider);
   final lastLaunch = prefs.getInt('last_launch');
   return lastLaunch == null
-      ? DateTime.now()
+      ? ExtendedDateTime.current
       : DateTime.fromMillisecondsSinceEpoch(lastLaunch);
 });
 
 final setLastLaunchProvider = FutureProvider<void>((ref) async {
   final prefs = ref.read(sharedPreferencesProvider);
-  await prefs.setInt('last_launch', DateTime.now().millisecondsSinceEpoch);
+  await prefs.setInt(
+    'last_launch',
+    ExtendedDateTime.current.millisecondsSinceEpoch,
+  );
 });
 
 final didLaunchTodayProvider = Provider<bool>((ref) {
   final lastLaunch = ref.read(lastLaunchProvider);
-  return lastLaunch.day == DateTime.now().day;
+  return lastLaunch.day == ExtendedDateTime.current.day;
 });
 
 final pageViewControllerProvider = StateProvider<PageController>((ref) {
