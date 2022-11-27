@@ -1,3 +1,7 @@
+## 1.2.3 - 2022-11-27
+### Fixed
+- Fixed short term cache not correctly reevaluating
+
 ## 1.2.2 - 2022-11-13
 ### Added
 - Added rating notification

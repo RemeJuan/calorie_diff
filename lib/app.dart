@@ -99,8 +99,8 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
 
   void _refresh() {
     ref.invalidate(healthDataProvider);
-
-    if (!ref.read(didLaunchTodayProvider)) {
+    final shouldRefresh = ref.refresh(didLaunchTodayProvider);
+    if (!shouldRefresh) {
       ref.invalidate(historicHealthDataProvider);
       ref.read(setLastLaunchProvider);
     }
