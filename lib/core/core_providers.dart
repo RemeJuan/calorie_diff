@@ -22,8 +22,8 @@ final lastLaunchProvider = Provider<DateTime>((ref) {
   final prefs = ref.read(sharedPreferencesProvider);
   final lastLaunch = prefs.getInt('last_launch');
   return lastLaunch == null
-      ? ExtendedDateTime.current
-      : DateTime.fromMillisecondsSinceEpoch(lastLaunch);
+      ? ExtendedDateTime.current.toLocal()
+      : DateTime.fromMillisecondsSinceEpoch(lastLaunch).toLocal();
 });
 
 final setLastLaunchProvider = FutureProvider<void>((ref) async {
