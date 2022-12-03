@@ -1,4 +1,5 @@
 import 'package:calorie_diff/core/core_providers.dart';
+import 'package:calorie_diff/core/extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -13,36 +14,120 @@ void main() {
 
   setUp(() {
     mockSharedPreferences = MockSharedPreferences();
-    container = ProviderContainer(
-      overrides: [
-        sharedPreferencesProvider.overrideWithValue(mockSharedPreferences),
-      ],
-    );
+    container = ProviderContainer();
+
+    ExtendedDateTime.customTime = DateTime(2022, 1, 8);
   });
 
-  group("introSeenProvider", () {
-    test("should return false when no value set", () {
-      when(() => mockSharedPreferences.getBool("intro_seen")).thenReturn(null);
-
-      expect(container.read(introSeenProvider), false);
-    });
-
-    test("should return true", () {
-      when(() => mockSharedPreferences.getBool("intro_seen")).thenReturn(true);
-
-      expect(container.read(introSeenProvider), true);
-    });
+  test("sharedPreferencesProvider", () {
+    // arrange
+    // act
+    try {
+      container.read(sharedPreferencesProvider);
+    } catch (e) {
+      // assert
+      expect(e, isA<UnimplementedError>());
+    }
   });
 
-  group("setIntroSeenProvider", () {
-    test("should return false when no value set", () {
+  group("mockSharedPreferences", () {
+    setUp(() {
+      container = ProviderContainer(
+        overrides: [
+          sharedPreferencesProvider.overrideWith((_) => mockSharedPreferences),
+        ],
+      );
+    });
+
+    group("introSeenProvider", () {
+      test("should return false when no value set", () {
+        when(() => mockSharedPreferences.getBool("intro_seen"))
+            .thenReturn(null);
+
+        expect(container.read(introSeenProvider), false);
+      });
+
+      test("should return true", () {
+        when(() => mockSharedPreferences.getBool("intro_seen"))
+            .thenReturn(true);
+
+        expect(container.read(introSeenProvider), true);
+      });
+    });
+
+    group("setIntroSeenProvider", () {
+      test("should return false when no value set", () {
+        when(
+          () => mockSharedPreferences.setBool("intro_seen", true),
+        ).thenAnswer((_) async => true);
+
+        container.read(setIntroSeenProvider);
+
+        verify(() => mockSharedPreferences.setBool("intro_seen", true))
+            .called(1);
+      });
+    });
+
+    group("lastLaunchProvider", () {
+      test("should return null when no value set", () {
+        when(() => mockSharedPreferences.getString("last_launch"))
+            .thenReturn(null);
+
+        expect(
+          container.read(lastLaunchProvider),
+          DateTime(2022, 1, 8),
+        );
+      });
+
+      test("should return a timestamp", () {
+        when(() => mockSharedPreferences.getInt("last_launch"))
+            .thenReturn(123456789);
+
+        expect(
+          container.read(lastLaunchProvider),
+          DateTime(1970, 01, 02, 12, 17, 36, 789),
+        );
+      });
+    });
+
+    test("setLastLaunchProvider", () {
+      // arrange
       when(
-        () => mockSharedPreferences.setBool("intro_seen", true),
+        () => mockSharedPreferences.setInt("last_launch", 1641592800000),
       ).thenAnswer((_) async => true);
 
-      container.read(setIntroSeenProvider);
+      // act
+      container.read(setLastLaunchProvider);
 
-      verify(() => mockSharedPreferences.setBool("intro_seen", true)).called(1);
+      // assert
+      verify(
+        () => mockSharedPreferences.setInt("last_launch", 1641592800000),
+      ).called(1);
+    });
+
+    group("didLaunchTodayProvider", () {
+      test("should return false when d, m and year do not match", () {
+        container = ProviderContainer(
+          overrides: [
+            lastLaunchProvider.overrideWith((_) => DateTime(2022, 1, 7)),
+          ],
+        );
+
+        expect(
+          container.read(didLaunchTodayProvider),
+          false,
+        );
+      });
+
+      test("should return true", () {
+        container = ProviderContainer(
+          overrides: [
+            lastLaunchProvider.overrideWith((_) => DateTime(2022, 1, 8)),
+          ],
+        );
+
+        expect(container.read(didLaunchTodayProvider), true);
+      });
     });
   });
 }

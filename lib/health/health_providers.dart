@@ -1,3 +1,4 @@
+import 'package:calorie_diff/core/extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:health/health.dart';
 
@@ -22,7 +23,7 @@ final healthDataTypesProvider = Provider<List<HealthDataType>>((ref) {
 });
 
 final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
-  final now = DateTime.now();
+  final now = ExtendedDateTime.current;
   final health = ref.read(healthFactoryProvider);
   final types = ref.read(healthDataTypesProvider);
 
@@ -59,7 +60,7 @@ final historicHealthDataProvider =
   ref, [
   int days = 7,
 ]) async {
-  final now = DateTime.now();
+  final now = ExtendedDateTime.current;
   final start = now.subtract(Duration(days: days));
   final end = DateTime(now.year, now.month, now.day);
 

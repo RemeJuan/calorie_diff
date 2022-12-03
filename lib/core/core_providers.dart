@@ -36,7 +36,12 @@ final setLastLaunchProvider = FutureProvider<void>((ref) async {
 
 final didLaunchTodayProvider = Provider<bool>((ref) {
   final lastLaunch = ref.read(lastLaunchProvider);
-  return lastLaunch.day == ExtendedDateTime.current.day;
+
+  final daysMatch = lastLaunch.day == ExtendedDateTime.current.day;
+  final monthsMatch = lastLaunch.month == ExtendedDateTime.current.month;
+  final yearsMatch = lastLaunch.year == ExtendedDateTime.current.year;
+
+  return daysMatch && monthsMatch && yearsMatch;
 });
 
 final pageViewControllerProvider = StateProvider<PageController>((ref) {
