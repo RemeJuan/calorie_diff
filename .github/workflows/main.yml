@@ -28,11 +28,10 @@ jobs:
           path: ${{ matrix.flutter_path }}
           key: ${{ runner.os }}-flutter-install-cache-${{ env.FLUTTER_VERSION }}
 
-      - uses: szenius/set-timezone@v1.0
+      - uses: zcong1993/setup-timezone@v2.0.0
         with:
-          timezoneLinux: "GMT+2"
-          timezoneMacos: "GMT+2"
-          timezoneWindows: "GMT+2"
+          # which timezone you want to use
+          timezone: Africa/Johannesburg
   
       - name: Install Dependencies
         run: flutter packages get
