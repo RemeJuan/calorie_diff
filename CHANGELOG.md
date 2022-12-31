@@ -1,3 +1,7 @@
+## 1.3.0+1 - 2022-12-31
+### Fixed
+- fixed progress widget sizing as they where not round
+
 ## 1.3.0 - 2022-12-31
 ### Added
 - new widget for displaying macros on main screen

@@ -17,7 +17,7 @@ class ProgressCard extends StatelessWidget {
   @override
   Widget build(context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final widgetSize = (screenWidth - 60) / 3;
+    final widgetSize = (screenWidth - 80) / 3;
 
     return Container(
       margin: const EdgeInsets.only(right: 8, left: 8),
