@@ -5,6 +5,10 @@
 [![Codemagic build status](https://api.codemagic.io/apps/635f769d988981f89e27c9e1/635f769d988981f89e27c9e0/status_badge.svg)](https://codemagic.io/apps/635f769d988981f89e27c9e1/635f769d988981f89e27c9e0/latest_build)
 [![codecov](https://codecov.io/gh/RemeJuan/calorie_diff/branch/main/graph/badge.svg?token=neI4f6UkD4)](https://codecov.io/gh/RemeJuan/calorie_diff)
 
+## Links
+
+ [Website](https://caloriediff.app) | [AppStore](https://apps.apple.com/za/app/calorie-diff/id6444097631)
+
 ## Backstory
 
 I train quite a lot, and with that comes proper nutrition control, I make use of MFP for tracking food,
@@ -21,10 +25,5 @@ energy from AppleHealth and does just that, displays you intake, your output and
 <br/>
 
 [![Calorie Diff Icons](readme/app_preview.webp "Calorie Diff")](https://apps.apple.com/app/calorie-diff/id6444097631)
-
-
-<a href="https://apps.apple.com/app/calorie-diff/id6444097631">
-<img src="readme/Download_on_the_App_Store.svg" alt="Download on the App Store" title="Download on the App Store" width="250"/>
-</a>
 
 
