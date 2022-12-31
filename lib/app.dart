@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'core/core_providers.dart';
-import 'health/health_providers.dart';
+import 'health/calories_providers.dart';
 import 'landing_screen.dart';
 
 part 'info_popup.dart';
@@ -98,7 +98,7 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
   }
 
   void _refresh() {
-    ref.invalidate(healthDataProvider);
+    ref.invalidate(healthCaloriesProvider);
     final shouldRefresh = ref.refresh(didLaunchTodayProvider);
     if (!shouldRefresh) {
       ref.invalidate(historicHealthDataProvider);
