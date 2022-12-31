@@ -1,6 +1,6 @@
 import 'package:calorie_diff/pages/current_page.dart';
 import 'package:calorie_diff/pages/historic_page.dart';
-import 'package:calorie_diff/pages/settings_page.dart';
+import 'package:calorie_diff/pages/settings/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,12 +17,16 @@ class LandingScreen extends HookConsumerWidget {
 
     return hasPermissions.when(
       data: (_) {
-        return PageView(
-          controller: pageViewController,
-          children: const [
-            CurrentPage(),
-            HistoricPage(),
-          ],
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: PageView(
+            controller: pageViewController,
+            children: const [
+              CurrentPage(),
+              HistoricPage(),
+              SettingsPage(),
+            ],
+          ),
         );
       },
       error: (e, s) => Text(e.toString()),

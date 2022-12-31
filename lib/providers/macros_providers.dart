@@ -20,15 +20,15 @@ final healthMacrosProvider = FutureProvider<HealthMacrosModel>((ref) async {
   final clean = HealthFactory.removeDuplicates(data);
   final carb = HealthUtils.prepareDataEntry(
     clean,
-    HealthDataType.ACTIVE_ENERGY_BURNED,
+    HealthDataType.DIETARY_CARBS_CONSUMED,
   );
   final fat = HealthUtils.prepareDataEntry(
     clean,
-    HealthDataType.BASAL_ENERGY_BURNED,
+    HealthDataType.DIETARY_FATS_CONSUMED,
   );
   final protein = HealthUtils.prepareDataEntry(
     clean,
-    HealthDataType.DIETARY_ENERGY_CONSUMED,
+    HealthDataType.DIETARY_PROTEIN_CONSUMED,
   );
   return HealthMacrosModel(
     date: now,

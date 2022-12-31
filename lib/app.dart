@@ -1,3 +1,4 @@
+import 'package:calorie_diff/providers/macros_providers.dart';
 import 'package:calorie_diff/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -106,6 +107,8 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
 
   void _refresh() {
     ref.invalidate(healthCaloriesProvider);
+    ref.invalidate(healthMacrosProvider);
+
     final shouldRefresh = ref.refresh(didLaunchTodayProvider);
     if (!shouldRefresh) {
       ref.invalidate(historicHealthDataProvider);

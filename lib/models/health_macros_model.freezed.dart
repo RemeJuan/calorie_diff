@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+HealthMacrosModel _$HealthMacrosModelFromJson(Map<String, dynamic> json) {
+  return _HealthMacrosModel.fromJson(json);
+}
+
 /// @nodoc
 mixin _$HealthMacrosModel {
   DateTime get date => throw _privateConstructorUsedError;
@@ -21,6 +25,7 @@ mixin _$HealthMacrosModel {
   double get fat => throw _privateConstructorUsedError;
   double get protein => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HealthMacrosModelCopyWith<HealthMacrosModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -123,7 +128,7 @@ class __$$_HealthMacrosModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_HealthMacrosModel extends _HealthMacrosModel {
   const _$_HealthMacrosModel(
       {required this.date,
@@ -131,6 +136,9 @@ class _$_HealthMacrosModel extends _HealthMacrosModel {
       required this.fat,
       required this.protein})
       : super._();
+
+  factory _$_HealthMacrosModel.fromJson(Map<String, dynamic> json) =>
+      _$$_HealthMacrosModelFromJson(json);
 
   @override
   final DateTime date;
@@ -157,6 +165,7 @@ class _$_HealthMacrosModel extends _HealthMacrosModel {
             (identical(other.protein, protein) || other.protein == protein));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, date, carb, fat, protein);
 
@@ -166,6 +175,13 @@ class _$_HealthMacrosModel extends _HealthMacrosModel {
   _$$_HealthMacrosModelCopyWith<_$_HealthMacrosModel> get copyWith =>
       __$$_HealthMacrosModelCopyWithImpl<_$_HealthMacrosModel>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_HealthMacrosModelToJson(
+      this,
+    );
+  }
 }
 
 abstract class _HealthMacrosModel extends HealthMacrosModel {
@@ -175,6 +191,9 @@ abstract class _HealthMacrosModel extends HealthMacrosModel {
       required final double fat,
       required final double protein}) = _$_HealthMacrosModel;
   const _HealthMacrosModel._() : super._();
+
+  factory _HealthMacrosModel.fromJson(Map<String, dynamic> json) =
+      _$_HealthMacrosModel.fromJson;
 
   @override
   DateTime get date;
