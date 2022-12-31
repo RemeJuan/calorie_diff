@@ -1,11 +1,12 @@
+import 'package:calorie_diff/providers/macros_providers.dart';
 import 'package:calorie_diff/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'core/core_providers.dart';
-import 'health/health_providers.dart';
 import 'landing_screen.dart';
+import 'providers/calories_providers.dart';
 
 part 'info_popup.dart';
 
@@ -85,20 +86,25 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
             ),
             label: 'Historic',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings,
+              color: currentPage.value == 1 ? Colors.white : AppTheme.blueGrey,
+            ),
+            label: 'Settings',
+          ),
         ],
         onTap: (index) {
-          ref.read(pageViewControllerProvider).animateToPage(
-                index,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
+          ref.read(pageViewControllerProvider).jumpToPage(index);
         },
       ),
     );
   }
 
   void _refresh() {
-    ref.invalidate(healthDataProvider);
+    ref.invalidate(healthCaloriesProvider);
+    ref.invalidate(healthMacrosProvider);
+
     final shouldRefresh = ref.refresh(didLaunchTodayProvider);
     if (!shouldRefresh) {
       ref.invalidate(historicHealthDataProvider);

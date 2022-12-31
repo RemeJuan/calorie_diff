@@ -1,6 +1,6 @@
 import 'package:calorie_diff/core/core_providers.dart';
-import 'package:calorie_diff/health/health_providers.dart';
 import 'package:calorie_diff/intro_screen/widgets/intro_icon.dart';
+import 'package:calorie_diff/providers/health_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -38,13 +38,12 @@ class IntroScreen extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text(
-                        "In order to be able to calculate your calorie differences, Calorie Diff requires access to the following Health permission:.",
+                        "In order to be able to calculate your calorie differences and display you macros, Calorie Diff requires access to the following Health permission:.",
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 16),
-                      Text("Active Energy"),
-                      Text("Resting Energy"),
-                      Text("Dietary Energy"),
+                      Text("Active, Resting and Dietary Energy"),
+                      Text("Dietary Carbs, Fats and Protein"),
                       SizedBox(height: 16),
                       Text(
                         "Calorie Diff does not collect any other data.",

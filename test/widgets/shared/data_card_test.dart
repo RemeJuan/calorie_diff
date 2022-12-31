@@ -1,4 +1,4 @@
-import 'package:calorie_diff/widgets/current_calories/data_card.dart';
+import 'package:calorie_diff/widgets/shared/data_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

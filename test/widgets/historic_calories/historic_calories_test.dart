@@ -1,5 +1,5 @@
-import 'package:calorie_diff/health/health_providers.dart';
-import 'package:calorie_diff/models/health_data_model.dart';
+import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/providers/calories_providers.dart';
 import 'package:calorie_diff/widgets/historic_calories/header_row.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_row.dart';
@@ -38,7 +38,7 @@ void main() {
         [
           historicHealthDataProvider.overrideWith(
             (_, __) async => [
-              HealthDataModel(
+              HealthCaloriesModel(
                 date: DateTime(2021, 10, 10),
                 burned: 200,
                 consumed: 100,

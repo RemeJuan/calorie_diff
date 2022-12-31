@@ -1,7 +1,10 @@
 import 'package:calorie_diff/core/core_providers.dart';
-import 'package:calorie_diff/health/health_providers.dart';
 import 'package:calorie_diff/landing_screen.dart';
-import 'package:calorie_diff/models/health_data_model.dart';
+import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/models/settings_model.dart';
+import 'package:calorie_diff/providers/calories_providers.dart';
+import 'package:calorie_diff/providers/health_providers.dart';
+import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
 import 'package:calorie_diff/widgets/range_picker/range_picker.dart';
@@ -38,7 +41,7 @@ void main() {
   });
 
   testWidgets('renders current page widgets', (tester) async {
-    final dataModel = HealthDataModel(
+    final dataModel = HealthCaloriesModel(
       burned: 200,
       consumed: 100,
       difference: 100,
@@ -49,8 +52,9 @@ void main() {
       const LandingScreen(),
       [
         healthRequestAccessProvider.overrideWith((_) => false),
-        healthDataProvider.overrideWith((_) async => dataModel),
+        healthCaloriesProvider.overrideWith((_) async => dataModel),
         historicHealthDataProvider.overrideWith((_, __) async => [dataModel]),
+        settingsProvider.overrideWith((_) => SettingsModel.initial()),
       ],
     );
 
@@ -61,7 +65,7 @@ void main() {
   });
 
   testWidgets('renders historic page widgets', (tester) async {
-    final dataModel = HealthDataModel(
+    final dataModel = HealthCaloriesModel(
       burned: 200,
       consumed: 100,
       difference: 100,
@@ -72,7 +76,7 @@ void main() {
       const LandingScreen(),
       [
         healthRequestAccessProvider.overrideWith((_) => false),
-        healthDataProvider.overrideWith((_) async => dataModel),
+        healthCaloriesProvider.overrideWith((_) async => dataModel),
         historicHealthDataProvider.overrideWith((_, __) async => [dataModel]),
         pageViewControllerProvider.overrideWith(
           (_) => PageController(initialPage: 1),

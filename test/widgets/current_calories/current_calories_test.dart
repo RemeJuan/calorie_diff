@@ -1,7 +1,7 @@
-import 'package:calorie_diff/health/health_providers.dart';
-import 'package:calorie_diff/models/health_data_model.dart';
+import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/providers/calories_providers.dart';
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
-import 'package:calorie_diff/widgets/current_calories/data_card.dart';
+import 'package:calorie_diff/widgets/shared/data_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -23,8 +23,8 @@ void main() {
     await tester.pumpApp(
       const CurrentCalories(),
       [
-        healthDataProvider.overrideWith(
-          (_) => HealthDataModel(
+        healthCaloriesProvider.overrideWith(
+          (_) => HealthCaloriesModel(
             date: DateTime.now(),
             burned: 40,
             consumed: 20,
@@ -46,7 +46,7 @@ void main() {
     await tester.pumpApp(
       const CurrentCalories(),
       [
-        healthDataProvider.overrideWith((_) => throw Exception('error')),
+        healthCaloriesProvider.overrideWith((_) => throw Exception('error')),
       ],
     );
 

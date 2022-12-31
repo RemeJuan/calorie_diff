@@ -1,6 +1,7 @@
 import 'package:calorie_diff/core/extensions.dart';
-import 'package:calorie_diff/health/health_providers.dart';
-import 'package:calorie_diff/models/health_data_model.dart';
+import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/providers/calories_providers.dart';
+import 'package:calorie_diff/providers/health_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:health/health.dart';
@@ -14,6 +15,15 @@ void main() {
 
   late ProviderContainer container;
 
+  const types = [
+    HealthDataType.ACTIVE_ENERGY_BURNED,
+    HealthDataType.BASAL_ENERGY_BURNED,
+    HealthDataType.DIETARY_ENERGY_CONSUMED,
+    HealthDataType.DIETARY_CARBS_CONSUMED,
+    HealthDataType.DIETARY_FATS_CONSUMED,
+    HealthDataType.DIETARY_PROTEIN_CONSUMED,
+  ];
+
   setUp(() {
     mockHealthProvider = MockHealthProvider();
     container = ProviderContainer(
@@ -25,13 +35,8 @@ void main() {
     ExtendedDateTime.customTime = mockNow;
   });
 
-  test('should return a HealthDataModel', () async {
+  test('should return a HealthCaloriesModel', () async {
     // arrange
-    const types = [
-      HealthDataType.ACTIVE_ENERGY_BURNED,
-      HealthDataType.BASAL_ENERGY_BURNED,
-      HealthDataType.DIETARY_ENERGY_CONSUMED,
-    ];
     when(
       mockHealthProvider.getHealthDataFromTypes(
         DateTime(mockNow.year, mockNow.month, mockNow.day),
@@ -76,12 +81,12 @@ void main() {
       ],
     );
     // act
-    final result = await container.read(healthDataProvider.future);
+    final result = await container.read(healthCaloriesProvider.future);
     // assert
-    expect(result, isA<HealthDataModel>());
+    expect(result, isA<HealthCaloriesModel>());
     expect(
       result,
-      HealthDataModel(
+      HealthCaloriesModel(
         date: mockNow,
         burned: 225,
         consumed: 95,
@@ -90,13 +95,8 @@ void main() {
     );
   });
 
-  test('should return a list of HealthDataModel', () async {
+  test('should return a list of HealthCaloriesModel', () async {
     // arrange
-    const types = [
-      HealthDataType.ACTIVE_ENERGY_BURNED,
-      HealthDataType.BASAL_ENERGY_BURNED,
-      HealthDataType.DIETARY_ENERGY_CONSUMED,
-    ];
     when(
       mockHealthProvider.getHealthDataFromTypes(
         DateTime(2022, 1, 1),
@@ -143,11 +143,11 @@ void main() {
     // act
     final result = await container.read(historicHealthDataProvider(7).future);
     // assert
-    expect(result, isA<List<HealthDataModel>>());
+    expect(result, isA<List<HealthCaloriesModel>>());
     expect(
       result,
       [
-        HealthDataModel(
+        HealthCaloriesModel(
           date: mockNow,
           burned: 225,
           consumed: 95,

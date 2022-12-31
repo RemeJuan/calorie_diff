@@ -4,7 +4,6 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
-import 'dart:ui' as _i9;
 
 import 'package:flutter/src/widgets/basic.dart' as _i6;
 import 'package:flutter/src/widgets/page_view.dart' as _i5;
@@ -451,7 +450,7 @@ class MockPageController extends _i1.Mock implements _i5.PageController {
         returnValueForMissingStub: null,
       );
   @override
-  void addListener(_i9.VoidCallback? listener) => super.noSuchMethod(
+  void addListener(dynamic listener) => super.noSuchMethod(
         Invocation.method(
           #addListener,
           [listener],
@@ -459,7 +458,7 @@ class MockPageController extends _i1.Mock implements _i5.PageController {
         returnValueForMissingStub: null,
       );
   @override
-  void removeListener(_i9.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(dynamic listener) => super.noSuchMethod(
         Invocation.method(
           #removeListener,
           [listener],

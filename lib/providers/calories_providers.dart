@@ -1,28 +1,12 @@
 import 'package:calorie_diff/core/extensions.dart';
+import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/shared/utils/health_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:health/health.dart';
 
-import '../models/health_data_model.dart';
-import 'health_utils.dart';
+import 'health_providers.dart';
 
-final selectedDaysProvider = StateProvider<int>((ref) => 7);
-final healthFactoryProvider = Provider<HealthFactory>((ref) => HealthFactory());
-final healthRequestAccessProvider = FutureProvider<bool?>((ref) async {
-  final health = ref.read(healthFactoryProvider);
-  final types = ref.read(healthDataTypesProvider);
-
-  return await health.requestAuthorization(types);
-});
-
-final healthDataTypesProvider = Provider<List<HealthDataType>>((ref) {
-  return [
-    HealthDataType.ACTIVE_ENERGY_BURNED,
-    HealthDataType.BASAL_ENERGY_BURNED,
-    HealthDataType.DIETARY_ENERGY_CONSUMED,
-  ];
-});
-
-final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
+final healthCaloriesProvider = FutureProvider<HealthCaloriesModel>((ref) async {
   final now = ExtendedDateTime.current;
   final health = ref.read(healthFactoryProvider);
   final types = ref.read(healthDataTypesProvider);
@@ -47,7 +31,7 @@ final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
     HealthDataType.DIETARY_ENERGY_CONSUMED,
   );
   final difference = dietary - (active + rest);
-  return HealthDataModel(
+  return HealthCaloriesModel(
     date: now,
     burned: HealthUtils.decimals(active + rest),
     consumed: HealthUtils.decimals(dietary),
@@ -56,7 +40,7 @@ final healthDataProvider = FutureProvider<HealthDataModel>((ref) async {
 });
 
 final historicHealthDataProvider =
-    FutureProvider.family<List<HealthDataModel>, int>((
+    FutureProvider.family<List<HealthCaloriesModel>, int>((
   ref, [
   int days = 7,
 ]) async {
@@ -90,7 +74,7 @@ final historicHealthDataProvider =
       HealthDataType.DIETARY_ENERGY_CONSUMED,
     );
     final difference = dietary - (active + rest);
-    return HealthDataModel(
+    return HealthCaloriesModel(
       date: date,
       burned: HealthUtils.decimals(active + rest),
       consumed: HealthUtils.decimals(dietary),

@@ -1,9 +1,9 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'health_data_model.dart';
+part of 'health_calories_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,30 +15,30 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HealthDataModel {
+mixin _$HealthCaloriesModel {
   DateTime get date => throw _privateConstructorUsedError;
   double get burned => throw _privateConstructorUsedError;
   double get consumed => throw _privateConstructorUsedError;
   double get difference => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $HealthDataModelCopyWith<HealthDataModel> get copyWith =>
+  $HealthCaloriesModelCopyWith<HealthCaloriesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HealthDataModelCopyWith<$Res> {
-  factory $HealthDataModelCopyWith(
-          HealthDataModel value, $Res Function(HealthDataModel) then) =
-      _$HealthDataModelCopyWithImpl<$Res, HealthDataModel>;
+abstract class $HealthCaloriesModelCopyWith<$Res> {
+  factory $HealthCaloriesModelCopyWith(
+          HealthCaloriesModel value, $Res Function(HealthCaloriesModel) then) =
+      _$HealthCaloriesModelCopyWithImpl<$Res, HealthCaloriesModel>;
   @useResult
   $Res call({DateTime date, double burned, double consumed, double difference});
 }
 
 /// @nodoc
-class _$HealthDataModelCopyWithImpl<$Res, $Val extends HealthDataModel>
-    implements $HealthDataModelCopyWith<$Res> {
-  _$HealthDataModelCopyWithImpl(this._value, this._then);
+class _$HealthCaloriesModelCopyWithImpl<$Res, $Val extends HealthCaloriesModel>
+    implements $HealthCaloriesModelCopyWith<$Res> {
+  _$HealthCaloriesModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,22 +75,22 @@ class _$HealthDataModelCopyWithImpl<$Res, $Val extends HealthDataModel>
 }
 
 /// @nodoc
-abstract class _$$_HealthDataModelCopyWith<$Res>
-    implements $HealthDataModelCopyWith<$Res> {
-  factory _$$_HealthDataModelCopyWith(
-          _$_HealthDataModel value, $Res Function(_$_HealthDataModel) then) =
-      __$$_HealthDataModelCopyWithImpl<$Res>;
+abstract class _$$_HealthCaloriesModelCopyWith<$Res>
+    implements $HealthCaloriesModelCopyWith<$Res> {
+  factory _$$_HealthCaloriesModelCopyWith(_$_HealthCaloriesModel value,
+          $Res Function(_$_HealthCaloriesModel) then) =
+      __$$_HealthCaloriesModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DateTime date, double burned, double consumed, double difference});
 }
 
 /// @nodoc
-class __$$_HealthDataModelCopyWithImpl<$Res>
-    extends _$HealthDataModelCopyWithImpl<$Res, _$_HealthDataModel>
-    implements _$$_HealthDataModelCopyWith<$Res> {
-  __$$_HealthDataModelCopyWithImpl(
-      _$_HealthDataModel _value, $Res Function(_$_HealthDataModel) _then)
+class __$$_HealthCaloriesModelCopyWithImpl<$Res>
+    extends _$HealthCaloriesModelCopyWithImpl<$Res, _$_HealthCaloriesModel>
+    implements _$$_HealthCaloriesModelCopyWith<$Res> {
+  __$$_HealthCaloriesModelCopyWithImpl(_$_HealthCaloriesModel _value,
+      $Res Function(_$_HealthCaloriesModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_HealthDataModelCopyWithImpl<$Res>
     Object? consumed = null,
     Object? difference = null,
   }) {
-    return _then(_$_HealthDataModel(
+    return _then(_$_HealthCaloriesModel(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_HealthDataModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HealthDataModel extends _HealthDataModel {
-  const _$_HealthDataModel(
+class _$_HealthCaloriesModel extends _HealthCaloriesModel {
+  const _$_HealthCaloriesModel(
       {required this.date,
       required this.burned,
       required this.consumed,
@@ -143,14 +143,14 @@ class _$_HealthDataModel extends _HealthDataModel {
 
   @override
   String toString() {
-    return 'HealthDataModel(date: $date, burned: $burned, consumed: $consumed, difference: $difference)';
+    return 'HealthCaloriesModel(date: $date, burned: $burned, consumed: $consumed, difference: $difference)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HealthDataModel &&
+            other is _$_HealthCaloriesModel &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.burned, burned) || other.burned == burned) &&
             (identical(other.consumed, consumed) ||
@@ -166,17 +166,18 @@ class _$_HealthDataModel extends _HealthDataModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HealthDataModelCopyWith<_$_HealthDataModel> get copyWith =>
-      __$$_HealthDataModelCopyWithImpl<_$_HealthDataModel>(this, _$identity);
+  _$$_HealthCaloriesModelCopyWith<_$_HealthCaloriesModel> get copyWith =>
+      __$$_HealthCaloriesModelCopyWithImpl<_$_HealthCaloriesModel>(
+          this, _$identity);
 }
 
-abstract class _HealthDataModel extends HealthDataModel {
-  const factory _HealthDataModel(
+abstract class _HealthCaloriesModel extends HealthCaloriesModel {
+  const factory _HealthCaloriesModel(
       {required final DateTime date,
       required final double burned,
       required final double consumed,
-      required final double difference}) = _$_HealthDataModel;
-  const _HealthDataModel._() : super._();
+      required final double difference}) = _$_HealthCaloriesModel;
+  const _HealthCaloriesModel._() : super._();
 
   @override
   DateTime get date;
@@ -188,6 +189,6 @@ abstract class _HealthDataModel extends HealthDataModel {
   double get difference;
   @override
   @JsonKey(ignore: true)
-  _$$_HealthDataModelCopyWith<_$_HealthDataModel> get copyWith =>
+  _$$_HealthCaloriesModelCopyWith<_$_HealthCaloriesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
