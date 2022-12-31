@@ -36,6 +36,7 @@ class SettingsMacros extends ConsumerWidget {
         Visibility(
           visible: settings.macrosEnabled,
           child: Column(
+            key: const ValueKey("macros"),
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,

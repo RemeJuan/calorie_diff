@@ -15,6 +15,15 @@ void main() {
 
   late ProviderContainer container;
 
+  const types = [
+    HealthDataType.ACTIVE_ENERGY_BURNED,
+    HealthDataType.BASAL_ENERGY_BURNED,
+    HealthDataType.DIETARY_ENERGY_CONSUMED,
+    HealthDataType.DIETARY_CARBS_CONSUMED,
+    HealthDataType.DIETARY_FATS_CONSUMED,
+    HealthDataType.DIETARY_PROTEIN_CONSUMED,
+  ];
+
   setUp(() {
     mockHealthProvider = MockHealthProvider();
     container = ProviderContainer(
@@ -28,11 +37,6 @@ void main() {
 
   test('should return a HealthCaloriesModel', () async {
     // arrange
-    const types = [
-      HealthDataType.ACTIVE_ENERGY_BURNED,
-      HealthDataType.BASAL_ENERGY_BURNED,
-      HealthDataType.DIETARY_ENERGY_CONSUMED,
-    ];
     when(
       mockHealthProvider.getHealthDataFromTypes(
         DateTime(mockNow.year, mockNow.month, mockNow.day),
@@ -93,11 +97,6 @@ void main() {
 
   test('should return a list of HealthCaloriesModel', () async {
     // arrange
-    const types = [
-      HealthDataType.ACTIVE_ENERGY_BURNED,
-      HealthDataType.BASAL_ENERGY_BURNED,
-      HealthDataType.DIETARY_ENERGY_CONSUMED,
-    ];
     when(
       mockHealthProvider.getHealthDataFromTypes(
         DateTime(2022, 1, 1),

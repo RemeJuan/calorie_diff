@@ -55,11 +55,7 @@ void main() {
     await tester.pumpAndSettle();
 
     verify(
-      mockPageController.animateToPage(
-        1,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      ),
+      mockPageController.jumpToPage(1),
     ).called(1);
   });
 }
