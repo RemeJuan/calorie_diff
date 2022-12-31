@@ -95,11 +95,7 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
           ),
         ],
         onTap: (index) {
-          ref.read(pageViewControllerProvider).animateToPage(
-                index,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
+          ref.read(pageViewControllerProvider).jumpToPage(index);
         },
       ),
     );
