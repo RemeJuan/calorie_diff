@@ -1,3 +1,7 @@
+## 1.3.0 - 2022-12-31
+### Added
+- new widget for displaying macros on main screen
+
 ## 1.2.3 - 2022-11-27
 ### Fixed
 - Fixed short term cache not correctly reevaluating
