@@ -1,4 +1,5 @@
 import 'package:health/health.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/annotations.dart';
 
-class MockHealthProvider extends Mock implements HealthFactory {}
+@GenerateNiceMocks([MockSpec<HealthFactory>(as: #MockHealthProvider)])
+export 'health_providers_mocks.mocks.dart';

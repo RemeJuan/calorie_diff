@@ -2,7 +2,7 @@ import 'package:calorie_diff/app.dart';
 import 'package:calorie_diff/core/core_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/mockito.dart';
 
 import 'mocks/core_mocks.dart';
 import 'test_helpers.dart';
@@ -37,7 +37,7 @@ void main() {
     const duration = Duration(milliseconds: 300);
     const curve = Curves.easeInOut;
     when(
-      () => mockPageController.animateToPage(
+      mockPageController.animateToPage(
         1,
         duration: duration,
         curve: curve,
@@ -55,7 +55,7 @@ void main() {
     await tester.pumpAndSettle();
 
     verify(
-      () => mockPageController.animateToPage(
+      mockPageController.animateToPage(
         1,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,

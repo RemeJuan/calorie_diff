@@ -2,7 +2,7 @@ import 'package:calorie_diff/core/core_providers.dart';
 import 'package:calorie_diff/core/extensions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/mockito.dart';
 
 import '../mocks/core_mocks.dart';
 
@@ -41,15 +41,13 @@ void main() {
 
     group("introSeenProvider", () {
       test("should return false when no value set", () {
-        when(() => mockSharedPreferences.getBool("intro_seen"))
-            .thenReturn(null);
+        when(mockSharedPreferences.getBool("intro_seen")).thenReturn(null);
 
         expect(container.read(introSeenProvider), false);
       });
 
       test("should return true", () {
-        when(() => mockSharedPreferences.getBool("intro_seen"))
-            .thenReturn(true);
+        when(mockSharedPreferences.getBool("intro_seen")).thenReturn(true);
 
         expect(container.read(introSeenProvider), true);
       });
@@ -58,20 +56,18 @@ void main() {
     group("setIntroSeenProvider", () {
       test("should return false when no value set", () {
         when(
-          () => mockSharedPreferences.setBool("intro_seen", true),
+          mockSharedPreferences.setBool("intro_seen", true),
         ).thenAnswer((_) async => true);
 
         container.read(setIntroSeenProvider);
 
-        verify(() => mockSharedPreferences.setBool("intro_seen", true))
-            .called(1);
+        verify(mockSharedPreferences.setBool("intro_seen", true)).called(1);
       });
     });
 
     group("lastLaunchProvider", () {
       test("should return null when no value set", () {
-        when(() => mockSharedPreferences.getString("last_launch"))
-            .thenReturn(null);
+        when(mockSharedPreferences.getString("last_launch")).thenReturn(null);
 
         expect(
           container.read(lastLaunchProvider),
@@ -80,8 +76,7 @@ void main() {
       });
 
       test("should return a timestamp", () {
-        when(() => mockSharedPreferences.getInt("last_launch"))
-            .thenReturn(123456789);
+        when(mockSharedPreferences.getInt("last_launch")).thenReturn(123456789);
 
         expect(
           container.read(lastLaunchProvider),
@@ -93,7 +88,7 @@ void main() {
     test("setLastLaunchProvider", () {
       // arrange
       when(
-        () => mockSharedPreferences.setInt("last_launch", 1641592800000),
+        mockSharedPreferences.setInt("last_launch", 1641592800000),
       ).thenAnswer((_) async => true);
 
       // act
@@ -101,7 +96,7 @@ void main() {
 
       // assert
       verify(
-        () => mockSharedPreferences.setInt("last_launch", 1641592800000),
+        mockSharedPreferences.setInt("last_launch", 1641592800000),
       ).called(1);
     });
 

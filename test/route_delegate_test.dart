@@ -4,7 +4,7 @@ import 'package:calorie_diff/intro_screen/intro_screen.dart';
 import 'package:calorie_diff/route_delegate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/mockito.dart';
 
 import 'mocks/core_mocks.dart';
 import 'test_helpers.dart';
@@ -23,7 +23,7 @@ void main() {
   });
 
   testWidgets('should display IntroScreen', (tester) async {
-    when(() => mockSharedPreferences.getBool('intro_seen')).thenReturn(false);
+    when(mockSharedPreferences.getBool('intro_seen')).thenReturn(false);
 
     await tester.pumpApp(
       const RouteDelegate(),
@@ -36,7 +36,7 @@ void main() {
   });
 
   testWidgets('should display CalorieDiffApp', (tester) async {
-    when(() => mockSharedPreferences.getBool('intro_seen')).thenReturn(true);
+    when(mockSharedPreferences.getBool('intro_seen')).thenReturn(true);
 
     await tester.pumpApp(
       const RouteDelegate(),

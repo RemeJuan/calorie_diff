@@ -4,7 +4,7 @@ import 'package:calorie_diff/models/health_data_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:health/health.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/mockito.dart';
 
 import '../mocks/core/health_providers_mocks.dart';
 
@@ -33,7 +33,7 @@ void main() {
       HealthDataType.DIETARY_ENERGY_CONSUMED,
     ];
     when(
-      () => mockHealthProvider.getHealthDataFromTypes(
+      mockHealthProvider.getHealthDataFromTypes(
         DateTime(mockNow.year, mockNow.month, mockNow.day),
         mockNow,
         types,
@@ -98,7 +98,7 @@ void main() {
       HealthDataType.DIETARY_ENERGY_CONSUMED,
     ];
     when(
-      () => mockHealthProvider.getHealthDataFromTypes(
+      mockHealthProvider.getHealthDataFromTypes(
         DateTime(2022, 1, 1),
         mockNow,
         types,
