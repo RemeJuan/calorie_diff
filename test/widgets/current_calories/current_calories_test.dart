@@ -1,5 +1,5 @@
-import 'package:calorie_diff/health/calories_providers.dart';
 import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/providers/calories_providers.dart';
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/shared/data_card.dart';
 import 'package:flutter/material.dart';

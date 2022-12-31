@@ -1,4 +1,4 @@
-import 'package:calorie_diff/health/health_utils.dart';
+import 'package:calorie_diff/shared/utils/health_utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:health/health.dart';
 

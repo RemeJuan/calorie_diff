@@ -1,6 +1,6 @@
 import 'package:calorie_diff/core/core_providers.dart';
-import 'package:calorie_diff/health/health_providers.dart';
 import 'package:calorie_diff/intro_screen/widgets/intro_icon.dart';
+import 'package:calorie_diff/providers/health_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';

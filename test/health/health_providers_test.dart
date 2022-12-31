@@ -1,7 +1,7 @@
 import 'package:calorie_diff/core/extensions.dart';
-import 'package:calorie_diff/health/calories_providers.dart';
-import 'package:calorie_diff/health/health_providers.dart';
 import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/providers/calories_providers.dart';
+import 'package:calorie_diff/providers/health_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:health/health.dart';

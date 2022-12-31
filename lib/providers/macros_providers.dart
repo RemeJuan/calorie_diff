@@ -1,10 +1,10 @@
 import 'package:calorie_diff/core/extensions.dart';
 import 'package:calorie_diff/models/health_macros_model.dart';
+import 'package:calorie_diff/shared/utils/health_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:health/health.dart';
 
 import 'health_providers.dart';
-import 'health_utils.dart';
 
 final healthMacrosProvider = FutureProvider<HealthMacrosModel>((ref) async {
   final now = ExtendedDateTime.current;

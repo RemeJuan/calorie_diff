@@ -1,10 +1,11 @@
 import 'package:calorie_diff/pages/current_page.dart';
 import 'package:calorie_diff/pages/historic_page.dart';
+import 'package:calorie_diff/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'core/core_providers.dart';
-import 'health/health_providers.dart';
+import 'providers/health_providers.dart';
 
 class LandingScreen extends HookConsumerWidget {
   const LandingScreen({Key? key}) : super(key: key);
