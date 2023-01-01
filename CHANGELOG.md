@@ -1,3 +1,7 @@
+## 1.3.0+2 - 2023-01-01
+### Fixed
+- minor updates to layout and widget displays
+
 ## 1.3.0+1 - 2022-12-31
 ### Fixed
 - fixed progress widget sizing as they where not round

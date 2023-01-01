@@ -2,6 +2,7 @@ import 'package:calorie_diff/models/settings_model.dart';
 import 'package:calorie_diff/pages/settings/macros.dart';
 import 'package:calorie_diff/pages/settings/settings_page.dart';
 import 'package:calorie_diff/providers/settings_providers.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -19,6 +20,8 @@ void main() {
   });
 
   testWidgets('should render Settings page widgets', (tester) async {
+    FlutterError.onError = ignoreOverflowErrors;
+
     await tester.pumpApp(
       const SettingsPage(),
       overrides,

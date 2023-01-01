@@ -1,5 +1,7 @@
 import 'package:calorie_diff/models/health_calories_model.dart';
+import 'package:calorie_diff/models/settings_model.dart';
 import 'package:calorie_diff/providers/calories_providers.dart';
+import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/shared/data_card.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,9 @@ void main() {
   testWidgets('Loading', (tester) async {
     await tester.pumpApp(
       const CurrentCalories(),
-      [],
+      [
+        settingsProvider.overrideWithValue(SettingsModel.initial()),
+      ],
     );
 
     expect(find.byKey(const Key('loading')), findsOneWidget);
@@ -23,6 +27,7 @@ void main() {
     await tester.pumpApp(
       const CurrentCalories(),
       [
+        settingsProvider.overrideWithValue(SettingsModel.initial()),
         healthCaloriesProvider.overrideWith(
           (_) => HealthCaloriesModel(
             date: DateTime.now(),
@@ -46,6 +51,7 @@ void main() {
     await tester.pumpApp(
       const CurrentCalories(),
       [
+        settingsProvider.overrideWithValue(SettingsModel.initial()),
         healthCaloriesProvider.overrideWith((_) => throw Exception('error')),
       ],
     );
