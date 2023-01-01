@@ -8,10 +8,6 @@ class SettingsPage extends ConsumerWidget {
 
   @override
   Widget build(context, ref) {
-    return Column(
-      children: const [
-        SettingsMacros(),
-      ],
-    );
+    return const SettingsMacros();
   }
 }

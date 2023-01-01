@@ -71,26 +71,17 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
         currentIndex: currentPage.value,
         selectedItemColor: Colors.white,
         unselectedItemColor: AppTheme.blueGrey,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.today,
-              color: currentPage.value == 0 ? Colors.white : AppTheme.blueGrey,
-            ),
+            icon: Icon(Icons.today),
             label: 'Current',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.history,
-              color: currentPage.value == 1 ? Colors.white : AppTheme.blueGrey,
-            ),
+            icon: Icon(Icons.history),
             label: 'Historic',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              color: currentPage.value == 1 ? Colors.white : AppTheme.blueGrey,
-            ),
+            icon: Icon(Icons.settings),
             label: 'Settings',
           ),
         ],
