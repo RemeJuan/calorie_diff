@@ -23,7 +23,7 @@ class HistoricCalories extends HookConsumerWidget {
     return historicCalories.when(
       data: (data) {
         return Container(
-          margin: const EdgeInsets.only(right: 8, left: 8, top: 16),
+          margin: const EdgeInsets.only(right: 8, left: 8),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: const Color.fromRGBO(27, 39, 56, 1),
