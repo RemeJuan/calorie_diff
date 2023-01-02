@@ -1,3 +1,7 @@
+## 1.3.0+3 - 2023-01-02
+### Fixed
+- updates to form validation and main screen styling
+
 ## 1.3.0+2 - 2023-01-01
 ### Fixed
 - minor updates to layout and widget displays
