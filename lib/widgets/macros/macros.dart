@@ -17,16 +17,6 @@ class CurrentMacros extends ConsumerWidget {
         return Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            const Center(
-              child: Text(
-                "Macros:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
