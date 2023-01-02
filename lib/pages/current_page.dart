@@ -15,8 +15,10 @@ class CurrentPage extends ConsumerWidget {
     return ListView(
       shrinkWrap: true,
       children: [
-        if (settings.macrosEnabled) const CurrentMacros(),
-        divider,
+        if (settings.macrosEnabled) ...[
+          const CurrentMacros(),
+          divider,
+        ],
         const CurrentCalories(),
         divider,
         const HistoricCalories(days: 3, showLoader: false),
