@@ -1,5 +1,4 @@
 import 'package:calorie_diff/providers/calories_providers.dart';
-import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,25 +10,12 @@ class CurrentCalories extends ConsumerWidget {
   @override
   Widget build(context, ref) {
     final healthData = ref.watch(healthCaloriesProvider);
-    final settings = ref.watch(settingsProvider);
 
     return healthData.when(
       data: (data) {
         return Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            if (settings.macrosEnabled) ...[
-              const Center(
-                child: Text(
-                  "Current Calories:",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-            ],
             DataCard(
               icon: const Icon(
                 Icons.difference,
