@@ -12,13 +12,40 @@ class SettingsMacros extends HookConsumerWidget {
     final settings = ref.watch(settingsProvider);
     final macros = settings.macros;
 
-    final carbController = TextEditingController(text: macros.carb.toString());
-    final fatController = TextEditingController(text: macros.fat.toString());
-    final proteinController = TextEditingController(
+    final carbController = useTextEditingController(
+      text: macros.carb.toString(),
+    );
+    final fatController = useTextEditingController(
+      text: macros.fat.toString(),
+    );
+    final proteinController = useTextEditingController(
       text: macros.protein.toString(),
     );
 
     final isEnabled = useState(settings.macrosEnabled);
+
+    final canSubmit = useState(false);
+
+    useEffect(() {
+      var c = double.parse(carbController.text);
+      var f = double.parse(fatController.text);
+      var p = double.parse(proteinController.text);
+
+      carbController.addListener(() {
+        c = double.parse(carbController.text);
+        canSubmit.value = c > 0 && f > 0 && p > 0;
+      });
+      fatController.addListener(() {
+        f = double.parse(fatController.text);
+        canSubmit.value = c > 0 && f > 0 && p > 0;
+      });
+      proteinController.addListener(() {
+        p = double.parse(proteinController.text);
+        canSubmit.value = c > 0 && f > 0 && p > 0;
+      });
+      
+      return null;
+    });
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -93,13 +120,16 @@ class SettingsMacros extends HookConsumerWidget {
         const SizedBox(height: 16),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.lightBlue,
+            backgroundColor: canSubmit.value ? Colors.lightBlue : Colors.grey,
             minimumSize: const Size.fromHeight(40),
           ),
           onPressed: () {
+            if (!canSubmit.value) return;
+
             final carb = carbController.text;
             final fat = fatController.text;
             final protein = proteinController.text;
+
             final updates = settings.copyWith(
               macrosEnabled: isEnabled.value,
               macros: settings.macros.copyWith(
