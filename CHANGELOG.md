@@ -1,3 +1,7 @@
+## 1.3.0+4 - 2023-01-02
+### Changed
+- updated the range selection for history view
+
 ## 1.3.0+3 - 2023-01-02
 ### Fixed
 - updates to form validation and main screen styling

@@ -17,7 +17,7 @@ class RangePicker extends HookConsumerWidget {
         isDense: true,
         dropdownColor: AppTheme.barColor,
         underline: const SizedBox.shrink(),
-        items: [7, 14, 30, 60, 90].map(_generateItem).toList(),
+        items: [7, 14, 30].map(_generateItem).toList(),
         onChanged: (value) {
           ref.read(selectedDaysProvider.notifier).state = value!;
         },
