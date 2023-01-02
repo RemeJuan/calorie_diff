@@ -17,7 +17,7 @@ void main() {
     await tester.pumpAndSettle();
     //assert
     expect(find.text("7 days"), findsOneWidget);
-    expect(find.byType(DropdownMenuItem<int>), findsNWidgets(5));
+    expect(find.byType(DropdownMenuItem<int>), findsNWidgets(3));
   });
 
   testWidgets('should update selected date range', (tester) async {
@@ -35,6 +35,6 @@ void main() {
     await tester.pumpAndSettle();
     //assert
     expect(find.text("14 days"), findsOneWidget);
-    expect(find.byType(DropdownMenuItem<int>), findsNWidgets(5));
+    expect(find.byType(DropdownMenuItem<int>), findsNWidgets(3));
   });
 }
