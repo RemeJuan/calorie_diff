@@ -16,11 +16,19 @@ class CurrentPage extends ConsumerWidget {
       shrinkWrap: true,
       children: [
         if (settings.macrosEnabled) const CurrentMacros(),
-        const SizedBox(height: 16),
+        divider,
         const CurrentCalories(),
-        if (!settings.macrosEnabled)
-          const HistoricCalories(days: 7, showLoader: false),
+        divider,
+        const HistoricCalories(days: 3, showLoader: false),
       ],
     );
   }
+
+  static final divider = Divider(
+    color: Colors.blueGrey[400],
+    indent: 32,
+    endIndent: 32,
+    thickness: 1,
+    height: 32,
+  );
 }
