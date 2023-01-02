@@ -30,22 +30,22 @@ class SettingsMacros extends HookConsumerWidget {
       var c = double.parse(carbController.text);
       var f = double.parse(fatController.text);
       var p = double.parse(proteinController.text);
+      final e = isEnabled.value;
 
       carbController.addListener(() {
         c = double.parse(carbController.text);
-        canSubmit.value = c > 0 && f > 0 && p > 0;
       });
       fatController.addListener(() {
         f = double.parse(fatController.text);
-        canSubmit.value = c > 0 && f > 0 && p > 0;
       });
       proteinController.addListener(() {
         p = double.parse(proteinController.text);
-        canSubmit.value = c > 0 && f > 0 && p > 0;
       });
-      
+
+      canSubmit.value = !e || c > 0 && f > 0 && p > 0;
+
       return null;
-    });
+    }, [carbController, fatController, proteinController, isEnabled]);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
