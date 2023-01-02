@@ -5,17 +5,10 @@ import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../mocks/core_mocks.dart';
 import '../../test_helpers.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-
-  late MockSharedPreferences mockSharedPreferences;
-
-  setUp(() {
-    mockSharedPreferences = MockSharedPreferences();
-  });
 
   testWidgets('should render only the toggle switch', (tester) async {
     await tester.pumpApp(

@@ -34,11 +34,11 @@ void ignoreOverflowErrors(
   FlutterErrorDetails details, {
   bool forceReport = false,
 }) {
-  bool ifIsOverflowError = false;
-  bool isUnableToLoadAsset = false;
+  var ifIsOverflowError = false;
+  var isUnableToLoadAsset = false;
 
   // Detect overflow error.
-  var exception = details.exception;
+  final exception = details.exception;
   if (exception is FlutterError) {
     ifIsOverflowError = !exception.diagnostics.any(
       (e) => e.value.toString().startsWith("A RenderFlex overflowed by"),
