@@ -59,7 +59,7 @@ class ProgressCard extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "$data",
+                    "${data.toInt()}",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.start,
                     style: const TextStyle(
@@ -69,7 +69,7 @@ class ProgressCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    " / ${target}g",
+                    " / ${target.toInt()}g",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.start,
                     style: const TextStyle(
@@ -83,7 +83,7 @@ class ProgressCard extends StatelessWidget {
             ],
           ),
           Text(
-            "Left: ${remaining}g",
+            "Left: ${remaining.toInt()}g",
             style: TextStyle(
               color: Colors.blueGrey[400],
               fontSize: 12,

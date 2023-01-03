@@ -13,13 +13,13 @@ class SettingsMacros extends HookConsumerWidget {
     final macros = settings.macros;
 
     final carbController = useTextEditingController(
-      text: macros.carb.toString(),
+      text: macros.carb.toInt().toString(),
     );
     final fatController = useTextEditingController(
-      text: macros.fat.toString(),
+      text: macros.fat.toInt().toString(),
     );
     final proteinController = useTextEditingController(
-      text: macros.protein.toString(),
+      text: macros.protein.toInt().toString(),
     );
 
     final isEnabled = useState(settings.macrosEnabled);
@@ -27,19 +27,19 @@ class SettingsMacros extends HookConsumerWidget {
     final canSubmit = useState(false);
 
     useEffect(() {
-      var c = double.parse(carbController.text);
-      var f = double.parse(fatController.text);
-      var p = double.parse(proteinController.text);
+      var c = int.parse(carbController.text);
+      var f = int.parse(fatController.text);
+      var p = int.parse(proteinController.text);
       final e = isEnabled.value;
 
       carbController.addListener(() {
-        c = double.parse(carbController.text);
+        c = int.parse(carbController.text);
       });
       fatController.addListener(() {
-        f = double.parse(fatController.text);
+        f = int.parse(fatController.text);
       });
       proteinController.addListener(() {
-        p = double.parse(proteinController.text);
+        p = int.parse(proteinController.text);
       });
 
       canSubmit.value = !e || c > 0 && f > 0 && p > 0;
