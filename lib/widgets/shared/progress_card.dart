@@ -18,7 +18,8 @@ class ProgressCard extends StatelessWidget {
   Widget build(context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final widgetSize = (screenWidth - 80) / 3;
-    final remaining = target - data < 0 ? 0 : target - data;
+    final remaining = target - data;
+    final prefix = remaining > 0 ? 'Left' : 'Over';
 
     return Container(
       margin: const EdgeInsets.only(right: 8, left: 8),
@@ -83,7 +84,7 @@ class ProgressCard extends StatelessWidget {
             ],
           ),
           Text(
-            "Left: ${remaining.toInt()}g",
+            "$prefix: ${remaining.toInt()}g".replaceAll("-", ""),
             style: TextStyle(
               color: Colors.blueGrey[400],
               fontSize: 12,
