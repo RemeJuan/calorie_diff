@@ -1,3 +1,7 @@
+## 1.3.1+2 - 2023-01-03
+### Added
+- show over when exceeding macros target
+
 ## 1.3.1+1 - 2023-01-03
 ### Fixed
 - rounded all values to whole numbers
