@@ -1,3 +1,9 @@
+## [1.3.2] - 2023-01-26
+### Changed
+- upgraded flutter version
+- enabled material 3
+- bundled fonts with package
+
 ## 1.3.1+2 - 2023-01-03
 ### Added
 - show over when exceeding macros target
@@ -49,3 +55,5 @@
 ## 1.1.0 - 2022-11-01
 ### Added
 - Added intro screen for better permission explination
+
+[1.3.2]: https://github.com/RemeJuan/calorie_diff/compare/1.3.1+2...1.3.2

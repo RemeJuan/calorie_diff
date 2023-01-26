@@ -42,6 +42,7 @@ void main() async {
             debugShowCheckedModeBanner: false,
             title: 'Calorie Diff',
             theme: themeData.copyWith(
+              useMaterial3: true,
               textTheme: GoogleFonts.poppinsTextTheme(themeData.textTheme),
               scaffoldBackgroundColor: const Color.fromRGBO(23, 31, 44, 1),
               appBarTheme: const AppBarTheme(
