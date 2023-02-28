@@ -1,3 +1,7 @@
+## [1.3.2+1] - 2023-02-28
+### Changed
+- core and package updates
+
 ## [1.3.2] - 2023-01-26
 ### Changed
 - upgraded flutter version
@@ -56,4 +60,5 @@
 ### Added
 - Added intro screen for better permission explination
 
+[1.3.2+1]: https://github.com/RemeJuan/calorie_diff/compare/1.3.2...1.3.2+1
 [1.3.2]: https://github.com/RemeJuan/calorie_diff/compare/1.3.1+2...1.3.2
