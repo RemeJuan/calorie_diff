@@ -1,4 +1,5 @@
 import 'package:calorie_diff/route_delegate.dart';
+import 'package:device_check/device_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -32,6 +33,12 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
+
+  final isSupported = await DeviceCheck.instance.isSupported();
+
+  if (isSupported) {
+    await DeviceCheck.instance.generateToken();
+  }
 
   runApp(
     RateMyAppBuilder(

@@ -1,4 +1,6 @@
 PODS:
+  - device_check (0.0.1):
+    - Flutter
   - device_info_plus (0.0.1):
     - Flutter
   - Firebase/Analytics (10.3.0):
@@ -120,6 +122,7 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
+  - device_check (from `.symlinks/plugins/device_check/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -145,6 +148,8 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
+  device_check:
+    :path: ".symlinks/plugins/device_check/ios"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   firebase_analytics:
@@ -165,6 +170,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_foundation/ios"
 
 SPEC CHECKSUMS:
+  device_check: adcb18c7fe1f400e313747a97e26c568d3bbb0b8
   device_info_plus: e5c5da33f982a436e103237c0c85f9031142abed
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
   firebase_analytics: 4f57c422c9c6225cd5ddd5fca28f92bde5fb21b5

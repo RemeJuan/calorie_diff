@@ -185,6 +185,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.4"
+  device_check:
+    dependency: "direct main"
+    description:
+      name: device_check
+      sha256: a76320121d37b30b1ea46533e1280fbde0cac69d653681fdab8756ec3661eb1f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   device_info_plus:
     dependency: transitive
     description:
