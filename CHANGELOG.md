@@ -1,3 +1,7 @@
+## [1.4.0] - 2023-03-05
+### Added
+- History rows can now be expanded to display that days macros
+
 ## [1.3.2+1] - 2023-02-28
 ### Changed
 - core and package updates
@@ -60,5 +64,6 @@
 ### Added
 - Added intro screen for better permission explination
 
+[1.4.0]: https://github.com/RemeJuan/calorie_diff/compare/1.3.2+1...1.4.0
 [1.3.2+1]: https://github.com/RemeJuan/calorie_diff/compare/1.3.2...1.3.2+1
 [1.3.2]: https://github.com/RemeJuan/calorie_diff/compare/1.3.1+2...1.3.2
