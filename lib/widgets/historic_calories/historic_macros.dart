@@ -18,7 +18,7 @@ class HistoricMacros extends ConsumerWidget {
     return healthData.when(
       data: (data) {
         return Container(
-          padding: const EdgeInsets.only(left: 8, right: 60),
+          padding: const EdgeInsets.only(left: 4, right: 60),
           child: Column(
             children: [
               HistoricMacroRow(
