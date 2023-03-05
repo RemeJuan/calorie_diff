@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>837997831291-h7g4kgajpa0c88v9kcntpu0008a681cl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.837997831291-h7g4kgajpa0c88v9kcntpu0008a681cl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD4s8imFh9RyhfTp2SkS93eNY68Tm7yxYM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>837997831291</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.calorie.diff</string>
+	<key>PROJECT_ID</key>
+	<string>calorie-diff</string>
+	<key>STORAGE_BUCKET</key>
+	<string>calorie-diff.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:837997831291:ios:b37760d639b47aa0576ede</string>
+</dict>
+</plist>
