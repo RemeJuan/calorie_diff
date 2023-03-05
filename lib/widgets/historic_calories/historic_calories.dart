@@ -72,7 +72,7 @@ class HistoricCalories extends HookConsumerWidget {
 
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: HistoricRow(entries: entry),
+                    child: HistoricRow(date: item.date, entries: entry),
                   );
                 },
               ),

@@ -40,7 +40,7 @@ void main() {
           ),
         ),
         healthMacrosProvider.overrideWith(
-          (_) => HealthMacrosModel(
+          (_, __) => HealthMacrosModel(
             date: ExtendedDateTime.current,
             carb: 20,
             fat: 20,
@@ -67,7 +67,7 @@ void main() {
       const CurrentMacros(),
       [
         settingsProvider.overrideWith((ref) => SettingsModel.initial()),
-        healthMacrosProvider.overrideWith((_) => throw Exception('error')),
+        healthMacrosProvider.overrideWith((_, __) => throw Exception('error')),
       ],
     );
 

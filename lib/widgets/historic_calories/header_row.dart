@@ -14,7 +14,7 @@ class HeaderRow extends ConsumerWidget {
       return Row(
         children: entries.map((e) {
           return Container(
-            width: width / entries.length,
+            width: (width - 40) / entries.length,
             alignment: Alignment.center,
             child: Text(
               e,

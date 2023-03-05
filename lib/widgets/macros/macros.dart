@@ -1,3 +1,4 @@
+import 'package:calorie_diff/core/extensions.dart';
 import 'package:calorie_diff/providers/macros_providers.dart';
 import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:calorie_diff/widgets/shared/progress_card.dart';
@@ -9,7 +10,10 @@ class CurrentMacros extends ConsumerWidget {
 
   @override
   Widget build(context, ref) {
-    final healthData = ref.watch(healthMacrosProvider);
+    final current = ExtendedDateTime.current;
+    final healthData = ref.watch(
+      healthMacrosProvider(DateTime(current.year, current.month, current.day)),
+    );
     final macros = ref.watch(settingsProvider.select((v) => v.macros));
 
     return healthData.when(

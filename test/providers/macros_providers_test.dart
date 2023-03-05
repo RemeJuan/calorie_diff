@@ -1,4 +1,3 @@
-import 'package:calorie_diff/core/extensions.dart';
 import 'package:calorie_diff/models/health_macros_model.dart';
 import 'package:calorie_diff/providers/health_providers.dart';
 import 'package:calorie_diff/providers/macros_providers.dart';
@@ -31,16 +30,14 @@ void main() {
         healthFactoryProvider.overrideWith((_) => mockHealthProvider),
       ],
     );
-
-    ExtendedDateTime.customTime = mockNow;
   });
 
   test('should return a HealthMacrosModel', () async {
     // arrange
     when(
       mockHealthProvider.getHealthDataFromTypes(
-        DateTime(mockNow.year, mockNow.month, mockNow.day),
-        mockNow,
+        DateTime(mockNow.year, mockNow.month, mockNow.day, 0, 0, 0),
+        DateTime(mockNow.year, mockNow.month, mockNow.day, 23, 59, 59),
         types,
       ),
     ).thenAnswer(
@@ -81,7 +78,7 @@ void main() {
       ],
     );
     // act
-    final result = await container.read(healthMacrosProvider.future);
+    final result = await container.read(healthMacrosProvider(mockNow).future);
     // assert
     expect(result, isA<HealthMacrosModel>());
     expect(
