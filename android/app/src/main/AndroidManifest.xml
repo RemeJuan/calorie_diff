@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.calorie.diff">
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <application
             android:label="calorie_diff"
             android:name="${applicationName}"

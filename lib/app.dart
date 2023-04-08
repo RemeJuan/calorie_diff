@@ -66,28 +66,30 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
         padding: const EdgeInsets.all(16),
         child: const LandingScreen(),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppTheme.barColor,
-        currentIndex: currentPage.value,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: AppTheme.blueGrey,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.today),
-            label: 'Current',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'Historic',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-        onTap: (index) {
-          ref.read(pageViewControllerProvider).jumpToPage(index);
-        },
+      bottomNavigationBar: SizedBox(
+        height: 120,
+        child: BottomNavigationBar(
+          enableFeedback: true,
+          backgroundColor: AppTheme.barColor,
+          currentIndex: currentPage.value,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: AppTheme.blueGrey,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.today),
+              label: 'Current',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.history),
+              label: 'Historic',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+          onTap: ref.read(pageViewControllerProvider).jumpToPage,
+        ),
       ),
     );
   }
