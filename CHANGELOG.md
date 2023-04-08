@@ -1,3 +1,7 @@
+## [1.4.1] - 2023-04-08
+### Changed
+- minor package and framework updates
+
 ## [1.4.0+1] - 2023-03-05
 ### Changed
 - only use expansion tile when macros are enabled
@@ -68,6 +72,7 @@
 ### Added
 - Added intro screen for better permission explination
 
+[1.4.1]: https://github.com/RemeJuan/calorie_diff/compare/1.4.0+1...1.4.1
 [1.4.0+1]: https://github.com/RemeJuan/calorie_diff/compare/1.4.0...1.4.0+1
 [1.4.0]: https://github.com/RemeJuan/calorie_diff/compare/1.3.2+1...1.4.0
 [1.3.2+1]: https://github.com/RemeJuan/calorie_diff/compare/1.3.2...1.3.2+1
