@@ -1,3 +1,7 @@
+## [1.5.2] - 2023-04-10
+### Added
+- Additional languages added
+
 ## [1.5.1] - 2023-04-10
 ### Fixed
 - removed forced german locale
@@ -80,6 +84,7 @@
 ### Added
 - Added intro screen for better permission explination
 
+[1.5.2]: https://github.com/RemeJuan/calorie_diff/compare/1.5.1...1.5.2
 [1.5.1]: https://github.com/RemeJuan/calorie_diff/compare/1.5.0...1.5.1
 [1.5.0]: https://github.com/RemeJuan/calorie_diff/compare/1.4.1...1.5.0
 [1.4.1]: https://github.com/RemeJuan/calorie_diff/compare/1.4.0+1...1.4.1
