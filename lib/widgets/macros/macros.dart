@@ -1,4 +1,5 @@
 import 'package:calorie_diff/core/extensions.dart';
+import 'package:calorie_diff/generated/l10n.dart';
 import 'package:calorie_diff/providers/macros_providers.dart';
 import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:calorie_diff/widgets/shared/progress_card.dart';
@@ -27,7 +28,7 @@ class CurrentMacros extends ConsumerWidget {
               children: [
                 Expanded(
                   child: ProgressCard(
-                    label: "Carbs",
+                    label: S.of(context).carbs,
                     data: data.carb,
                     target: macros.carb,
                     color: Colors.orange,
@@ -35,7 +36,7 @@ class CurrentMacros extends ConsumerWidget {
                 ),
                 Expanded(
                   child: ProgressCard(
-                    label: "Fats",
+                    label: S.of(context).fats,
                     data: data.fat,
                     target: macros.fat,
                     color: Colors.lightGreen,
@@ -43,7 +44,7 @@ class CurrentMacros extends ConsumerWidget {
                 ),
                 Expanded(
                   child: ProgressCard(
-                    label: "Protein",
+                    label: S.of(context).protein,
                     data: data.protein,
                     target: macros.protein,
                     color: Colors.lightBlueAccent,

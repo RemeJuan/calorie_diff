@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 class HistoricMacroRow extends StatelessWidget {
   final String label;
   final num data;
@@ -37,7 +39,7 @@ class HistoricMacroRow extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         Text(
-          "of",
+          S.of(context).historic_macro,
           style: TextStyle(
             color: Colors.blueGrey[400],
             fontSize: 14,

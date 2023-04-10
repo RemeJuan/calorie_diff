@@ -2,6 +2,7 @@ import 'package:calorie_diff/providers/calories_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../generated/l10n.dart';
 import '../shared/data_card.dart';
 
 class CurrentCalories extends ConsumerWidget {
@@ -22,7 +23,7 @@ class CurrentCalories extends ConsumerWidget {
                 color: Colors.lightBlueAccent,
                 size: 26,
               ),
-              label: "Difference",
+              label: S.of(context).difference,
               data: data.difference,
             ),
             const SizedBox(height: 16),
@@ -37,7 +38,7 @@ class CurrentCalories extends ConsumerWidget {
                       color: Colors.orange,
                       size: 30,
                     ),
-                    label: "Out",
+                    label: S.of(context).current_out,
                     data: data.burned,
                   ),
                 ),
@@ -48,7 +49,7 @@ class CurrentCalories extends ConsumerWidget {
                       color: Colors.lightGreen,
                       size: 26,
                     ),
-                    label: "In",
+                    label: S.of(context).current_in,
                     data: data.consumed,
                   ),
                 )

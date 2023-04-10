@@ -3,6 +3,8 @@ import 'package:calorie_diff/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../generated/l10n.dart';
+
 class RangePicker extends HookConsumerWidget {
   final int selectedValue;
 
@@ -17,7 +19,7 @@ class RangePicker extends HookConsumerWidget {
         isDense: true,
         dropdownColor: AppTheme.barColor,
         underline: const SizedBox.shrink(),
-        items: [7, 14, 30].map(_generateItem).toList(),
+        items: [7, 14, 30].map((i) => _generateItem(context, i)).toList(),
         onChanged: (value) {
           ref.read(selectedDaysProvider.notifier).state = value!;
         },
@@ -26,10 +28,10 @@ class RangePicker extends HookConsumerWidget {
     );
   }
 
-  DropdownMenuItem<int> _generateItem(int value) {
+  DropdownMenuItem<int> _generateItem(BuildContext context, int value) {
     return DropdownMenuItem(
       value: value,
-      child: Text('$value days'),
+      child: Text(S.of(context).days_select(value)),
     );
   }
 }

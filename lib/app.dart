@@ -3,8 +3,10 @@ import 'package:calorie_diff/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:localizely_sdk/localizely_sdk.dart';
 
 import 'core/core_providers.dart';
+import 'generated/l10n.dart';
 import 'landing_screen.dart';
 import 'providers/calories_providers.dart';
 
@@ -25,6 +27,8 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    S.load(const Locale("de"));
+    Localizely.updateTranslations();
   }
 
   @override
@@ -49,7 +53,7 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Calorie Diff'),
+        title: Text(S.of(context).title),
         leading: IconButton(
           onPressed: () => _showAboutDialog(context),
           icon: const Icon(Icons.info_outline),
@@ -74,18 +78,18 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
           currentIndex: currentPage.value,
           selectedItemColor: Colors.white,
           unselectedItemColor: AppTheme.blueGrey,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.today),
-              label: 'Current',
+              icon: const Icon(Icons.today),
+              label: S.of(context).tab_current,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'Historic',
+              icon: const Icon(Icons.history),
+              label: S.of(context).tab_historic,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
+              icon: const Icon(Icons.settings),
+              label: S.of(context).tab_settings,
             ),
           ],
           onTap: ref.read(pageViewControllerProvider).jumpToPage,

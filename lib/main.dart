@@ -5,13 +5,16 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:localizely_sdk/localizely_sdk.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/core_providers.dart';
 import 'firebase_options.dart';
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +22,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  Localizely.init(
+    '3b89cc02678d488dbdddc9c8cef9bded8ba2fdc6',
+    'e1c03b8d4796462296f329034cc5d7bb',
+  ); // Init sdk
 
   final themeData = ThemeData(brightness: Brightness.dark);
   final prefs = await SharedPreferences.getInstance();
@@ -61,7 +69,14 @@ void main() async {
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Calorie Diff',
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: "Calorie Diff",
             theme: themeData.copyWith(
               useMaterial3: true,
               textTheme: GoogleFonts.poppinsTextTheme(themeData.textTheme),

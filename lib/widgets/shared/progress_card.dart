@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 class ProgressCard extends StatelessWidget {
   final String label;
   final num data;
@@ -19,7 +21,9 @@ class ProgressCard extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final widgetSize = (screenWidth - 80) / 3;
     final remaining = target - data;
-    final prefix = remaining > 0 ? 'Left' : 'Over';
+    final prefix = remaining > 0
+        ? S.of(context).macro_prefix_left
+        : S.of(context).macro_prefix_over;
 
     return Container(
       margin: const EdgeInsets.only(right: 8, left: 8),

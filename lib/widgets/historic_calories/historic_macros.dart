@@ -3,6 +3,7 @@ import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../generated/l10n.dart';
 import 'historic_macro_row.dart';
 
 class HistoricMacros extends ConsumerWidget {
@@ -22,19 +23,19 @@ class HistoricMacros extends ConsumerWidget {
           child: Column(
             children: [
               HistoricMacroRow(
-                label: "Carbs",
+                label: S.of(context).carbs,
                 data: data.carb,
                 target: macros.carb,
               ),
               divider,
               HistoricMacroRow(
-                label: "Fat",
+                label: S.of(context).fats,
                 data: data.fat,
                 target: macros.fat,
               ),
               divider,
               HistoricMacroRow(
-                label: "Protein",
+                label: S.of(context).protein,
                 data: data.protein,
                 target: macros.protein,
               ),

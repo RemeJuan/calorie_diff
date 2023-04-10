@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../generated/l10n.dart';
 import 'header_row.dart';
 import 'historic_row.dart';
 
@@ -32,7 +33,7 @@ class HistoricCalories extends HookConsumerWidget {
           child: Column(
             children: [
               Text(
-                "Past $days Days",
+                S.of(context).past_days(days),
                 style: TextStyle(
                   color: Colors.blueGrey[300],
                   fontSize: 16,
@@ -45,11 +46,11 @@ class HistoricCalories extends HookConsumerWidget {
                 thickness: 1,
                 height: 16,
               ),
-              const HeaderRow(entries: [
-                'Date',
-                'Out',
-                'In',
-                'Diff',
+              HeaderRow(entries: [
+                S.of(context).header_date,
+                S.of(context).header_out,
+                S.of(context).header_in,
+                S.of(context).header_diff,
               ]),
               Divider(
                 color: Colors.blueGrey[600],
@@ -86,10 +87,10 @@ class HistoricCalories extends HookConsumerWidget {
               child: Center(
                 key: const Key("loading"),
                 child: Column(
-                  children: const [
-                    Text("Calculating data..."),
-                    SizedBox(height: 16),
-                    Text("This may take a while for larger data sets"),
+                  children: [
+                    Text(S.of(context).historic_calc),
+                    const SizedBox(height: 16),
+                    Text(S.of(context).historic_info),
                   ],
                 ),
               ),

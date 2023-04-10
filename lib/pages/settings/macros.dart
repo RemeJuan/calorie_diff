@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../generated/l10n.dart';
+
 class SettingsMacros extends HookConsumerWidget {
   const SettingsMacros({Key? key}) : super(key: key);
 
@@ -53,7 +55,7 @@ class SettingsMacros extends HookConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text("Enable Macros"),
+            Text(S.of(context).settings_enable_macros),
             Switch(
               value: isEnabled.value,
               activeColor: Colors.lightBlue,
@@ -77,9 +79,9 @@ class SettingsMacros extends HookConsumerWidget {
                     child: TextFormField(
                       controller: carbController,
                       onTap: carbController.selectAll,
-                      decoration: const InputDecoration(
-                        labelText: "Carb",
-                        contentPadding: EdgeInsets.all(8),
+                      decoration: InputDecoration(
+                        labelText: S.of(context).carbs,
+                        contentPadding: const EdgeInsets.all(8),
                         suffixText: "g",
                       ),
                       keyboardType: TextInputType.number,
@@ -90,9 +92,9 @@ class SettingsMacros extends HookConsumerWidget {
                     child: TextFormField(
                       controller: fatController,
                       onTap: fatController.selectAll,
-                      decoration: const InputDecoration(
-                        labelText: "Fat",
-                        contentPadding: EdgeInsets.all(8),
+                      decoration: InputDecoration(
+                        labelText: S.of(context).fats,
+                        contentPadding: const EdgeInsets.all(8),
                         suffixText: "g",
                       ),
                       keyboardType: TextInputType.number,
@@ -103,9 +105,9 @@ class SettingsMacros extends HookConsumerWidget {
                     child: TextFormField(
                       controller: proteinController,
                       onTap: proteinController.selectAll,
-                      decoration: const InputDecoration(
-                        labelText: "Protein",
-                        contentPadding: EdgeInsets.all(8),
+                      decoration: InputDecoration(
+                        labelText: S.of(context).protein,
+                        contentPadding: const EdgeInsets.all(8),
                         suffixText: "g",
                       ),
                       keyboardType: TextInputType.number,
@@ -141,9 +143,9 @@ class SettingsMacros extends HookConsumerWidget {
             FocusScope.of(context).unfocus();
             return ref.refresh(updateSettingsProvider(updates));
           },
-          child: const Text(
-            "Save",
-            style: TextStyle(
+          child: Text(
+            S.of(context).settings_save,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.bold,
