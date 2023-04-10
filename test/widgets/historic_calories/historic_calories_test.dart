@@ -76,7 +76,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text("Past 7 Days"), findsOneWidget);
+      expect(find.text("Past 7 days"), findsOneWidget);
       expect(find.byType(HeaderRow), findsOneWidget);
       expect(find.byType(HistoricRow), findsOneWidget);
 

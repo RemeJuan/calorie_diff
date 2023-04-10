@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:calorie_diff/providers/macros_providers.dart';
 import 'package:calorie_diff/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +29,9 @@ class _CalorieDiffAppState extends ConsumerState<CalorieDiffApp>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    S.load(const Locale("de"));
-    Localizely.updateTranslations();
+    if (!Platform.environment.containsKey('FLUTTER_TEST')) {
+      Localizely.updateTranslations();
+    }
   }
 
   @override

@@ -20,7 +20,7 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text("Enable Macros"), findsOneWidget);
+    expect(find.text("Enable macros"), findsOneWidget);
     expect(find.byKey(const ValueKey("macros")), findsNothing);
   });
 
@@ -37,11 +37,11 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text("Enable Macros"), findsOneWidget);
+    expect(find.text("Enable macros"), findsOneWidget);
     expect(find.byKey(const ValueKey("macros")), findsOneWidget);
-    expect(find.text("Carb"), findsOneWidget);
+    expect(find.text("Carbs"), findsOneWidget);
     expect(find.text("Protein"), findsOneWidget);
-    expect(find.text("Fat"), findsOneWidget);
+    expect(find.text("Fats"), findsOneWidget);
   });
 
   testWidgets('should render trigger update method', (tester) async {
@@ -59,7 +59,7 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text("Enable Macros"), findsOneWidget);
+    expect(find.text("Enable macros"), findsOneWidget);
     expect(find.byKey(const ValueKey("macros")), findsOneWidget);
 
     await tester.tap(find.byType(ElevatedButton));
@@ -81,7 +81,7 @@ void main() {
 
     await tester.pumpAndSettle();
 
-    expect(find.text("Enable Macros"), findsOneWidget);
+    expect(find.text("Enable macros"), findsOneWidget);
     expect(find.byKey(const ValueKey("macros")), findsOneWidget);
 
     await tester.tap(find.byType(Switch));
