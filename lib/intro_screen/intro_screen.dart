@@ -32,11 +32,11 @@ class IntroScreen extends ConsumerWidget {
             return SingleChildScrollView(
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-                child: IntrinsicWidth(
+                child: const IntrinsicWidth(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         "In order to be able to calculate your calorie differences and display you macros, Calorie Diff requires access to the following Health permission:.",
                         textAlign: TextAlign.center,

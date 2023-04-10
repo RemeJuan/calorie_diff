@@ -83,10 +83,10 @@ class HistoricCalories extends HookConsumerWidget {
       loading: () => showLoader
           ? Container(
               padding: const EdgeInsets.all(16),
-              child: Center(
-                key: const Key("loading"),
+              child: const Center(
+                key: Key("loading"),
                 child: Column(
-                  children: const [
+                  children: [
                     Text("Calculating data..."),
                     SizedBox(height: 16),
                     Text("This may take a while for larger data sets"),
