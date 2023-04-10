@@ -1,3 +1,7 @@
+## [1.5.0] - 2023-04-10
+### Added
+- Added localization support (i10n)
+
 ## [1.4.1] - 2023-04-08
 ### Changed
 - minor package and framework updates
@@ -72,6 +76,7 @@
 ### Added
 - Added intro screen for better permission explination
 
+[1.5.0]: https://github.com/RemeJuan/calorie_diff/compare/1.4.1...1.5.0
 [1.4.1]: https://github.com/RemeJuan/calorie_diff/compare/1.4.0+1...1.4.1
 [1.4.0+1]: https://github.com/RemeJuan/calorie_diff/compare/1.4.0...1.4.0+1
 [1.4.0]: https://github.com/RemeJuan/calorie_diff/compare/1.3.2+1...1.4.0
