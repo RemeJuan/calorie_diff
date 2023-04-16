@@ -7,7 +7,7 @@
 
 ## Links
 
- [Website](https://caloriediff.app) | [AppStore](https://apps.apple.com/za/app/calorie-diff/id6444097631)
+[Website](https://caloriediff.app) | [AppStore](https://apps.apple.com/za/app/calorie-diff/id6444097631)
 
 ## Backstory
 
@@ -21,6 +21,42 @@ I simply wanted a quick glance at my caloric status, am I in deficit or surplus.
 
 This app, while probably an over engineered solution, deals with that, it takes in teh Active, Resting and Dietary
 energy from AppleHealth and does just that, displays you intake, your output and the difference.
+
+## Localizations
+
+With the help of [localizely](https://localizely.com), and their
+fantastic [guide](https://localizely.com/blog/flutter-localization-step-by-step/) for usage with flutter, this app is
+available in the following languages:
+
+* English
+* German
+* Spanish
+* Hindi
+* Arabic
+* Portuguese
+* French
+* Russian
+* Japanese
+* Korean
+* Malay
+* Vietnamese
+* Turkish
+* Tamil
+* Italian
+* Polish
+* Ukrainian
+* Romanian
+* Dutch
+* Thai
+* Hungarian
+* Czech
+* Swedish
+* Hebrew
+* Slovak
+* Danish
+* Finnish
+* Norwegian
+* Chinese (Simplified)
 
 <br/>
 
