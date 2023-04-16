@@ -32,7 +32,7 @@ jobs:
         with:
           # which timezone you want to use
           timezone: Africa/Johannesburg
-  
+
       - name: Install Dependencies
         run: flutter packages get
 
@@ -47,4 +47,6 @@ jobs:
       - uses: VeryGoodOpenSource/very_good_coverage@v1
         with:
           path: './coverage/lcov.info'
+          # exclude generated locatlization files
+          exclude: 'lib/generated/**/*.dart'
           min_coverage: 75
