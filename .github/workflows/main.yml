@@ -39,6 +39,9 @@ jobs:
       - name: Run tests
         run: flutter test test --no-pub --test-randomize-ordering-seed random --coverage
 
+      - name: Prep Coverage
+        run: lcov --remove coverage/lcov.info 'lib/generated/*' -o coverage/lcov.info
+
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
