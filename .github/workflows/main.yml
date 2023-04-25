@@ -23,7 +23,7 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: ${{ env.FLUTTER_CHANNEL }}
 
-      - uses: actions/cache@v1
+      - uses: actions/cache@v3
         with:
           path: ${{ matrix.flutter_path }}
           key: ${{ runner.os }}-flutter-install-cache-${{ env.FLUTTER_VERSION }}
@@ -39,8 +39,11 @@ jobs:
       - name: Run tests
         run: flutter test test --no-pub --test-randomize-ordering-seed random --coverage
 
-      - name: Prep Coverage
-        run: lcov --remove coverage/lcov.info 'lib/generated/*' -o coverage/lcov.info
+      - name: Install lcov
+        run: sudo apt-get install lcov
+
+      - name: Remove generated files from coverage
+        run: lcov --remove coverage/lcov.info 'lib/generated/*' 'lib/*/*.freezed.dart' 'lib/*/*.g.dart' -o coverage/lcov.info
 
       - uses: codecov/codecov-action@v3
         with:
