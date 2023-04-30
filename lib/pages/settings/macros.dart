@@ -1,5 +1,5 @@
-import 'package:calorie_diff/core/extensions.dart';
 import 'package:calorie_diff/providers/settings_providers.dart';
+import 'package:calorie_diff/shared/widgets/numeric_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -14,40 +14,23 @@ class SettingsMacros extends HookConsumerWidget {
     final settings = ref.watch(settingsProvider);
     final macros = settings.macros;
 
-    final carbController = useTextEditingController(
-      text: macros.carb.toInt().toString(),
-    );
-    final fatController = useTextEditingController(
-      text: macros.fat.toInt().toString(),
-    );
-    final proteinController = useTextEditingController(
-      text: macros.protein.toInt().toString(),
-    );
-
     final isEnabled = useState(settings.macrosEnabled);
+    final carbs = useState(macros.carb.toInt().toString());
+    final fats = useState(macros.fat.toInt().toString());
+    final protein = useState(macros.protein.toInt().toString());
 
     final canSubmit = useState(false);
 
     useEffect(() {
-      var c = int.parse(carbController.text);
-      var f = int.parse(fatController.text);
-      var p = int.parse(proteinController.text);
+      final c = int.parse(carbs.value);
+      final f = int.parse(fats.value);
+      final p = int.parse(protein.value);
       final e = isEnabled.value;
-
-      carbController.addListener(() {
-        c = int.parse(carbController.text);
-      });
-      fatController.addListener(() {
-        f = int.parse(fatController.text);
-      });
-      proteinController.addListener(() {
-        p = int.parse(proteinController.text);
-      });
 
       canSubmit.value = !e || c > 0 && f > 0 && p > 0;
 
       return null;
-    }, [carbController, fatController, proteinController, isEnabled]);
+    }, [carbs, fats, protein, isEnabled]);
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -76,41 +59,35 @@ class SettingsMacros extends HookConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: TextFormField(
-                      controller: carbController,
-                      onTap: carbController.selectAll,
-                      decoration: InputDecoration(
-                        labelText: S.of(context).carbs,
-                        contentPadding: const EdgeInsets.all(8),
-                        suffixText: "g",
-                      ),
-                      keyboardType: TextInputType.number,
+                    child: NumericInputField(
+                      initialValue: macros.carb.toInt().toString(),
+                      label: S.of(context).carbs,
+                      suffixText: "g",
+                      callback: (String value) {
+                        carbs.value = value;
+                      },
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: TextFormField(
-                      controller: fatController,
-                      onTap: fatController.selectAll,
-                      decoration: InputDecoration(
-                        labelText: S.of(context).fats,
-                        contentPadding: const EdgeInsets.all(8),
-                        suffixText: "g",
-                      ),
-                      keyboardType: TextInputType.number,
+                    child: NumericInputField(
+                      initialValue: macros.fat.toInt().toString(),
+                      label: S.of(context).fats,
+                      suffixText: "g",
+                      callback: (String value) {
+                        fats.value = value;
+                      },
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: TextFormField(
-                      controller: proteinController,
-                      onTap: proteinController.selectAll,
-                      decoration: InputDecoration(
-                        labelText: S.of(context).protein,
-                        contentPadding: const EdgeInsets.all(8),
-                        suffixText: "g",
-                      ),
-                      keyboardType: TextInputType.number,
+                    child: NumericInputField(
+                      initialValue: macros.protein.toInt().toString(),
+                      label: S.of(context).protein,
+                      suffixText: "g",
+                      callback: (String value) {
+                        protein.value = value;
+                      },
                     ),
                   ),
                 ],
@@ -128,16 +105,12 @@ class SettingsMacros extends HookConsumerWidget {
           onPressed: () {
             if (!canSubmit.value) return;
 
-            final carb = carbController.text;
-            final fat = fatController.text;
-            final protein = proteinController.text;
-
             final updates = settings.copyWith(
               macrosEnabled: isEnabled.value,
               macros: settings.macros.copyWith(
-                carb: double.parse(carb),
-                fat: double.parse(fat),
-                protein: double.parse(protein),
+                carb: double.parse(carbs.value),
+                fat: double.parse(fats.value),
+                protein: double.parse(protein.value),
               ),
             );
             FocusScope.of(context).unfocus();
