@@ -27,8 +27,6 @@ void main() async {
     '3b89cc02678d488dbdddc9c8cef9bded8ba2fdc6',
     'e1c03b8d4796462296f329034cc5d7bb',
   ); // Init sdk
-
-  final themeData = ThemeData(brightness: Brightness.dark);
   final prefs = await SharedPreferences.getInstance();
 
   SystemChrome.setPreferredOrientations([
@@ -50,13 +48,7 @@ void main() async {
 
   runApp(
     RateMyAppBuilder(
-      rateMyApp: RateMyApp(
-        minDays: 3,
-        minLaunches: 7,
-        remindDays: 2,
-        remindLaunches: 5,
-        appStoreIdentifier: 'com.calorie.diff',
-      ),
+      rateMyApp: _rateConfig,
       onInitialized: (context, rateMyApp) {
         if (rateMyApp.shouldOpenDialog) {
           rateMyApp.showRateDialog(context);
@@ -67,29 +59,51 @@ void main() async {
           overrides: [
             sharedPreferencesProvider.overrideWithValue(prefs),
           ],
-          child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            title: "Calorie Diff",
-            theme: themeData.copyWith(
-              useMaterial3: true,
-              textTheme: GoogleFonts.poppinsTextTheme(themeData.textTheme),
-              scaffoldBackgroundColor: const Color.fromRGBO(23, 31, 44, 1),
-              appBarTheme: const AppBarTheme(
-                backgroundColor: Color.fromRGBO(23, 31, 44, 1),
-                elevation: 0,
-              ),
-            ),
-            home: const RouteDelegate(),
-          ),
+          child: const App(),
         );
       },
+    ),
+  );
+}
+
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      title: "Calorie Diff",
+      theme: _theme(),
+      home: const RouteDelegate(),
+    );
+  }
+}
+
+RateMyApp _rateConfig = RateMyApp(
+  minDays: 3,
+  minLaunches: 7,
+  remindDays: 2,
+  remindLaunches: 5,
+  appStoreIdentifier: 'com.calorie.diff',
+);
+
+ThemeData _theme() {
+  final themeData = ThemeData(brightness: Brightness.dark);
+  return themeData.copyWith(
+    useMaterial3: true,
+    textTheme: GoogleFonts.poppinsTextTheme(themeData.textTheme),
+    scaffoldBackgroundColor: const Color.fromRGBO(23, 31, 44, 1),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color.fromRGBO(23, 31, 44, 1),
+      elevation: 0,
     ),
   );
 }
