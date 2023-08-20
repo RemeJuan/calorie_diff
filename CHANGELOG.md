@@ -6,6 +6,10 @@
 ### Fixed
 - removed forced german locale
 
+## [1.5.1+2] - 2023-08-20
+### Fixed
+- flutter/package upgrade
+
 ## [1.5.1+1] - 2023-04-25
 ### Fixed
 - fixed actions script
@@ -96,6 +100,7 @@
 ### Added
 - Added intro screen for better permission explination
 
+[1.5.1+2]: https://github.com/RemeJuan/calorie_diff/compare/1.5.1+1...1.5.1+2
 [1.5.1+1]: https://github.com/RemeJuan/calorie_diff/compare/1.5.1...1.5.1+1
 [1.5.1]: https://github.com/RemeJuan/calorie_diff/compare/1.5.0+3...1.5.1
 [1.5.0+3]: https://github.com/RemeJuan/calorie_diff/compare/1.5.0...1.5.0+3
