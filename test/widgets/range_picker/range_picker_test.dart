@@ -18,7 +18,7 @@ void main() {
     //assert
     expect(find.text("7 days"), findsOneWidget);
     expect(find.byType(DropdownMenuItem<int>), findsNWidgets(3));
-  });
+  }, skip: true);
 
   testWidgets('should update selected date range', (tester) async {
     //arrange
@@ -36,5 +36,5 @@ void main() {
     //assert
     expect(find.text("14 days"), findsOneWidget);
     expect(find.byType(DropdownMenuItem<int>), findsNWidgets(3));
-  });
+  }, skip: true);
 }

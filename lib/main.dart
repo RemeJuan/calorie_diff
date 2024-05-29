@@ -10,7 +10,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localizely_sdk/localizely_sdk.dart';
 import 'package:rate_my_app/rate_my_app.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/core_providers.dart';
 import 'firebase_options.dart';
@@ -98,7 +97,6 @@ RateMyApp _rateConfig = RateMyApp(
 ThemeData _theme() {
   final themeData = ThemeData(brightness: Brightness.dark);
   return themeData.copyWith(
-    useMaterial3: true,
     textTheme: GoogleFonts.poppinsTextTheme(themeData.textTheme),
     scaffoldBackgroundColor: const Color.fromRGBO(23, 31, 44, 1),
     appBarTheme: const AppBarTheme(

@@ -12,7 +12,7 @@ part of 'health_macros_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 HealthMacrosModel _$HealthMacrosModelFromJson(Map<String, dynamic> json) {
   return _HealthMacrosModel.fromJson(json);
@@ -80,22 +80,22 @@ class _$HealthMacrosModelCopyWithImpl<$Res, $Val extends HealthMacrosModel>
 }
 
 /// @nodoc
-abstract class _$$_HealthMacrosModelCopyWith<$Res>
+abstract class _$$HealthMacrosModelImplCopyWith<$Res>
     implements $HealthMacrosModelCopyWith<$Res> {
-  factory _$$_HealthMacrosModelCopyWith(_$_HealthMacrosModel value,
-          $Res Function(_$_HealthMacrosModel) then) =
-      __$$_HealthMacrosModelCopyWithImpl<$Res>;
+  factory _$$HealthMacrosModelImplCopyWith(_$HealthMacrosModelImpl value,
+          $Res Function(_$HealthMacrosModelImpl) then) =
+      __$$HealthMacrosModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DateTime date, double carb, double fat, double protein});
 }
 
 /// @nodoc
-class __$$_HealthMacrosModelCopyWithImpl<$Res>
-    extends _$HealthMacrosModelCopyWithImpl<$Res, _$_HealthMacrosModel>
-    implements _$$_HealthMacrosModelCopyWith<$Res> {
-  __$$_HealthMacrosModelCopyWithImpl(
-      _$_HealthMacrosModel _value, $Res Function(_$_HealthMacrosModel) _then)
+class __$$HealthMacrosModelImplCopyWithImpl<$Res>
+    extends _$HealthMacrosModelCopyWithImpl<$Res, _$HealthMacrosModelImpl>
+    implements _$$HealthMacrosModelImplCopyWith<$Res> {
+  __$$HealthMacrosModelImplCopyWithImpl(_$HealthMacrosModelImpl _value,
+      $Res Function(_$HealthMacrosModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_HealthMacrosModelCopyWithImpl<$Res>
     Object? fat = null,
     Object? protein = null,
   }) {
-    return _then(_$_HealthMacrosModel(
+    return _then(_$HealthMacrosModelImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -129,16 +129,16 @@ class __$$_HealthMacrosModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HealthMacrosModel extends _HealthMacrosModel {
-  const _$_HealthMacrosModel(
+class _$HealthMacrosModelImpl extends _HealthMacrosModel {
+  const _$HealthMacrosModelImpl(
       {required this.date,
       required this.carb,
       required this.fat,
       required this.protein})
       : super._();
 
-  factory _$_HealthMacrosModel.fromJson(Map<String, dynamic> json) =>
-      _$$_HealthMacrosModelFromJson(json);
+  factory _$HealthMacrosModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HealthMacrosModelImplFromJson(json);
 
   @override
   final DateTime date;
@@ -155,10 +155,10 @@ class _$_HealthMacrosModel extends _HealthMacrosModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HealthMacrosModel &&
+            other is _$HealthMacrosModelImpl &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.carb, carb) || other.carb == carb) &&
             (identical(other.fat, fat) || other.fat == fat) &&
@@ -172,13 +172,13 @@ class _$_HealthMacrosModel extends _HealthMacrosModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HealthMacrosModelCopyWith<_$_HealthMacrosModel> get copyWith =>
-      __$$_HealthMacrosModelCopyWithImpl<_$_HealthMacrosModel>(
+  _$$HealthMacrosModelImplCopyWith<_$HealthMacrosModelImpl> get copyWith =>
+      __$$HealthMacrosModelImplCopyWithImpl<_$HealthMacrosModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HealthMacrosModelToJson(
+    return _$$HealthMacrosModelImplToJson(
       this,
     );
   }
@@ -189,11 +189,11 @@ abstract class _HealthMacrosModel extends HealthMacrosModel {
       {required final DateTime date,
       required final double carb,
       required final double fat,
-      required final double protein}) = _$_HealthMacrosModel;
+      required final double protein}) = _$HealthMacrosModelImpl;
   const _HealthMacrosModel._() : super._();
 
   factory _HealthMacrosModel.fromJson(Map<String, dynamic> json) =
-      _$_HealthMacrosModel.fromJson;
+      _$HealthMacrosModelImpl.fromJson;
 
   @override
   DateTime get date;
@@ -205,6 +205,6 @@ abstract class _HealthMacrosModel extends HealthMacrosModel {
   double get protein;
   @override
   @JsonKey(ignore: true)
-  _$$_HealthMacrosModelCopyWith<_$_HealthMacrosModel> get copyWith =>
+  _$$HealthMacrosModelImplCopyWith<_$HealthMacrosModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

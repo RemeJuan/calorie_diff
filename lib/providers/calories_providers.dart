@@ -12,12 +12,12 @@ final healthCaloriesProvider = FutureProvider<HealthCaloriesModel>((ref) async {
   final types = ref.read(healthDataTypesProvider);
 
   final data = await health.getHealthDataFromTypes(
-    DateTime(now.year, now.month, now.day),
-    now,
-    types,
+    types: types,
+    startTime: DateTime(now.year, now.month, now.day),
+    endTime: now,
   );
 
-  final clean = HealthFactory.removeDuplicates(data);
+  final clean = Health().removeDuplicates(data);
   final active = HealthUtils.prepareDataEntry(
     clean,
     HealthDataType.ACTIVE_ENERGY_BURNED,
@@ -52,12 +52,12 @@ final historicHealthDataProvider =
   final types = ref.read(healthDataTypesProvider);
 
   final data = await health.getHealthDataFromTypes(
-    DateTime(start.year, start.month, start.day),
-    end,
-    types,
+    startTime: DateTime(start.year, start.month, start.day),
+    endTime: end,
+    types: types,
   );
 
-  final clean = HealthFactory.removeDuplicates(data);
+  final clean = Health().removeDuplicates(data);
   final dates = HealthUtils.getDates(clean);
 
   return dates.map((date) {

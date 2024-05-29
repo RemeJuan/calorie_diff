@@ -7,27 +7,27 @@ void main() {
     test('should return the prepared data', () async {
       //arrange
       final activeEnergyDataPoint = HealthDataPoint(
-        NumericHealthValue(1),
-        HealthDataType.ACTIVE_ENERGY_BURNED,
-        HealthDataUnit.KILOCALORIE,
-        DateTime.now(),
-        DateTime.now(),
-        PlatformType.IOS,
-        "_deviceId",
-        "_sourceId",
-        "_sourceName",
+        value: NumericHealthValue(numericValue: 1),
+        type: HealthDataType.ACTIVE_ENERGY_BURNED,
+        unit: HealthDataUnit.KILOCALORIE,
+        dateFrom: DateTime.now(),
+        dateTo: DateTime.now(),
+        sourcePlatform: HealthPlatformType.appleHealth,
+        sourceDeviceId: "_deviceId",
+        sourceId: "_sourceId",
+        sourceName: "_sourceName",
       );
 
       final basalEnergyDataPoint = HealthDataPoint(
-        NumericHealthValue(1),
-        HealthDataType.BASAL_ENERGY_BURNED,
-        HealthDataUnit.KILOCALORIE,
-        DateTime.now(),
-        DateTime.now(),
-        PlatformType.IOS,
-        "_deviceId",
-        "_sourceId",
-        "_sourceName",
+        value: NumericHealthValue(numericValue: 1),
+        type: HealthDataType.BASAL_ENERGY_BURNED,
+        unit: HealthDataUnit.KILOCALORIE,
+        dateFrom: DateTime.now(),
+        dateTo: DateTime.now(),
+        sourcePlatform: HealthPlatformType.appleHealth,
+        sourceDeviceId: "_deviceId",
+        sourceId: "_sourceId",
+        sourceName: "_sourceName",
       );
       final data = [
         activeEnergyDataPoint,
@@ -47,27 +47,27 @@ void main() {
   test('should return unique list of data from data', () async {
     //arrange
     final activeEnergyDataPoint = HealthDataPoint(
-      NumericHealthValue(1),
-      HealthDataType.ACTIVE_ENERGY_BURNED,
-      HealthDataUnit.KILOCALORIE,
-      DateTime(2022, 1, 1, 1, 1, 1),
-      DateTime(2022, 1, 1, 1, 1, 1),
-      PlatformType.IOS,
-      "_deviceId",
-      "_sourceId",
-      "_sourceName",
+      value: NumericHealthValue(numericValue: 1),
+      type: HealthDataType.ACTIVE_ENERGY_BURNED,
+      unit: HealthDataUnit.KILOCALORIE,
+      dateFrom: DateTime(2022, 1, 1, 1, 1, 1),
+      dateTo: DateTime(2022, 1, 1, 1, 1, 1),
+      sourcePlatform: HealthPlatformType.appleHealth,
+      sourceDeviceId: "_deviceId",
+      sourceId: "_sourceId",
+      sourceName: "_sourceName",
     );
 
     final basalEnergyDataPoint = HealthDataPoint(
-      NumericHealthValue(1),
-      HealthDataType.BASAL_ENERGY_BURNED,
-      HealthDataUnit.KILOCALORIE,
-      DateTime(2022, 1, 2, 1, 1, 1),
-      DateTime(2022, 1, 2, 1, 1, 1),
-      PlatformType.IOS,
-      "_deviceId",
-      "_sourceId",
-      "_sourceName",
+      value: NumericHealthValue(numericValue: 1),
+      type: HealthDataType.BASAL_ENERGY_BURNED,
+      unit: HealthDataUnit.KILOCALORIE,
+      dateFrom: DateTime(2022, 1, 2, 1, 1, 1),
+      dateTo: DateTime(2022, 1, 2, 1, 1, 1),
+      sourcePlatform: HealthPlatformType.appleHealth,
+      sourceDeviceId: "_deviceId",
+      sourceId: "_sourceId",
+      sourceName: "_sourceName",
     );
     final data = [
       activeEnergyDataPoint,
@@ -84,27 +84,27 @@ void main() {
   test('should return data for specified date only', () async {
     //arrange
     final activeEnergyDataPoint = HealthDataPoint(
-      NumericHealthValue(1),
-      HealthDataType.ACTIVE_ENERGY_BURNED,
-      HealthDataUnit.KILOCALORIE,
-      DateTime(2022, 1, 1, 1, 1, 1),
-      DateTime(2022, 1, 1, 1, 1, 1),
-      PlatformType.IOS,
-      "_deviceId",
-      "_sourceId",
-      "_sourceName",
+      value: NumericHealthValue(numericValue: 1),
+      type: HealthDataType.ACTIVE_ENERGY_BURNED,
+      unit: HealthDataUnit.KILOCALORIE,
+      dateFrom: DateTime(2022, 1, 1, 1, 1, 1),
+      dateTo: DateTime(2022, 1, 1, 1, 1, 1),
+      sourcePlatform: HealthPlatformType.appleHealth,
+      sourceDeviceId: "_deviceId",
+      sourceId: "_sourceId",
+      sourceName: "_sourceName",
     );
 
     final basalEnergyDataPoint = HealthDataPoint(
-      NumericHealthValue(1),
-      HealthDataType.BASAL_ENERGY_BURNED,
-      HealthDataUnit.KILOCALORIE,
-      DateTime(2022, 1, 2, 1, 1, 1),
-      DateTime(2022, 1, 2, 1, 1, 1),
-      PlatformType.IOS,
-      "_deviceId",
-      "_sourceId",
-      "_sourceName",
+      value: NumericHealthValue(numericValue: 1),
+      type: HealthDataType.BASAL_ENERGY_BURNED,
+      unit: HealthDataUnit.KILOCALORIE,
+      dateFrom: DateTime(2022, 1, 2, 1, 1, 1),
+      dateTo: DateTime(2022, 1, 2, 1, 1, 1),
+      sourcePlatform: HealthPlatformType.appleHealth,
+      sourceDeviceId: "_deviceId",
+      sourceId: "_sourceId",
+      sourceName: "_sourceName",
     );
     final data = [
       activeEnergyDataPoint,

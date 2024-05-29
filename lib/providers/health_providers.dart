@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:health/health.dart';
 
 final selectedDaysProvider = StateProvider<int>((ref) => 7);
-final healthFactoryProvider = Provider<HealthFactory>((ref) => HealthFactory());
+final healthFactoryProvider = Provider<Health>((ref) => Health());
 final healthRequestAccessProvider = FutureProvider<bool?>((ref) async {
   final health = ref.read(healthFactoryProvider);
   final types = ref.read(healthDataTypesProvider);

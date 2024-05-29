@@ -29,7 +29,7 @@ class RangePicker extends HookConsumerWidget {
   }
 
   DropdownMenuItem<int> _generateItem(BuildContext context, int value) {
-    return DropdownMenuItem(
+    return DropdownMenuItem<int>(
       value: value,
       child: Text(S.of(context).days_select(value)),
     );

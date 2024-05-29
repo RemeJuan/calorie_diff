@@ -30,13 +30,17 @@ class HealthUtils {
   }
 
   static double _combineData(List<HealthDataPoint> data) {
-    final values = data.map((e) => double.parse(e.value.toString())).toList();
+    final values = data.map((e) {
+      final val = e.value.toJson();
+
+      return val['numeric_value'];
+    }).toList();
 
     if (values.isEmpty) {
       return 0;
     }
 
-    return values.reduce((a, b) => a + b);
+    return values.reduce((a, b) => a + b).toDouble();
   }
 
   static double decimals(num value) {

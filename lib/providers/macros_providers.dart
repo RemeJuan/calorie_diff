@@ -10,12 +10,12 @@ final healthMacrosProvider =
   final health = ref.read(healthFactoryProvider);
   final types = ref.read(healthDataTypesProvider);
   final data = await health.getHealthDataFromTypes(
-    DateTime(date.year, date.month, date.day, 0, 0, 0),
-    DateTime(date.year, date.month, date.day, 23, 59, 59),
-    types,
+    startTime: DateTime(date.year, date.month, date.day, 0, 0, 0),
+    endTime: DateTime(date.year, date.month, date.day, 23, 59, 59),
+    types: types,
   );
 
-  final clean = HealthFactory.removeDuplicates(data);
+  final clean = Health().removeDuplicates(data);
   final carb = HealthUtils.prepareDataEntry(
     clean,
     HealthDataType.DIETARY_CARBS_CONSUMED,
