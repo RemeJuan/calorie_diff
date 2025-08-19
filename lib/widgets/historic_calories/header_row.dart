@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class HeaderRow extends ConsumerWidget {
   final List<String> entries;
 
-  const HeaderRow({required this.entries, Key? key}) : super(key: key);
+  const HeaderRow({required this.entries, super.key});
 
   @override
   Widget build(context, ref) {

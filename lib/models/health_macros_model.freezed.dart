@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,202 +9,278 @@ part of 'health_macros_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-HealthMacrosModel _$HealthMacrosModelFromJson(Map<String, dynamic> json) {
-  return _HealthMacrosModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$HealthMacrosModel {
-  DateTime get date => throw _privateConstructorUsedError;
-  double get carb => throw _privateConstructorUsedError;
-  double get fat => throw _privateConstructorUsedError;
-  double get protein => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $HealthMacrosModelCopyWith<HealthMacrosModel> get copyWith =>
-      throw _privateConstructorUsedError;
+ DateTime get date; double get carb; double get fat; double get protein;
+/// Create a copy of HealthMacrosModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$HealthMacrosModelCopyWith<HealthMacrosModel> get copyWith => _$HealthMacrosModelCopyWithImpl<HealthMacrosModel>(this as HealthMacrosModel, _$identity);
+
+  /// Serializes this HealthMacrosModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HealthMacrosModel&&(identical(other.date, date) || other.date == date)&&(identical(other.carb, carb) || other.carb == carb)&&(identical(other.fat, fat) || other.fat == fat)&&(identical(other.protein, protein) || other.protein == protein));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,date,carb,fat,protein);
+
+@override
+String toString() {
+  return 'HealthMacrosModel(date: $date, carb: $carb, fat: $fat, protein: $protein)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $HealthMacrosModelCopyWith<$Res> {
-  factory $HealthMacrosModelCopyWith(
-          HealthMacrosModel value, $Res Function(HealthMacrosModel) then) =
-      _$HealthMacrosModelCopyWithImpl<$Res, HealthMacrosModel>;
-  @useResult
-  $Res call({DateTime date, double carb, double fat, double protein});
-}
+abstract mixin class $HealthMacrosModelCopyWith<$Res>  {
+  factory $HealthMacrosModelCopyWith(HealthMacrosModel value, $Res Function(HealthMacrosModel) _then) = _$HealthMacrosModelCopyWithImpl;
+@useResult
+$Res call({
+ DateTime date, double carb, double fat, double protein
+});
 
+
+
+
+}
 /// @nodoc
-class _$HealthMacrosModelCopyWithImpl<$Res, $Val extends HealthMacrosModel>
+class _$HealthMacrosModelCopyWithImpl<$Res>
     implements $HealthMacrosModelCopyWith<$Res> {
-  _$HealthMacrosModelCopyWithImpl(this._value, this._then);
+  _$HealthMacrosModelCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final HealthMacrosModel _self;
+  final $Res Function(HealthMacrosModel) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? date = null,
-    Object? carb = null,
-    Object? fat = null,
-    Object? protein = null,
-  }) {
-    return _then(_value.copyWith(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      carb: null == carb
-          ? _value.carb
-          : carb // ignore: cast_nullable_to_non_nullable
-              as double,
-      fat: null == fat
-          ? _value.fat
-          : fat // ignore: cast_nullable_to_non_nullable
-              as double,
-      protein: null == protein
-          ? _value.protein
-          : protein // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
+/// Create a copy of HealthMacrosModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? carb = null,Object? fat = null,Object? protein = null,}) {
+  return _then(_self.copyWith(
+date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as DateTime,carb: null == carb ? _self.carb : carb // ignore: cast_nullable_to_non_nullable
+as double,fat: null == fat ? _self.fat : fat // ignore: cast_nullable_to_non_nullable
+as double,protein: null == protein ? _self.protein : protein // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
 }
 
-/// @nodoc
-abstract class _$$HealthMacrosModelImplCopyWith<$Res>
-    implements $HealthMacrosModelCopyWith<$Res> {
-  factory _$$HealthMacrosModelImplCopyWith(_$HealthMacrosModelImpl value,
-          $Res Function(_$HealthMacrosModelImpl) then) =
-      __$$HealthMacrosModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({DateTime date, double carb, double fat, double protein});
 }
 
-/// @nodoc
-class __$$HealthMacrosModelImplCopyWithImpl<$Res>
-    extends _$HealthMacrosModelCopyWithImpl<$Res, _$HealthMacrosModelImpl>
-    implements _$$HealthMacrosModelImplCopyWith<$Res> {
-  __$$HealthMacrosModelImplCopyWithImpl(_$HealthMacrosModelImpl _value,
-      $Res Function(_$HealthMacrosModelImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? date = null,
-    Object? carb = null,
-    Object? fat = null,
-    Object? protein = null,
-  }) {
-    return _then(_$HealthMacrosModelImpl(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      carb: null == carb
-          ? _value.carb
-          : carb // ignore: cast_nullable_to_non_nullable
-              as double,
-      fat: null == fat
-          ? _value.fat
-          : fat // ignore: cast_nullable_to_non_nullable
-              as double,
-      protein: null == protein
-          ? _value.protein
-          : protein // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
+/// Adds pattern-matching-related methods to [HealthMacrosModel].
+extension HealthMacrosModelPatterns on HealthMacrosModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _HealthMacrosModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _HealthMacrosModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _HealthMacrosModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _HealthMacrosModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _HealthMacrosModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _HealthMacrosModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( DateTime date,  double carb,  double fat,  double protein)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _HealthMacrosModel() when $default != null:
+return $default(_that.date,_that.carb,_that.fat,_that.protein);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( DateTime date,  double carb,  double fat,  double protein)  $default,) {final _that = this;
+switch (_that) {
+case _HealthMacrosModel():
+return $default(_that.date,_that.carb,_that.fat,_that.protein);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( DateTime date,  double carb,  double fat,  double protein)?  $default,) {final _that = this;
+switch (_that) {
+case _HealthMacrosModel() when $default != null:
+return $default(_that.date,_that.carb,_that.fat,_that.protein);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$HealthMacrosModelImpl extends _HealthMacrosModel {
-  const _$HealthMacrosModelImpl(
-      {required this.date,
-      required this.carb,
-      required this.fat,
-      required this.protein})
-      : super._();
 
-  factory _$HealthMacrosModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HealthMacrosModelImplFromJson(json);
+class _HealthMacrosModel extends HealthMacrosModel {
+  const _HealthMacrosModel({required this.date, required this.carb, required this.fat, required this.protein}): super._();
+  factory _HealthMacrosModel.fromJson(Map<String, dynamic> json) => _$HealthMacrosModelFromJson(json);
 
-  @override
-  final DateTime date;
-  @override
-  final double carb;
-  @override
-  final double fat;
-  @override
-  final double protein;
+@override final  DateTime date;
+@override final  double carb;
+@override final  double fat;
+@override final  double protein;
 
-  @override
-  String toString() {
-    return 'HealthMacrosModel(date: $date, carb: $carb, fat: $fat, protein: $protein)';
-  }
+/// Create a copy of HealthMacrosModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$HealthMacrosModelCopyWith<_HealthMacrosModel> get copyWith => __$HealthMacrosModelCopyWithImpl<_HealthMacrosModel>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HealthMacrosModelImpl &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.carb, carb) || other.carb == carb) &&
-            (identical(other.fat, fat) || other.fat == fat) &&
-            (identical(other.protein, protein) || other.protein == protein));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, date, carb, fat, protein);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HealthMacrosModelImplCopyWith<_$HealthMacrosModelImpl> get copyWith =>
-      __$$HealthMacrosModelImplCopyWithImpl<_$HealthMacrosModelImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HealthMacrosModelImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$HealthMacrosModelToJson(this, );
 }
 
-abstract class _HealthMacrosModel extends HealthMacrosModel {
-  const factory _HealthMacrosModel(
-      {required final DateTime date,
-      required final double carb,
-      required final double fat,
-      required final double protein}) = _$HealthMacrosModelImpl;
-  const _HealthMacrosModel._() : super._();
-
-  factory _HealthMacrosModel.fromJson(Map<String, dynamic> json) =
-      _$HealthMacrosModelImpl.fromJson;
-
-  @override
-  DateTime get date;
-  @override
-  double get carb;
-  @override
-  double get fat;
-  @override
-  double get protein;
-  @override
-  @JsonKey(ignore: true)
-  _$$HealthMacrosModelImplCopyWith<_$HealthMacrosModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HealthMacrosModel&&(identical(other.date, date) || other.date == date)&&(identical(other.carb, carb) || other.carb == carb)&&(identical(other.fat, fat) || other.fat == fat)&&(identical(other.protein, protein) || other.protein == protein));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,date,carb,fat,protein);
+
+@override
+String toString() {
+  return 'HealthMacrosModel(date: $date, carb: $carb, fat: $fat, protein: $protein)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$HealthMacrosModelCopyWith<$Res> implements $HealthMacrosModelCopyWith<$Res> {
+  factory _$HealthMacrosModelCopyWith(_HealthMacrosModel value, $Res Function(_HealthMacrosModel) _then) = __$HealthMacrosModelCopyWithImpl;
+@override @useResult
+$Res call({
+ DateTime date, double carb, double fat, double protein
+});
+
+
+
+
+}
+/// @nodoc
+class __$HealthMacrosModelCopyWithImpl<$Res>
+    implements _$HealthMacrosModelCopyWith<$Res> {
+  __$HealthMacrosModelCopyWithImpl(this._self, this._then);
+
+  final _HealthMacrosModel _self;
+  final $Res Function(_HealthMacrosModel) _then;
+
+/// Create a copy of HealthMacrosModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? carb = null,Object? fat = null,Object? protein = null,}) {
+  return _then(_HealthMacrosModel(
+date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as DateTime,carb: null == carb ? _self.carb : carb // ignore: cast_nullable_to_non_nullable
+as double,fat: null == fat ? _self.fat : fat // ignore: cast_nullable_to_non_nullable
+as double,protein: null == protein ? _self.protein : protein // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -10,8 +10,8 @@ class DataCard extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.data,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

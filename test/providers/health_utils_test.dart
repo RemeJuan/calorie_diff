@@ -7,6 +7,7 @@ void main() {
     test('should return the prepared data', () async {
       //arrange
       final activeEnergyDataPoint = HealthDataPoint(
+        uuid: "mockUuid",
         value: NumericHealthValue(numericValue: 1),
         type: HealthDataType.ACTIVE_ENERGY_BURNED,
         unit: HealthDataUnit.KILOCALORIE,
@@ -19,6 +20,7 @@ void main() {
       );
 
       final basalEnergyDataPoint = HealthDataPoint(
+        uuid: "mockUuid",
         value: NumericHealthValue(numericValue: 1),
         type: HealthDataType.BASAL_ENERGY_BURNED,
         unit: HealthDataUnit.KILOCALORIE,
@@ -47,6 +49,7 @@ void main() {
   test('should return unique list of data from data', () async {
     //arrange
     final activeEnergyDataPoint = HealthDataPoint(
+      uuid: "mockUuid",
       value: NumericHealthValue(numericValue: 1),
       type: HealthDataType.ACTIVE_ENERGY_BURNED,
       unit: HealthDataUnit.KILOCALORIE,
@@ -59,6 +62,7 @@ void main() {
     );
 
     final basalEnergyDataPoint = HealthDataPoint(
+      uuid: "mockUuid",
       value: NumericHealthValue(numericValue: 1),
       type: HealthDataType.BASAL_ENERGY_BURNED,
       unit: HealthDataUnit.KILOCALORIE,
@@ -84,6 +88,7 @@ void main() {
   test('should return data for specified date only', () async {
     //arrange
     final activeEnergyDataPoint = HealthDataPoint(
+      uuid: "mockUuid",
       value: NumericHealthValue(numericValue: 1),
       type: HealthDataType.ACTIVE_ENERGY_BURNED,
       unit: HealthDataUnit.KILOCALORIE,
@@ -96,6 +101,7 @@ void main() {
     );
 
     final basalEnergyDataPoint = HealthDataPoint(
+      uuid: "mockUuid",
       value: NumericHealthValue(numericValue: 1),
       type: HealthDataType.BASAL_ENERGY_BURNED,
       unit: HealthDataUnit.KILOCALORIE,

@@ -53,7 +53,7 @@ void main() {
       const SettingsMacros(),
       [
         settingsProvider.overrideWith((_) => model),
-        updateSettingsProvider.overrideWith((_, __) => model),
+        updateSettingsProvider.overrideWith((_, _) => model),
       ],
     );
 
@@ -75,7 +75,7 @@ void main() {
       const SettingsMacros(),
       [
         settingsProvider.overrideWith((_) => model),
-        updateSettingsProvider.overrideWith((_, __) => model),
+        updateSettingsProvider.overrideWith((_, _) => model),
       ],
     );
 

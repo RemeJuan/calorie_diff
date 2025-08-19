@@ -8,7 +8,7 @@ import 'core/core_providers.dart';
 import 'providers/health_providers.dart';
 
 class LandingScreen extends HookConsumerWidget {
-  const LandingScreen({Key? key}) : super(key: key);
+  const LandingScreen({super.key});
 
   @override
   Widget build(context, ref) {

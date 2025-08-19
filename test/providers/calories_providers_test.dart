@@ -46,6 +46,7 @@ void main() {
     ).thenAnswer(
       (_) async => [
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 100),
           type: HealthDataType.ACTIVE_ENERGY_BURNED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -57,6 +58,7 @@ void main() {
           sourceName: '',
         ),
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 125),
           type: HealthDataType.BASAL_ENERGY_BURNED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -68,6 +70,8 @@ void main() {
           sourceName: '',
         ),
         HealthDataPoint(
+          uuid: "mockUuid",
+
           value: NumericHealthValue(numericValue: 95),
           type: HealthDataType.DIETARY_ENERGY_CONSUMED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -106,6 +110,7 @@ void main() {
     ).thenAnswer(
       (_) async => [
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 100),
           type: HealthDataType.ACTIVE_ENERGY_BURNED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -117,6 +122,7 @@ void main() {
           sourceName: '',
         ),
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 125),
           type: HealthDataType.BASAL_ENERGY_BURNED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -128,6 +134,7 @@ void main() {
           sourceName: '',
         ),
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 95),
           type: HealthDataType.DIETARY_ENERGY_CONSUMED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -144,16 +151,13 @@ void main() {
     final result = await container.read(historicHealthDataProvider(7).future);
     // assert
     expect(result, isA<List<HealthCaloriesModel>>());
-    expect(
-      result,
-      [
-        HealthCaloriesModel(
-          date: mockNow,
-          burned: 225,
-          consumed: 95,
-          difference: -130,
-        )
-      ],
-    );
+    expect(result, [
+      HealthCaloriesModel(
+        date: mockNow,
+        burned: 225,
+        consumed: 95,
+        difference: -130,
+      ),
+    ]);
   });
 }

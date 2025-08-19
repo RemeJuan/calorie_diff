@@ -8,7 +8,7 @@ import '../../generated/l10n.dart';
 class RangePicker extends HookConsumerWidget {
   final int selectedValue;
 
-  const RangePicker({required this.selectedValue, Key? key}) : super(key: key);
+  const RangePicker({required this.selectedValue, super.key});
 
   @override
   Widget build(context, ref) {

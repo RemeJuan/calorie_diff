@@ -6,7 +6,7 @@ import 'app.dart';
 import 'intro_screen/intro_screen.dart';
 
 class RouteDelegate extends ConsumerWidget {
-  const RouteDelegate({Key? key}) : super(key: key);
+  const RouteDelegate({super.key});
 
   @override
   Widget build(context, ref) {

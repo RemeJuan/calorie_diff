@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IntroIcon extends StatelessWidget {
-  const IntroIcon({Key? key}) : super(key: key);
+  const IntroIcon({super.key});
 
   @override
   Widget build(BuildContext context) {

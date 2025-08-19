@@ -56,7 +56,7 @@ void main() {
       [
         healthRequestAccessProvider.overrideWith((_) => false),
         healthCaloriesProvider.overrideWith((_) async => dataModel),
-        historicHealthDataProvider.overrideWith((_, __) async => [dataModel]),
+        historicHealthDataProvider.overrideWith((_, _) async => [dataModel]),
         settingsProvider.overrideWith((_) => SettingsModel.initial()),
       ],
     );
@@ -82,7 +82,7 @@ void main() {
       [
         healthRequestAccessProvider.overrideWith((_) => false),
         healthCaloriesProvider.overrideWith((_) async => dataModel),
-        historicHealthDataProvider.overrideWith((_, __) async => [dataModel]),
+        historicHealthDataProvider.overrideWith((_, _) async => [dataModel]),
         pageViewControllerProvider.overrideWith(
           (_) => PageController(initialPage: 1),
         ),
@@ -98,7 +98,7 @@ void main() {
           ),
         ),
         healthMacrosProvider.overrideWith(
-          (_, __) => HealthMacrosModel(
+          (_, _) => HealthMacrosModel(
             date: ExtendedDateTime.current,
             carb: 20,
             fat: 20,

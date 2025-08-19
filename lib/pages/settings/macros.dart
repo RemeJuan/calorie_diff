@@ -7,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../generated/l10n.dart';
 
 class SettingsMacros extends HookConsumerWidget {
-  const SettingsMacros({Key? key}) : super(key: key);
+  const SettingsMacros({super.key});
 
   @override
   Widget build(context, ref) {
@@ -41,7 +41,7 @@ class SettingsMacros extends HookConsumerWidget {
             Text(S.of(context).settings_enable_macros),
             Switch(
               value: isEnabled.value,
-              activeColor: Colors.lightBlue,
+              activeThumbColor: Colors.lightBlue,
               onChanged: (value) {
                 isEnabled.value = value;
               },

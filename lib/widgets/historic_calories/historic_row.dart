@@ -11,8 +11,8 @@ class HistoricRow extends ConsumerWidget {
   const HistoricRow({
     required this.date,
     required this.entries,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(context, ref) {

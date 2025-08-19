@@ -11,8 +11,8 @@ class HistoricMacroRow extends StatelessWidget {
     required this.label,
     required this.data,
     required this.target,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

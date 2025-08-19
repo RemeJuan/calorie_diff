@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CurrentMacros extends ConsumerWidget {
-  const CurrentMacros({Key? key}) : super(key: key);
+  const CurrentMacros({super.key});
 
   @override
   Widget build(context, ref) {

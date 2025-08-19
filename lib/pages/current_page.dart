@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CurrentPage extends ConsumerWidget {
-  const CurrentPage({Key? key}) : super(key: key);
+  const CurrentPage({super.key});
 
   @override
   Widget build(context, ref) {
@@ -15,10 +15,7 @@ class CurrentPage extends ConsumerWidget {
     return ListView(
       shrinkWrap: true,
       children: [
-        if (settings.macrosEnabled) ...[
-          const CurrentMacros(),
-          divider,
-        ],
+        if (settings.macrosEnabled) ...[const CurrentMacros(), divider],
         const CurrentCalories(),
         divider,
         const HistoricCalories(days: 3, showLoader: false),

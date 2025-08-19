@@ -33,13 +33,12 @@ class HealthUtils {
     final values = data.map((e) {
       final val = e.value.toJson();
 
-      return val['numeric_value'];
+      return val['numericValue'];
     }).toList();
 
     if (values.isEmpty) {
       return 0;
     }
-
     return values.reduce((a, b) => a + b).toDouble();
   }
 

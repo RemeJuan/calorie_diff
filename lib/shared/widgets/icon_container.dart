@@ -5,8 +5,8 @@ class IconContainer extends StatelessWidget {
 
   const IconContainer({
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

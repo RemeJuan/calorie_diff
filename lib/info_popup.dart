@@ -4,7 +4,7 @@ void _showAboutDialog(BuildContext context) {
   showDialog(
     context: context,
     barrierDismissible: true,
-    barrierColor: Colors.black.withOpacity(0.8),
+    barrierColor: Colors.black.withAlpha((0.8 * 255).toInt()),
     builder: (_) {
       return AlertDialog(
         backgroundColor: Colors.blueGrey,

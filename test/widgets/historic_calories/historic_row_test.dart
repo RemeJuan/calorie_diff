@@ -36,7 +36,7 @@ void main() {
           ),
         ),
         healthMacrosProvider.overrideWith(
-          (_, __) => HealthMacrosModel(
+          (_, _) => HealthMacrosModel(
             date: ExtendedDateTime.current,
             carb: 20,
             fat: 20,
@@ -70,7 +70,7 @@ void main() {
           ),
         ),
         healthMacrosProvider.overrideWith(
-          (_, __) => HealthMacrosModel(
+          (_, _) => HealthMacrosModel(
             date: ExtendedDateTime.current,
             carb: 20,
             fat: 20,

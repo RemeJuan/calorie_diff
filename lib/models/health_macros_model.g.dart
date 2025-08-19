@@ -6,17 +6,15 @@ part of 'health_macros_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$HealthMacrosModelImpl _$$HealthMacrosModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$HealthMacrosModelImpl(
+_HealthMacrosModel _$HealthMacrosModelFromJson(Map<String, dynamic> json) =>
+    _HealthMacrosModel(
       date: DateTime.parse(json['date'] as String),
       carb: (json['carb'] as num).toDouble(),
       fat: (json['fat'] as num).toDouble(),
       protein: (json['protein'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$HealthMacrosModelImplToJson(
-        _$HealthMacrosModelImpl instance) =>
+Map<String, dynamic> _$HealthMacrosModelToJson(_HealthMacrosModel instance) =>
     <String, dynamic>{
       'date': instance.date.toIso8601String(),
       'carb': instance.carb,

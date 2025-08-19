@@ -6,7 +6,7 @@ import '../../generated/l10n.dart';
 import '../shared/data_card.dart';
 
 class CurrentCalories extends ConsumerWidget {
-  const CurrentCalories({Key? key}) : super(key: key);
+  const CurrentCalories({super.key});
 
   @override
   Widget build(context, ref) {
@@ -52,7 +52,7 @@ class CurrentCalories extends ConsumerWidget {
                     label: S.of(context).current_in,
                     data: data.consumed,
                   ),
-                )
+                ),
               ],
             ),
           ],

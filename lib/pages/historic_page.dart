@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HistoricPage extends HookConsumerWidget {
-  const HistoricPage({Key? key}) : super(key: key);
+  const HistoricPage({super.key});
 
   @override
   Widget build(context, ref) {

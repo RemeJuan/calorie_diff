@@ -9,7 +9,7 @@ import 'historic_macro_row.dart';
 class HistoricMacros extends ConsumerWidget {
   final DateTime date;
 
-  const HistoricMacros({required this.date, Key? key}) : super(key: key);
+  const HistoricMacros({required this.date, super.key});
 
   @override
   Widget build(context, ref) {

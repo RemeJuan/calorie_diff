@@ -44,7 +44,7 @@ void main() {
         const HistoricCalories(days: 7, showLoader: false),
         [
           historicHealthDataProvider.overrideWith(
-            (_, __) async => [
+            (_, _) async => [
               HealthCaloriesModel(
                 date: DateTime(2021, 10, 10),
                 burned: 200,
@@ -65,7 +65,7 @@ void main() {
             ),
           ),
           healthMacrosProvider.overrideWith(
-            (_, __) => HealthMacrosModel(
+            (_, _) => HealthMacrosModel(
               date: ExtendedDateTime.current,
               carb: 20,
               fat: 20,

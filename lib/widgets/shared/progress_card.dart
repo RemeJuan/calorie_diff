@@ -13,8 +13,8 @@ class ProgressCard extends StatelessWidget {
     required this.data,
     required this.target,
     required this.color,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(context) {

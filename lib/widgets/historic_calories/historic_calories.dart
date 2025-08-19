@@ -14,8 +14,8 @@ class HistoricCalories extends HookConsumerWidget {
   const HistoricCalories({
     required this.days,
     required this.showLoader,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(context, ref) {

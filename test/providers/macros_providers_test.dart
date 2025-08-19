@@ -43,6 +43,7 @@ void main() {
     ).thenAnswer(
       (_) async => [
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 100),
           type: HealthDataType.DIETARY_CARBS_CONSUMED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -54,6 +55,7 @@ void main() {
           sourceName: '',
         ),
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 125),
           type: HealthDataType.DIETARY_FATS_CONSUMED,
           unit: HealthDataUnit.KILOCALORIE,
@@ -65,6 +67,7 @@ void main() {
           sourceName: '',
         ),
         HealthDataPoint(
+          uuid: "mockUuid",
           value: NumericHealthValue(numericValue: 95),
           type: HealthDataType.DIETARY_PROTEIN_CONSUMED,
           unit: HealthDataUnit.KILOCALORIE,

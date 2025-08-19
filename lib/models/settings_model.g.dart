@@ -6,14 +6,15 @@ part of 'settings_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SettingsModelImpl _$$SettingsModelImplFromJson(Map<String, dynamic> json) =>
-    _$SettingsModelImpl(
+_SettingsModel _$SettingsModelFromJson(Map<String, dynamic> json) =>
+    _SettingsModel(
       macrosEnabled: json['macrosEnabled'] as bool,
-      macros:
-          HealthMacrosModel.fromJson(json['macros'] as Map<String, dynamic>),
+      macros: HealthMacrosModel.fromJson(
+        json['macros'] as Map<String, dynamic>,
+      ),
     );
 
-Map<String, dynamic> _$$SettingsModelImplToJson(_$SettingsModelImpl instance) =>
+Map<String, dynamic> _$SettingsModelToJson(_SettingsModel instance) =>
     <String, dynamic>{
       'macrosEnabled': instance.macrosEnabled,
       'macros': instance.macros,

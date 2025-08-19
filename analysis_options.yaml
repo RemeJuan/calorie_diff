@@ -10,8 +10,6 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
-  plugins:
-    - dart_code_metrics
   errors:
     prefer_collection_literals: warning
     unused_element: error

@@ -8,7 +8,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import '../generated/l10n.dart';
 
 class IntroScreen extends ConsumerWidget {
-  const IntroScreen({Key? key}) : super(key: key);
+  const IntroScreen({super.key});
 
   @override
   Widget build(context, ref) {
