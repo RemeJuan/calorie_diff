@@ -30,11 +30,12 @@ Calorie Diff is a Flutter application for Apple Health users that displays calor
 
 ### Specific Rules
 
-- **Code Quality Metrics**:
+- **Code Quality Metrics** (configured in `dart_code_metrics`):
   - Maximum cyclomatic complexity: 20
   - Maximum nesting level: 5
   - Maximum parameters per method: 4
-  - Maximum source lines per file: 50 (for non-generated files)
+  - Maximum source lines of code: 50
+  - Note: Metrics exclude `test/**` and `lib/generated/**` directories
 - **Required parameters**: Always place required named parameters first
 - **Collections**: Always use collection literals (not constructors)
 - **Unused code**: Treat unused imports, elements, variables, and dead code as errors
