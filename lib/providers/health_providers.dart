@@ -1,8 +1,19 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
 import 'package:health/health.dart';
 
-final selectedDaysProvider = StateProvider<int>((ref) => 7);
+// Notifier for selected days
+class SelectedDaysNotifier extends Notifier<int> {
+  @override
+  int build() => 7;
+
+  void setDays(int days) {
+    state = days;
+  }
+}
+
+final selectedDaysProvider =
+    NotifierProvider<SelectedDaysNotifier, int>(SelectedDaysNotifier.new);
+
 final healthFactoryProvider = Provider<Health>((ref) => Health());
 final healthRequestAccessProvider = FutureProvider<bool?>((ref) async {
   final health = ref.read(healthFactoryProvider);

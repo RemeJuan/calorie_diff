@@ -32,15 +32,15 @@ void main() {
     await tester.pumpApp(
       const LandingScreen(),
       [
-        healthRequestAccessProvider.overrideWith(
-          (_) => Future.error(Exception('error')),
-        ),
+        healthRequestAccessProvider.overrideWith((_) async {
+          throw Exception('error');
+        }),
       ],
     );
 
     // Wait for async operations and error to be rendered
     await tester.pump();
-    await tester.pump(const Duration(seconds: 1));
+    await tester.pump();
 
     // In Riverpod 3.0, error messages may be formatted differently
     expect(find.textContaining("error"), findsOneWidget);

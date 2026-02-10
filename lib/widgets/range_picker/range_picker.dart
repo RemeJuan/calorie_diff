@@ -21,7 +21,7 @@ class RangePicker extends HookConsumerWidget {
         underline: const SizedBox.shrink(),
         items: [7, 14, 30].map((i) => _generateItem(context, i)).toList(),
         onChanged: (value) {
-          ref.read(selectedDaysProvider.notifier).state = value!;
+          ref.read(selectedDaysProvider.notifier).setDays(value!);
         },
         value: selectedValue,
       ),

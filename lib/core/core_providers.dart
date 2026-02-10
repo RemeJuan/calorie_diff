@@ -1,7 +1,6 @@
 import 'package:calorie_diff/core/extensions.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
@@ -45,9 +44,18 @@ final didLaunchTodayProvider = Provider<bool>((ref) {
   return daysMatch && monthsMatch && yearsMatch;
 });
 
-final pageViewControllerProvider = StateProvider<PageController>((ref) {
-  return PageController(
-    initialPage: 0,
-    keepPage: true,
-  );
-});
+// Notifier for PageViewController
+class PageViewControllerNotifier extends Notifier<PageController> {
+  @override
+  PageController build() {
+    return PageController(
+      initialPage: 0,
+      keepPage: true,
+    );
+  }
+}
+
+final pageViewControllerProvider =
+    NotifierProvider<PageViewControllerNotifier, PageController>(
+  PageViewControllerNotifier.new,
+);
