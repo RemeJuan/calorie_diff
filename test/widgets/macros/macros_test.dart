@@ -67,7 +67,7 @@ void main() {
       const CurrentMacros(),
       [
         settingsProvider.overrideWith((ref) => SettingsModel.initial()),
-        healthMacrosProvider.overrideWith((_, __) => Future.error(Exception('error'))),
+        healthMacrosProvider.overrideWith((_, _) => Future.error(Exception('error'))),
       ],
     );
 

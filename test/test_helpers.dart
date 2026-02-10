@@ -4,8 +4,8 @@ import 'package:calorie_diff/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod/src/framework.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:riverpod/src/framework.dart' show Override;
 
 void setupTest() async {
   // For handling Image.network and SVGAsset.network calls

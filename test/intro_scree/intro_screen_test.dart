@@ -2,11 +2,10 @@ import 'package:calorie_diff/core/core_providers.dart';
 import 'package:calorie_diff/intro_screen/intro_screen.dart';
 import 'package:calorie_diff/intro_screen/widgets/intro_icon.dart';
 import 'package:calorie_diff/providers/health_providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod/src/framework.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:mockito/mockito.dart';
+import 'package:riverpod/src/framework.dart' show Override;
 
 import '../mocks/core_mocks.dart';
 import '../test_helpers.dart';

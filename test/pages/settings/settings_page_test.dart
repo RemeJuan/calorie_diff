@@ -2,9 +2,8 @@ import 'package:calorie_diff/models/settings_model.dart';
 import 'package:calorie_diff/pages/settings/macros.dart';
 import 'package:calorie_diff/pages/settings/settings_page.dart';
 import 'package:calorie_diff/providers/settings_providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod/src/framework.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:riverpod/src/framework.dart' show Override;
 
 import '../../test_helpers.dart';
 
