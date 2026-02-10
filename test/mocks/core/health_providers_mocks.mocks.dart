@@ -171,6 +171,14 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
           )
           as _i4.Future<bool>);
   @override
+  _i4.Future<bool> isSkinTemperatureAvailable() =>
+      (super.noSuchMethod(
+            Invocation.method(#isSkinTemperatureAvailable, []),
+            returnValue: _i4.Future<bool>.value(false),
+            returnValueForMissingStub: _i4.Future<bool>.value(false),
+          )
+          as _i4.Future<bool>);
+  @override
   _i4.Future<bool> requestAuthorization(
     List<_i2.HealthDataType>? types, {
     List<_i2.HealthDataAccess>? permissions,
@@ -191,6 +199,8 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
     _i2.HealthDataUnit? unit,
     required _i2.HealthDataType? type,
     required DateTime? startTime,
+    String? clientRecordId,
+    double? clientRecordVersion,
     DateTime? endTime,
     _i2.RecordingMethod? recordingMethod = _i2.RecordingMethod.automatic,
   }) =>
@@ -200,8 +210,32 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
               #unit: unit,
               #type: type,
               #startTime: startTime,
+              #clientRecordId: clientRecordId,
+              #clientRecordVersion: clientRecordVersion,
               #endTime: endTime,
               #recordingMethod: recordingMethod,
+            }),
+            returnValue: _i4.Future<bool>.value(false),
+            returnValueForMissingStub: _i4.Future<bool>.value(false),
+          )
+          as _i4.Future<bool>);
+  @override
+  _i4.Future<bool> writeActivityIntensity({
+    required _i2.ActivityIntensityLevel? intensityLevel,
+    required DateTime? startTime,
+    DateTime? endTime,
+    _i2.RecordingMethod? recordingMethod = _i2.RecordingMethod.automatic,
+    String? clientRecordId,
+    double? clientRecordVersion,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#writeActivityIntensity, [], {
+              #intensityLevel: intensityLevel,
+              #startTime: startTime,
+              #endTime: endTime,
+              #recordingMethod: recordingMethod,
+              #clientRecordId: clientRecordId,
+              #clientRecordVersion: clientRecordVersion,
             }),
             returnValue: _i4.Future<bool>.value(false),
             returnValueForMissingStub: _i4.Future<bool>.value(false),
@@ -235,10 +269,28 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
           )
           as _i4.Future<bool>);
   @override
+  _i4.Future<bool> deleteByClientRecordId({
+    required _i2.HealthDataType? dataTypeKey,
+    required String? clientRecordId,
+    String? recordId,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#deleteByClientRecordId, [], {
+              #dataTypeKey: dataTypeKey,
+              #clientRecordId: clientRecordId,
+              #recordId: recordId,
+            }),
+            returnValue: _i4.Future<bool>.value(false),
+            returnValueForMissingStub: _i4.Future<bool>.value(false),
+          )
+          as _i4.Future<bool>);
+  @override
   _i4.Future<bool> writeBloodPressure({
     required int? systolic,
     required int? diastolic,
     required DateTime? startTime,
+    String? clientRecordId,
+    double? clientRecordVersion,
     DateTime? endTime,
     _i2.RecordingMethod? recordingMethod = _i2.RecordingMethod.automatic,
   }) =>
@@ -247,6 +299,8 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
               #systolic: systolic,
               #diastolic: diastolic,
               #startTime: startTime,
+              #clientRecordId: clientRecordId,
+              #clientRecordVersion: clientRecordVersion,
               #endTime: endTime,
               #recordingMethod: recordingMethod,
             }),
@@ -277,6 +331,8 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
     required _i2.MealType? mealType,
     required DateTime? startTime,
     required DateTime? endTime,
+    String? clientRecordId,
+    double? clientRecordVersion,
     double? caloriesConsumed,
     double? carbohydrates,
     double? protein,
@@ -326,6 +382,8 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
               #mealType: mealType,
               #startTime: startTime,
               #endTime: endTime,
+              #clientRecordId: clientRecordId,
+              #clientRecordVersion: clientRecordVersion,
               #caloriesConsumed: caloriesConsumed,
               #carbohydrates: carbohydrates,
               #protein: protein,
@@ -435,8 +493,23 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
           )
           as _i4.Future<bool>);
   @override
+  _i4.Future<_i2.HealthDataPoint?> getHealthDataByUUID({
+    required String? uuid,
+    required _i2.HealthDataType? type,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#getHealthDataByUUID, [], {
+              #uuid: uuid,
+              #type: type,
+            }),
+            returnValue: _i4.Future<_i2.HealthDataPoint?>.value(),
+            returnValueForMissingStub: _i4.Future<_i2.HealthDataPoint?>.value(),
+          )
+          as _i4.Future<_i2.HealthDataPoint?>);
+  @override
   _i4.Future<List<_i2.HealthDataPoint>> getHealthDataFromTypes({
     required List<_i2.HealthDataType>? types,
+    Map<_i2.HealthDataType, _i2.HealthDataUnit>? preferredUnits,
     required DateTime? startTime,
     required DateTime? endTime,
     List<_i2.RecordingMethod>? recordingMethodsToFilter = const [],
@@ -444,6 +517,7 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
       (super.noSuchMethod(
             Invocation.method(#getHealthDataFromTypes, [], {
               #types: types,
+              #preferredUnits: preferredUnits,
               #startTime: startTime,
               #endTime: endTime,
               #recordingMethodsToFilter: recordingMethodsToFilter,
@@ -508,6 +582,31 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
           )
           as _i4.Future<List<_i2.HealthDataPoint>>);
   @override
+  _i4.Future<String?> getChangesToken({
+    required List<_i2.HealthDataType>? types,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#getChangesToken, [], {#types: types}),
+            returnValue: _i4.Future<String?>.value(),
+            returnValueForMissingStub: _i4.Future<String?>.value(),
+          )
+          as _i4.Future<String?>);
+  @override
+  _i4.Future<_i2.HealthChangesResponse?> getChanges({
+    required String? changesToken,
+    bool? includeSelf = false,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#getChanges, [], {
+              #changesToken: changesToken,
+              #includeSelf: includeSelf,
+            }),
+            returnValue: _i4.Future<_i2.HealthChangesResponse?>.value(),
+            returnValueForMissingStub:
+                _i4.Future<_i2.HealthChangesResponse?>.value(),
+          )
+          as _i4.Future<_i2.HealthChangesResponse?>);
+  @override
   List<_i2.HealthDataPoint> removeDuplicates(
     List<_i2.HealthDataPoint>? points,
   ) =>
@@ -557,6 +656,80 @@ class MockHealthProvider extends _i1.Mock implements _i2.Health {
               #title: title,
               #recordingMethod: recordingMethod,
             }),
+            returnValue: _i4.Future<bool>.value(false),
+            returnValueForMissingStub: _i4.Future<bool>.value(false),
+          )
+          as _i4.Future<bool>);
+  @override
+  _i4.Future<String> startWorkoutRoute() =>
+      (super.noSuchMethod(
+            Invocation.method(#startWorkoutRoute, []),
+            returnValue: _i4.Future<String>.value(
+              _i3.dummyValue<String>(
+                this,
+                Invocation.method(#startWorkoutRoute, []),
+              ),
+            ),
+            returnValueForMissingStub: _i4.Future<String>.value(
+              _i3.dummyValue<String>(
+                this,
+                Invocation.method(#startWorkoutRoute, []),
+              ),
+            ),
+          )
+          as _i4.Future<String>);
+  @override
+  _i4.Future<bool> insertWorkoutRouteData({
+    required String? builderId,
+    required List<_i2.WorkoutRouteLocation>? locations,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#insertWorkoutRouteData, [], {
+              #builderId: builderId,
+              #locations: locations,
+            }),
+            returnValue: _i4.Future<bool>.value(false),
+            returnValueForMissingStub: _i4.Future<bool>.value(false),
+          )
+          as _i4.Future<bool>);
+  @override
+  _i4.Future<String> finishWorkoutRoute({
+    required String? builderId,
+    required String? workoutUuid,
+    Map<String, dynamic>? metadata,
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#finishWorkoutRoute, [], {
+              #builderId: builderId,
+              #workoutUuid: workoutUuid,
+              #metadata: metadata,
+            }),
+            returnValue: _i4.Future<String>.value(
+              _i3.dummyValue<String>(
+                this,
+                Invocation.method(#finishWorkoutRoute, [], {
+                  #builderId: builderId,
+                  #workoutUuid: workoutUuid,
+                  #metadata: metadata,
+                }),
+              ),
+            ),
+            returnValueForMissingStub: _i4.Future<String>.value(
+              _i3.dummyValue<String>(
+                this,
+                Invocation.method(#finishWorkoutRoute, [], {
+                  #builderId: builderId,
+                  #workoutUuid: workoutUuid,
+                  #metadata: metadata,
+                }),
+              ),
+            ),
+          )
+          as _i4.Future<String>);
+  @override
+  _i4.Future<bool> discardWorkoutRoute(String? builderId) =>
+      (super.noSuchMethod(
+            Invocation.method(#discardWorkoutRoute, [builderId]),
             returnValue: _i4.Future<bool>.value(false),
             returnValueForMissingStub: _i4.Future<bool>.value(false),
           )
