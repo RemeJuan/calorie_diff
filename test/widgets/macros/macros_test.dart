@@ -67,9 +67,13 @@ void main() {
       const CurrentMacros(),
       [
         settingsProvider.overrideWith((ref) => SettingsModel.initial()),
-        healthMacrosProvider.overrideWith((_, _) => throw Exception('error')),
+        healthMacrosProvider.overrideWith((_, __) => Future.error(Exception('error'))),
       ],
     );
+
+    // Wait for error state to be rendered
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
 
     expect(find.byKey(const Key("error")), findsOneWidget);
   });
