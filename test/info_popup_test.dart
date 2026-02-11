@@ -47,7 +47,9 @@ void main() {
     await tester.pumpApp(
       const CalorieDiffApp(),
       [
-        pageViewControllerProvider.overrideWith((_) => mockPageController),
+        pageViewControllerProvider.overrideWith(
+          () => TestPageViewControllerNotifier(mockPageController),
+        ),
       ],
     );
 

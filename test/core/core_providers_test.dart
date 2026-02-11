@@ -70,10 +70,7 @@ void main() {
       test("should return null when no value set", () {
         when(mockSharedPreferences.getString("last_launch")).thenReturn(null);
 
-        expect(
-          container.read(lastLaunchProvider),
-          DateTime(2022, 1, 8),
-        );
+        expect(container.read(lastLaunchProvider), DateTime(2022, 1, 8));
       });
 
       test("should return a timestamp", () {
@@ -81,17 +78,14 @@ void main() {
 
         final result = container.read(lastLaunchProvider);
         // In Riverpod 3.0 and different timezones, we need to compare the milliseconds
-        expect(
-          result.millisecondsSinceEpoch,
-          123456789,
-        );
+        expect(result.millisecondsSinceEpoch, 123456789);
       });
     });
 
     test("setLastLaunchProvider", () {
       // arrange
       when(
-        mockSharedPreferences.setInt("last_launch", 1641600000000),
+        mockSharedPreferences.setInt("last_launch", 1641592800000),
       ).thenAnswer((_) async => true);
 
       // act
@@ -99,7 +93,7 @@ void main() {
 
       // assert
       verify(
-        mockSharedPreferences.setInt("last_launch", 1641600000000),
+        mockSharedPreferences.setInt("last_launch", 1641592800000),
       ).called(1);
     });
 
@@ -111,10 +105,7 @@ void main() {
           ],
         );
 
-        expect(
-          container.read(didLaunchTodayProvider),
-          false,
-        );
+        expect(container.read(didLaunchTodayProvider), false);
       });
 
       test("should return true", () {

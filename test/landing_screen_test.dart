@@ -12,6 +12,7 @@ import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/historic_calories/historic_calories.dart';
 import 'package:calorie_diff/widgets/range_picker/range_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'test_helpers.dart';
@@ -20,23 +21,17 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('loading', (tester) async {
-    await tester.pumpApp(
-      const LandingScreen(),
-      [],
-    );
+    await tester.pumpApp(const LandingScreen(), []);
 
     expect(find.byKey(const Key('loading')), findsOneWidget);
   });
 
   testWidgets('error', (tester) async {
-    await tester.pumpApp(
-      const LandingScreen(),
-      [
-        healthRequestAccessProvider.overrideWith((_) async {
-          throw Exception('error');
-        }),
-      ],
-    );
+    await tester.pumpApp(const LandingScreen(), [
+      healthRequestAccessProvider.overrideWithValue(
+        AsyncValue<bool>.error(Exception('error'), StackTrace.current),
+      ),
+    ]);
 
     // Wait for async operations and error to be rendered
     await tester.pump();
@@ -54,15 +49,12 @@ void main() {
       date: DateTime.now(),
     );
 
-    await tester.pumpApp(
-      const LandingScreen(),
-      [
-        healthRequestAccessProvider.overrideWith((_) => false),
-        healthCaloriesProvider.overrideWith((_) async => dataModel),
-        historicHealthDataProvider.overrideWith((_, _) async => [dataModel]),
-        settingsProvider.overrideWith((_) => SettingsModel.initial()),
-      ],
-    );
+    await tester.pumpApp(const LandingScreen(), [
+      healthRequestAccessProvider.overrideWith((_) => false),
+      healthCaloriesProvider.overrideWith((_) async => dataModel),
+      historicHealthDataProvider.overrideWith((_, _) async => [dataModel]),
+      settingsProvider.overrideWith((_) => SettingsModel.initial()),
+    ]);
 
     await tester.pumpAndSettle();
 
@@ -80,36 +72,33 @@ void main() {
       date: DateTime.now(),
     );
 
-    await tester.pumpApp(
-      const LandingScreen(),
-      [
-        healthRequestAccessProvider.overrideWith((_) => false),
-        healthCaloriesProvider.overrideWith((_) async => dataModel),
-        historicHealthDataProvider.overrideWith((_, _) async => [dataModel]),
-        pageViewControllerProvider.overrideWith(
-          (_) => PageController(initialPage: 1),
-        ),
-        settingsProvider.overrideWith(
-          (ref) => SettingsModel(
-            macros: HealthMacrosModel(
-              carb: 2000,
-              fat: 50,
-              protein: 100,
-              date: ExtendedDateTime.current,
-            ),
-            macrosEnabled: true,
-          ),
-        ),
-        healthMacrosProvider.overrideWith(
-          (_, _) => HealthMacrosModel(
+    await tester.pumpApp(const LandingScreen(), [
+      healthRequestAccessProvider.overrideWith((_) => false),
+      healthCaloriesProvider.overrideWith((_) async => dataModel),
+      historicHealthDataProvider.overrideWith((_, _) async => [dataModel]),
+      pageViewControllerProvider.overrideWith(
+        () => TestPageViewControllerNotifier(PageController(initialPage: 1)),
+      ),
+      settingsProvider.overrideWith(
+        (ref) => SettingsModel(
+          macros: HealthMacrosModel(
+            carb: 2000,
+            fat: 50,
+            protein: 100,
             date: ExtendedDateTime.current,
-            carb: 20,
-            fat: 20,
-            protein: 20,
           ),
+          macrosEnabled: true,
         ),
-      ],
-    );
+      ),
+      healthMacrosProvider.overrideWith(
+        (_, _) => HealthMacrosModel(
+          date: ExtendedDateTime.current,
+          carb: 20,
+          fat: 20,
+          protein: 20,
+        ),
+      ),
+    ]);
 
     await tester.pumpAndSettle();
 

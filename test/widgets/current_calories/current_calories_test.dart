@@ -5,6 +5,7 @@ import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:calorie_diff/widgets/current_calories/current_calories.dart';
 import 'package:calorie_diff/widgets/shared/data_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../test_helpers.dart';
@@ -13,31 +14,25 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('Loading', (tester) async {
-    await tester.pumpApp(
-      const CurrentCalories(),
-      [
-        settingsProvider.overrideWithValue(SettingsModel.initial()),
-      ],
-    );
+    await tester.pumpApp(const CurrentCalories(), [
+      settingsProvider.overrideWithValue(SettingsModel.initial()),
+    ]);
 
     expect(find.byKey(const Key('loading')), findsOneWidget);
   });
 
   testWidgets('Success', (tester) async {
-    await tester.pumpApp(
-      const CurrentCalories(),
-      [
-        settingsProvider.overrideWithValue(SettingsModel.initial()),
-        healthCaloriesProvider.overrideWith(
-          (_) => HealthCaloriesModel(
-            date: DateTime.now(),
-            burned: 40,
-            consumed: 20,
-            difference: 20,
-          ),
+    await tester.pumpApp(const CurrentCalories(), [
+      settingsProvider.overrideWithValue(SettingsModel.initial()),
+      healthCaloriesProvider.overrideWith(
+        (_) => HealthCaloriesModel(
+          date: DateTime.now(),
+          burned: 40,
+          consumed: 20,
+          difference: 20,
         ),
-      ],
-    );
+      ),
+    ]);
 
     await tester.pumpAndSettle();
     final cardFinder = find.byType(DataCard);
@@ -48,15 +43,15 @@ void main() {
   });
 
   testWidgets('error', (tester) async {
-    await tester.pumpApp(
-      const CurrentCalories(),
-      [
-        settingsProvider.overrideWithValue(SettingsModel.initial()),
-        healthCaloriesProvider.overrideWith((_) async {
-          throw Exception('error');
-        }),
-      ],
-    );
+    await tester.pumpApp(const CurrentCalories(), [
+      settingsProvider.overrideWithValue(SettingsModel.initial()),
+      healthCaloriesProvider.overrideWithValue(
+        AsyncValue<HealthCaloriesModel>.error(
+          Exception('error'),
+          StackTrace.current,
+        ),
+      ),
+    ]);
 
     // Wait for error state to be rendered
     await tester.pump();

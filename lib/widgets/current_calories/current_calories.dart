@@ -14,6 +14,7 @@ class CurrentCalories extends ConsumerWidget {
 
     return healthData.when(
       data: (data) {
+        debugPrint("Health data loaded: $data");
         return Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -58,7 +59,10 @@ class CurrentCalories extends ConsumerWidget {
           ],
         );
       },
-      error: (e, s) => const SizedBox.shrink(key: Key("error")),
+      error: (e, s) {
+        debugPrint("Error loading health data: $e");
+        return const SizedBox.shrink(key: Key("error")  );
+      },
       loading: () => const SizedBox.shrink(key: Key("loading")),
     );
   }

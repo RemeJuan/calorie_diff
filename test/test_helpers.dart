@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:calorie_diff/core/core_providers.dart';
 import 'package:calorie_diff/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -27,9 +28,7 @@ extension PumpApp on WidgetTester {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          home: Scaffold(
-            body: widget,
-          ),
+          home: Scaffold(body: widget),
         ),
       ),
     );
@@ -70,4 +69,16 @@ String fixture(String pathToFile) =>
 
 class TestCallbackFunctions {
   void onTap() => {};
+}
+
+// Test-only notifier that wraps a PageController so we can override the
+// NotifierProvider with a zero-arg factory returning a notifier instance.
+// Placed here so multiple tests can reuse it without duplication.
+class TestPageViewControllerNotifier extends PageViewControllerNotifier {
+  final PageController controller;
+
+  TestPageViewControllerNotifier(this.controller);
+
+  @override
+  PageController build() => controller;
 }

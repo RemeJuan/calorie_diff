@@ -6,6 +6,7 @@ import 'package:calorie_diff/providers/settings_providers.dart';
 import 'package:calorie_diff/widgets/macros/macros.dart';
 import 'package:calorie_diff/widgets/shared/progress_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../test_helpers.dart';
@@ -13,42 +14,40 @@ import '../../test_helpers.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  setUp(() {
+    ExtendedDateTime.customTime = DateTime(2022, 1, 8);
+  });
+
   testWidgets('Loading', (tester) async {
-    await tester.pumpApp(
-      const CurrentMacros(),
-      [
-        settingsProvider.overrideWith((ref) => SettingsModel.initial()),
-      ],
-    );
+    await tester.pumpApp(const CurrentMacros(), [
+      settingsProvider.overrideWith((ref) => SettingsModel.initial()),
+    ]);
 
     expect(find.byKey(const Key('loading')), findsOneWidget);
   });
 
   testWidgets('Success', (tester) async {
-    await tester.pumpApp(
-      const CurrentMacros(),
-      [
-        settingsProvider.overrideWith(
-          (ref) => SettingsModel(
-            macros: HealthMacrosModel(
-              carb: 2000,
-              fat: 50,
-              protein: 100,
-              date: ExtendedDateTime.current,
-            ),
-            macrosEnabled: true,
-          ),
-        ),
-        healthMacrosProvider.overrideWith(
-          (_, _) => HealthMacrosModel(
+    await tester.pumpApp(const CurrentMacros(), [
+      settingsProvider.overrideWith(
+        (ref) => SettingsModel(
+          macros: HealthMacrosModel(
+            carb: 2000,
+            fat: 50,
+            protein: 100,
             date: ExtendedDateTime.current,
-            carb: 20,
-            fat: 20,
-            protein: 20,
           ),
+          macrosEnabled: true,
         ),
-      ],
-    );
+      ),
+      healthMacrosProvider.overrideWith(
+        (_, _) => HealthMacrosModel(
+          date: ExtendedDateTime.current,
+          carb: 20,
+          fat: 20,
+          protein: 20,
+        ),
+      ),
+    ]);
 
     await tester.pumpAndSettle();
     final cardFinder = find.byType(ProgressCard);
@@ -63,15 +62,15 @@ void main() {
   });
 
   testWidgets('error', (tester) async {
-    await tester.pumpApp(
-      const CurrentMacros(),
-      [
-        settingsProvider.overrideWith((ref) => SettingsModel.initial()),
-        healthMacrosProvider.overrideWith((_, _) async {
-          throw Exception('error');
-        }),
-      ],
-    );
+    await tester.pumpApp(const CurrentMacros(), [
+      settingsProvider.overrideWith((ref) => SettingsModel.initial()),
+      healthMacrosProvider(ExtendedDateTime.current).overrideWithValue(
+        AsyncValue<HealthMacrosModel>.error(
+          Exception('error'),
+          StackTrace.current,
+        ),
+      ),
+    ]);
 
     // Wait for error state to be rendered
     await tester.pump();
