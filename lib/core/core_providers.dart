@@ -44,9 +44,18 @@ final didLaunchTodayProvider = Provider<bool>((ref) {
   return daysMatch && monthsMatch && yearsMatch;
 });
 
-final pageViewControllerProvider = StateProvider<PageController>((ref) {
-  return PageController(
-    initialPage: 0,
-    keepPage: true,
-  );
-});
+// Notifier for PageViewController
+class PageViewControllerNotifier extends Notifier<PageController> {
+  @override
+  PageController build() {
+    return PageController(
+      initialPage: 0,
+      keepPage: true,
+    );
+  }
+}
+
+final pageViewControllerProvider =
+    NotifierProvider<PageViewControllerNotifier, PageController>(
+  PageViewControllerNotifier.new,
+);

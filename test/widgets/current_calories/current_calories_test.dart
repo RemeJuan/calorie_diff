@@ -52,9 +52,15 @@ void main() {
       const CurrentCalories(),
       [
         settingsProvider.overrideWithValue(SettingsModel.initial()),
-        healthCaloriesProvider.overrideWith((_) => throw Exception('error')),
+        healthCaloriesProvider.overrideWith((_) async {
+          throw Exception('error');
+        }),
       ],
     );
+
+    // Wait for error state to be rendered
+    await tester.pump();
+    await tester.pump();
 
     expect(find.byKey(const Key("error")), findsOneWidget);
   });
