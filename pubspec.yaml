@@ -40,10 +40,9 @@ dev_dependencies:
   frontend_server_client: ^4.0.0
 
 dependency_overrides:
-  build: ^3.0.2
-  build_runner_core: ^9.3.0
-  win32: 5.15.0
-
+  test_api: ^0.7.11
+  web_socket_channel: ^3.0.0
+  
 flutter:
   uses-material-design: true
   assets:
