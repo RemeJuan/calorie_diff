@@ -13,3 +13,11 @@ flutter_coverage:
 pod_install:
 	cd ios && pod install --repo-update
 
+bump_fix:
+	./version-bump.sh patch
+
+bump_feat:
+	./version-bump.sh minor
+
+bump_build:
+	./version-bump.sh build
